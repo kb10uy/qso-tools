@@ -2,7 +2,7 @@ use std::path::PathBuf;
 
 use clap::{Parser, Subcommand};
 
-use crate::commands::{jcx, qcgen};
+use crate::commands::{callsign, jcx, qcgen};
 
 /// Tools to manage QSOs and QSL cards from ADIF.
 #[derive(Debug, Clone, Parser)]
@@ -22,6 +22,7 @@ pub struct Cli {
 pub enum Command {
     Qcgen(qcgen::Arguments),
     Jcx(jcx::Arguments),
+    Callsign(callsign::Arguments),
 }
 
 #[cfg(test)]

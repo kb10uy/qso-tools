@@ -12,6 +12,7 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 - `[operators.<CALLSIGN>]`: display name of operator
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
+`cty.dat` placed next to `config.toml` is loaded by `callsign`; get it from [Country Files](https://www.country-files.com/).
 
 ## qcgen
 
@@ -47,3 +48,16 @@ qso-tools jcx 100101 01006A
 
 - Each code is printed with its full name separated by a tab, e.g. `01006A` → `北海道虻田郡京極町`
 - Exits with an error after printing the others if any code is unknown
+
+## callsign
+
+Shows DXCC entities of callsigns from AD1C `cty.dat`.
+
+```sh
+qso-tools callsign JL1HIS W1AW/KH6
+```
+
+- Each callsign is printed with entity name, primary prefix, continent, CQ zone and ITU zone separated by tabs, e.g. `JL1HIS` → `Japan	JA	AS	CQ25	ITU45`
+- Portable notation like `W1AW/KH6` or `JA1XYZ/P` is resolved by the operating location
+- `--waedc` keeps WAEDC-only entities such as Sicily (`IT9`) instead of folding them into DXCC entities
+- Exits with an error after printing the others if any callsign is unknown
