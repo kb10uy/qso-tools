@@ -1,0 +1,1236 @@
+JP-0001 = { name_en = "Rishiri-Rebun-Sarobetsu National Park", name_ja = "利尻礼文サロベツ国立公園" }
+JP-0002 = { name_en = "Shiretoko National Park", name_ja = "知床国立公園" }
+JP-0003 = { name_en = "Akan-Mashu National Park", name_ja = "阿寒摩周国立公園" }
+JP-0004 = { name_en = "Kushiroshitsugen National Park", name_ja = "釧路湿原国立公園" }
+JP-0005 = { name_en = "Daisetsuzan National Park", name_ja = "大雪山国立公園" }
+JP-0006 = { name_en = "Shikotsu-Toya National Park", name_ja = "支笏洞爺国立公園" }
+JP-0007 = { name_en = "Towada-Hachimantai National Park", name_ja = "十和田八幡平国立公園" }
+JP-0008 = { name_en = "Sanriku Fukko National Park", name_ja = "三陸復興国立公園" }
+JP-0009 = { name_en = "Bandai-Asahi National Park", name_ja = "磐梯朝日国立公園" }
+JP-0010 = { name_en = "Nikko National Park", name_ja = "日光国立公園" }
+JP-0011 = { name_en = "Oze National Park", name_ja = "尾瀬国立公園" }
+JP-0012 = { name_en = "Joshinetsu Kogen National Park", name_ja = "上信越高原国立公園" }
+JP-0013 = { name_en = "Myoko-Togakushi renzan National Park", name_ja = "妙高戸隠連山国立公園" }
+JP-0014 = { name_en = "Chichibu-Tama-Kai National Park", name_ja = "秩父多摩甲斐国立公園" }
+JP-0015 = { name_en = "Ogasawara National Park", name_ja = "小笠原国立公園" }
+JP-0016 = { name_en = "Fuji-Hakone-Izu National Park", name_ja = "富士箱根伊豆国立公園" }
+JP-0017 = { name_en = "Chubusangaku National Park", name_ja = "中部山岳国立公園" }
+JP-0018 = { name_en = "Hakusan National Park", name_ja = "白山国立公園" }
+JP-0019 = { name_en = "Minami Alps National Park", name_ja = "南アルプス国立公園" }
+JP-0020 = { name_en = "Ise-Shima National Park", name_ja = "伊勢志摩国立公園" }
+JP-0021 = { name_en = "Yoshino-Kumano National Park", name_ja = "吉野熊野国立公園" }
+JP-0022 = { name_en = "San'inkaigan National Park", name_ja = "山陰海岸国立公園" }
+JP-0023 = { name_en = "Setonaikai National Park", name_ja = "瀬戸内海国立公園" }
+JP-0024 = { name_en = "Daisen-Oki National Park", name_ja = "大山隠岐国立公園" }
+JP-0025 = { name_en = "Ashizuri-Uwakai National Park", name_ja = "足摺宇和海国立公園" }
+JP-0026 = { name_en = "Saikai National Park", name_ja = "西海国立公園" }
+JP-0027 = { name_en = "Unzen-Amakusa National Park", name_ja = "雲仙天草国立公園" }
+JP-0028 = { name_en = "Aso-Kuju National Park", name_ja = "阿蘇くじゅう国立公園" }
+JP-0029 = { name_en = "Kirishima-Kinkowan National Park", name_ja = "霧島錦江湾国立公園" }
+JP-0030 = { name_en = "Yakushima (Island) National Park", name_ja = "屋久島国立公園" }
+JP-0031 = { name_en = "Amamigunto National Park", name_ja = "奄美群島国立公園" }
+JP-0032 = { name_en = "Yambaru National Park", name_ja = "やんばる国立公園" }
+JP-0033 = { name_en = "Keramashoto National Park", name_ja = "慶良間諸島国立公園" }
+JP-0034 = { name_en = "Iriomote-Ishigaki National Park", name_ja = "西表石垣国立公園" }
+JP-0101 = { name_en = "Shokanbetsu-Teuri-Yagishiri Quasi-National Park", name_ja = "暑寒別天売焼尻国定公園" }
+JP-0102 = { name_en = "Abashiri Quasi-National Park", name_ja = "網走国定公園" }
+JP-0103 = { name_en = "Niseko-Shakotan-Otaru Kaigan Quasi-National Park", name_ja = "ニセコ積丹小樽海岸国定公園" }
+JP-0104 = { name_ja = "日高山脈襟裳国定公園" }
+JP-0105 = { name_en = "Onuma Quasi-National Park", name_ja = "大沼国定公園" }
+JP-0106 = { name_en = "Shimokita Hanto Quasi-National Park", name_ja = "下北半島国定公園" }
+JP-0107 = { name_en = "Tsugaru Quasi-National Park", name_ja = "津軽国定公園" }
+JP-0108 = { name_en = "Hayachine Quasi-National Park", name_ja = "早池峰国定公園" }
+JP-0109 = { name_en = "Kurikoma Quasi-National Park", name_ja = "栗駒国定公園" }
+JP-0110 = { name_en = "Zao Quasi-National Park", name_ja = "蔵王国定公園" }
+JP-0111 = { name_en = "Oga Quasi-National Park", name_ja = "男鹿国定公園" }
+JP-0112 = { name_en = "Chokai Quasi-National Park", name_ja = "鳥海国定公園" }
+JP-0113 = { name_en = "Echigo sanzan-Tadami Quasi-National Park", name_ja = "越後三山只見国定公園" }
+JP-0114 = { name_en = "Suigo-Tsukuba Quasi-National Park", name_ja = "水郷筑波国定公園" }
+JP-0115 = { name_en = "Myogi-Arafune-Saku Kogen Quasi-National Park", name_ja = "妙義荒船佐久高原国定公園" }
+JP-0116 = { name_en = "Minami-Boso Quasi-National Park", name_ja = "南房総国定公園" }
+JP-0117 = { name_en = "Meiji no Mori Takao Quasi-National Park", name_ja = "明治の森高尾国定公園" }
+JP-0118 = { name_en = "Tanzawa-Oyama Quasi-National Park", name_ja = "丹沢大山国定公園" }
+JP-0119 = { name_en = "Sado-Yahiko-Yoneyama Quasi-National Park", name_ja = "佐渡弥彦米山国定公園" }
+JP-0120 = { name_en = "Noto Hanto Quasi-National Park", name_ja = "能登半島国定公園" }
+JP-0121 = { name_en = "Echizen-Kaga Kaigan Quasi-National Park", name_ja = "越前加賀海岸国定公園" }
+JP-0122 = { name_en = "Wakasa Wan Quasi-National Park", name_ja = "若狭湾国定公園" }
+JP-0123 = { name_en = "Yatsugatake-Chushin Kogen Quasi-National Park", name_ja = "八ヶ岳中信高原国定公園" }
+JP-0124 = { name_en = "Chuo Alps Quasi-National Park", name_ja = "中央アルプス国定公園" }
+JP-0125 = { name_en = "Tenryu-Okumikawa Quasi-National Park", name_ja = "天竜奥三河国定公園" }
+JP-0126 = { name_en = "Ibi-Sekigahara-Yoro Quasi-National Park", name_ja = "揖斐関ケ原養老国定公園" }
+JP-0127 = { name_en = "Hida-Kisogawa Quasi-National Park", name_ja = "飛騨木曽川国定公園" }
+JP-0128 = { name_en = "Aichi Kogen Quasi-National Park", name_ja = "愛知高原国定公園" }
+JP-0129 = { name_en = "Mikawa Wan Quasi-National Park", name_ja = "三河湾国定公園" }
+JP-0130 = { name_en = "Suzuka Quasi-National Park", name_ja = "鈴鹿国定公園" }
+JP-0131 = { name_en = "Muro-Akame-Aoyama Quasi-National Park", name_ja = "室生赤目青山国定公園" }
+JP-0132 = { name_en = "Biwako Quasi-National Park", name_ja = "琵琶湖国定公園" }
+JP-0133 = { name_en = "Tango-Amanohashidate-Oeyama Quasi-National Park", name_ja = "丹後天橋立大江山国定公園" }
+JP-0134 = { name_en = "Kyoto Tamba Kogen Quasi-National Park", name_ja = "京都丹波高原国定公園" }
+JP-0135 = { name_en = "Meiji no Mori Mino Quasi-National Park", name_ja = "明治の森箕面国定公園" }
+JP-0136 = { name_en = "Kongo-Ikoma-Kisen Quasi-National Park", name_ja = "金剛生駒紀泉国定公園" }
+JP-0137 = { name_en = "Hyonosen-Ushiroyama-Nagisan Quasi-National Park", name_ja = "氷ノ山後山那岐山国定公園" }
+JP-0138 = { name_en = "Yamato-Aogaki Quasi-National Park", name_ja = "大和青垣国定公園" }
+JP-0139 = { name_en = "Koya-Ryujin Quasi-National Park", name_ja = "高野龍神国定公園" }
+JP-0140 = { name_en = "Hiba-Dogo-Taishaku Quasi-National Park", name_ja = "比婆道後帝釈国定公園" }
+JP-0141 = { name_en = "Nishi-Chugoku Sanchi Quasi-National Park", name_ja = "西中国山地国定公園" }
+JP-0142 = { name_en = "Kita-Nagato Kaigan Quasi-National Park", name_ja = "北長門海岸国定公園" }
+JP-0143 = { name_en = "Akiyoshidai Quasi-National Park", name_ja = "秋吉台国定公園" }
+JP-0144 = { name_en = "Tsurugisan Quasi-National Park", name_ja = "剣山国定公園" }
+JP-0145 = { name_en = "Muroto-Anan Kaigan Quasi-National Park", name_ja = "室戸阿南海岸国定公園" }
+JP-0146 = { name_en = "Ishizuchi Quasi-National Park", name_ja = "石鎚国定公園" }
+JP-0147 = { name_en = "Kitakyushu Quasi-National Park", name_ja = "北九州国定公園" }
+JP-0148 = { name_en = "Genkai Quasi-National Park", name_ja = "玄海国定公園" }
+JP-0149 = { name_en = "Yaba-Hita-Hikosan Quasi-National Park", name_ja = "耶馬日田英彦山国定公園" }
+JP-0150 = { name_en = "Iki-Tsushima Quasi-National Park", name_ja = "壱岐対馬国定公園" }
+JP-0151 = { name_en = "Kyushu Chuo Sanchi Quasi-National Park", name_ja = "九州中央山地国定公園" }
+JP-0152 = { name_en = "Nippo Kaigan Quasi-National Park", name_ja = "日豊海岸国定公園" }
+JP-0153 = { name_en = "Sobo-Katamuki Quasi-National Park", name_ja = "祖母傾国定公園" }
+JP-0154 = { name_en = "Nichinan Kaigan Quasi-National Park", name_ja = "日南海岸国定公園" }
+JP-0155 = { name_en = "Koshikishima Quasi-National Park", name_ja = "甑島国定公園" }
+JP-0156 = { name_en = "Okinawa Kaigan Quasi-National Park", name_ja = "沖縄海岸国定公園" }
+JP-0157 = { name_en = "Okinawa Senseki Quasi-National Park", name_ja = "沖縄戦跡国定公園" }
+JP-0201 = { name_en = "Takino Suzuran Hillside National Government Park", name_ja = "国営滝野すずらん丘陵公園" }
+JP-0202 = { name_en = "Michinoku Lakewood National Government Park", name_ja = "国営みちのく杜の湖畔公園" }
+JP-0203 = { name_en = "Hitachi Seaside National Government Park", name_ja = "国営ひたち海浜公園" }
+JP-0204 = { name_en = "Musashi-Kyuryo National Government Park", name_ja = "国営武蔵丘陵森林公園" }
+JP-0205 = { name_en = "Showa Kinen National Government Park", name_ja = "国営昭和記念公園" }
+JP-0206 = { name_en = "The Tokyo Rinkai Disaster Prevention National Government Park", name_ja = "国営東京臨海広域防災公園" }
+JP-0207 = { name_en = "Echigo Hillside National Government Park", name_ja = "国営越後丘陵公園" }
+JP-0208 = { name_en = "Alps Azumino National Government Park", name_ja = "国営アルプスあづみの公園" }
+JP-0209 = { name_en = "Kiso Sansen National Government Park", name_ja = "国営木曽三川公園" }
+JP-0210 = { name_en = "Yodogawa Riverside National Government Park", name_ja = "淀川河川公園" }
+JP-0211 = { name_en = "Akashi Kaikyo National Government Park", name_ja = "国営明石海峡公園" }
+JP-0212 = { name_ja = "国営平城宮跡歴史公園" }
+JP-0213 = { name_en = "Asuka Historical National Government Park", name_ja = "国営飛鳥歴史公園" }
+JP-0214 = { name_en = "Bihoku Hillside National Government Park", name_ja = "国営備北丘陵公園" }
+JP-0215 = { name_en = "Sanuki Manno National Government Park", name_ja = "国営讃岐まんのう公園" }
+JP-0216 = { name_en = "Uminonakamichi Seaside National Government Park", name_ja = "国営海の中道海浜公園" }
+JP-0217 = { name_en = "Yoshinogari Historical National Government Park", name_ja = "国営吉野ヶ里歴史公園" }
+JP-0218 = { name_en = "Okinawa Kinen National Government Park", name_ja = "国営沖縄記念公園" }
+JP-1001 = { name_en = "Akkeshi-Kiritappu-Konbumori Quasi-National Park", name_ja = "厚岸霧多布昆布森国定公園" }
+JP-1002 = { name_en = "Furano-Ashibetsu Prefectural Nature Park", name_ja = "富良野芦別道立自然公園" }
+JP-1003 = { name_en = "Hiyama Prefectural Nature Park", name_ja = "檜山道立自然公園" }
+JP-1004 = { name_en = "Esan Prefectural Nature Park", name_ja = "恵山道立自然公園" }
+JP-1005 = { name_en = "Notsuke-Furen Prefectural Nature Park", name_ja = "野付風蓮道立自然公園" }
+JP-1006 = { name_en = "Matsumae-Yagoshi Prefectural Nature Park", name_ja = "松前矢越道立自然公園" }
+JP-1007 = { name_en = "North Okhotsk Prefectural Nature Park", name_ja = "北オホーツク道立自然公園" }
+JP-1008 = { name_en = "Nopporo Shinrin Kouen Prefectural Nature Park", name_ja = "野幌森林公園道立自然公園" }
+JP-1009 = { name_en = "Kariba-Motta Prefectural Nature Park", name_ja = "狩場茂津多道立自然公園" }
+JP-1010 = { name_en = "Shumarinai Prefectural Nature Park", name_ja = "朱鞠内道立自然公園" }
+JP-1011 = { name_en = "Teshiodake Prefectural Nature Park", name_ja = "天塩岳道立自然公園" }
+JP-1012 = { name_en = "Sharidake Prefectural Nature Park", name_ja = "斜里岳道立自然公園" }
+JP-1013 = { name_en = "Makomanai Prefectural Park", name_ja = "道立真駒内公園" }
+JP-1014 = { name_en = "Hokkaido kodomo no kuni Prefectural Park", name_ja = "北海道子どもの国" }
+JP-1015 = { name_en = "Nopporo Sports Prefectural Park", name_ja = "道立野幌総合運動公園" }
+JP-1016 = { name_en = "Okhotsk Prefectural Park", name_ja = "道立オホーツク公園" }
+JP-1017 = { name_en = "Okhotsk Sea Ice Prefectural Park", name_ja = "道立オホーツク流氷公園" }
+JP-1018 = { name_en = "Soya Fureai Prefectural Park", name_ja = "道立宗谷ふれあい公園" }
+JP-1019 = { name_en = "Sunpillar Prefectural Park", name_ja = "道立サンピラーパーク" }
+JP-1020 = { name_en = "Yumenomori Prefectural Park", name_ja = "道立ゆめの森公園" }
+JP-1021 = { name_en = "Tokachi Ecology Prefectural Park", name_ja = "道立十勝エコロジーパーク" }
+JP-1022 = { name_en = "South Hokkaido Shiki no Mori Prefectural Park", name_ja = "道立道南四季の杜公園" }
+JP-1023 = { name_en = "Volcano Bay Panorama Prefectural Park", name_ja = "道立噴火湾パノラマパーク" }
+JP-1024 = { name_en = "Asamushi-Natsudomari Prefectural Nature Park", name_ja = "浅虫夏泊県立自然公園" }
+JP-1025 = { name_en = "Owani Ikarigaseki Onsenkyo Prefectural Nature Park", name_ja = "大鰐碇ヶ関温泉郷県立自然公園" }
+JP-1026 = { name_en = "Nakuidake Prefectural Nature Park", name_ja = "名久井岳県立自然公園" }
+JP-1027 = { name_en = "Ashinochishogun Prefectural Nature Park", name_ja = "芦野池沼群県立自然公園" }
+JP-1028 = { name_en = "Kuroishi Onsenkyo Prefectural Nature Park", name_ja = "黒石温泉郷県立自然公園" }
+JP-1029 = { name_en = "Iwaki Kogen Prefectural Nature Park", name_ja = "岩木高原県立自然公園" }
+JP-1030 = { name_en = "Tsugaru Shirakami Prefectural Nature Park", name_ja = "津軽白神県立自然公園" }
+JP-1031 = { name_en = "New Aomori Prefectural Sports Prefectural Park", name_ja = "新青森県総合運動公園" }
+JP-1033 = { name_en = "Hanamaki Onsenkyo Prefectural Nature Park", name_ja = "花巻温泉郷県立自然公園" }
+JP-1034 = { name_en = "Kuji-Hiraniwa Prefectural Nature Park", name_ja = "久慈平庭県立自然公園" }
+JP-1035 = { name_en = "Sotoyama-Hayasaka Heights Prefectural Nature Park", name_ja = "外山早坂高原県立自然公園" }
+JP-1036 = { name_en = "Yuda Onsenkyo Prefectural Nature Park", name_ja = "湯田温泉峡県立自然公園" }
+JP-1037 = { name_en = "Orizume-Basenkyo Prefectural Nature Park", name_ja = "折爪馬仙峡県立自然公園" }
+JP-1038 = { name_en = "Goyozan Prefectural Nature Park", name_ja = "五葉山県立自然公園" }
+JP-1039 = { name_en = "Murone Kogen Prefectural Nature Park", name_ja = "室根高原県立自然公園" }
+JP-1040 = { name_en = "Goshoko Koiki Prefectural Park", name_ja = "御所湖広域公園" }
+JP-1041 = { name_en = "Takizawa Forest Prefectural Park", name_ja = "滝沢森林公園" }
+JP-1042 = { name_en = "Hanamaki Koiki Prefectural Park", name_ja = "花巻広域公園" }
+JP-1043 = { name_en = "Uchimaru Ryokuchi Prefectural Park", name_ja = "内丸緑地" }
+JP-1044 = { name_en = "Zao Kogen Prefectural Nature Park", name_ja = "蔵王高原県立自然公園" }
+JP-1045 = { name_en = "Abukuma Keikoku Prefectural Nature Park", name_ja = "阿武隈渓谷県立自然公園" }
+JP-1046 = { name_en = "Futakuchi Kyokoku Prefectural Nature Park", name_ja = "二口峡谷県立自然公園" }
+JP-1047 = { name_en = "Funagatarenpo Prefectural Nature Park", name_ja = "船形連峰県立自然公園" }
+JP-1048 = { name_en = "Matsushima Prefectural Nature Park", name_ja = "松島県立自然公園" }
+JP-1049 = { name_en = "Asahiyama Prefectural Nature Park", name_ja = "旭山県立自然公園" }
+JP-1050 = { name_en = "Kenjosan Mangokuura Prefectural Nature Park", name_ja = "硯上山万石浦県立自然公園" }
+JP-1051 = { name_en = "Kesennuma Prefectural Nature Park", name_ja = "気仙沼県立自然公園" }
+JP-1052 = { name_en = "Matsushima Koen Prefectural Park", name_ja = "松島公園" }
+JP-1053 = { name_en = "Miyaginohara Prefectural Park", name_ja = "宮城野原公園" }
+JP-1054 = { name_en = "Sendaiko Tagajo Chiku Kansho Ryokuchi Prefectural Park", name_ja = "仙台港多賀城地区緩衝緑地" }
+JP-1055 = { name_en = "Yamoto Kaihin Ryokuchi Prefectural Park", name_ja = "矢本海浜緑地" }
+JP-1056 = { name_en = "Iwanuma Kaihin Ryokuchi Prefectural Park", name_ja = "岩沼海浜緑地" }
+JP-1057 = { name_en = "Kasenuma Prefectural Park", name_ja = "加瀬沼公園" }
+JP-1058 = { name_en = "Miyagi Sports Prefectural Park", name_ja = "宮城県総合運動公園" }
+JP-1059 = { name_en = "Hachimori Iwadate Prefectural Nature Park", name_ja = "八森岩館県立自然公園" }
+JP-1060 = { name_en = "Akita Shirakami Prefectural Nature Park", name_ja = "秋田白神県立自然公園" }
+JP-1061 = { name_en = "Tashirodake Prefectural Nature Park", name_ja = "田代岳県立自然公園" }
+JP-1062 = { name_en = "Kimimachi-zaka Prefectural Nature Park", name_ja = "きみまち阪県立自然公園" }
+JP-1063 = { name_en = "Moriyoshizan Prefectural Nature Park", name_ja = "森吉山県立自然公園" }
+JP-1064 = { name_en = "Taiheizan Prefectural Nature Park", name_ja = "太平山県立自然公園" }
+JP-1065 = { name_en = "Tazawako Dakigaeri Prefectural Nature Park", name_ja = "田沢湖抱返り県立自然公園" }
+JP-1066 = { name_en = "Magi Mahiru Prefectural Nature Park", name_ja = "真木真昼県立自然公園" }
+JP-1067 = { name_en = "Akita Prefectural Central Prefectural Park", name_ja = "中央公園" }
+JP-1068 = { name_en = "Hokuo no Mori Prefectural Park", name_ja = "北欧の杜公園" }
+JP-1069 = { name_en = "Koizumigata Prefectural Park", name_ja = "小泉潟公園" }
+JP-1070 = { name_en = "Shonai Kaihin Prefectural Nature Park", name_ja = "庄内海浜県立自然公園" }
+JP-1071 = { name_en = "Goshozan Prefectural Nature Park", name_ja = "御所山県立自然公園" }
+JP-1072 = { name_en = "Kennan Prefectural Nature Park", name_ja = "県南県立自然公園" }
+JP-1073 = { name_en = "Kabusan Prefectural Nature Park", name_ja = "加無山県立自然公園" }
+JP-1074 = { name_en = "Tendo Kogen Prefectural Nature Park", name_ja = "天童高原県立自然公園" }
+JP-1075 = { name_en = "Mogamigawa Prefectural Nature Park", name_ja = "最上川県立自然公園" }
+JP-1076 = { name_en = "Yamagata Prefectural General Sports Prefectural Park", name_ja = "山形県総合運動公園" }
+JP-1077 = { name_en = "Nishizao Prefectural Park", name_ja = "西蔵王公園" }
+JP-1078 = { name_en = "Yumiharidaira Prefectural Park", name_ja = "弓張平公園" }
+JP-1079 = { name_en = "Nakayama Prefectural Park", name_ja = "中山公園" }
+JP-1080 = { name_en = "Mogamigawa Furusato Sogo Prefectural Park", name_ja = "最上川ふるさと総合公園" }
+JP-1081 = { name_en = "Mogami Central Prefectural Park", name_ja = "最上中央公園" }
+JP-1082 = { name_en = "Zao Miharashi no Oka Museum Prefectural Park", name_ja = "蔵王みはらしの丘ミュージアムパーク" }
+JP-1083 = { name_en = "Kenko no Mori Prefectural Park", name_ja = "健康の森公園" }
+JP-1084 = { name_en = "Yuso no Oka Prefectural Park", name_ja = "悠創の丘" }
+JP-1085 = { name_en = "Shonai Kuko Kansho Ryokuchi Prefectural Park", name_ja = "庄内空港緩衝緑地" }
+JP-1086 = { name_en = "Kenmin Ryokuchi Prefectural Park", name_ja = "県民緑地" }
+JP-1087 = { name_en = "Kenseishi Ryokuchi Prefectural Park", name_ja = "県政史緑地" }
+JP-1088 = { name_en = "Ryozen Prefectural Nature Park", name_ja = "霊山県立自然公園" }
+JP-1089 = { name_en = "Kasumigajo Prefectural Nature Park", name_ja = "霞ヶ城県立自然公園" }
+JP-1090 = { name_en = "Nanko Prefectural Nature Park", name_ja = "南湖県立自然公園" }
+JP-1091 = { name_en = "Okukuji Prefectural Nature Park", name_ja = "奥久慈県立自然公園（福島県）" }
+JP-1092 = { name_en = "Iwaki Kaigan Prefectural Nature Park", name_ja = "磐城海岸県立自然公園" }
+JP-1093 = { name_en = "Matsukawaura Prefectural Nature Park", name_ja = "松川浦県立自然公園" }
+JP-1094 = { name_en = "Nakoso Prefectural Nature Park", name_ja = "勿来県立自然公園" }
+JP-1096 = { name_en = "Okawa Hatori Prefectural Nature Park", name_ja = "大川羽鳥県立自然公園" }
+JP-1097 = { name_en = "Abukuma Kogen Chubu Prefectural Nature Park", name_ja = "阿武隈高原中部県立自然公園" }
+JP-1098 = { name_en = "Natsuigawa Keikoku Prefectural Nature Park", name_ja = "夏井川渓谷県立自然公園" }
+JP-1099 = { name_en = "Azuma Sports Prefectural Park", name_ja = "あづま総合運動公園" }
+JP-1100 = { name_en = "Ouse Prefectural Park", name_ja = "逢瀬公園" }
+JP-1101 = { name_en = "Fukushima Airport Prefectural Park", name_ja = "福島空港公園" }
+JP-1102 = { name_en = "Azumagaoka Prefectural Park", name_ja = "東ヶ丘公園" }
+JP-1103 = { name_en = "Iwaki Prefectural Park", name_ja = "いわき公園" }
+JP-1104 = { name_en = "Hirono Bosai Ryokuchi Prefectural Park", name_ja = "ひろの防災緑地" }
+JP-1105 = { name_en = "Aizu Recreation Prefectural Park", name_ja = "会津レクリエーション公園" }
+JP-1106 = { name_en = "Hanazono Hananuki Prefectural Nature Park", name_ja = "花園花貫県立自然公園" }
+JP-1107 = { name_en = "Takasuzu Prefectural Nature Park", name_ja = "高鈴県立自然公園" }
+JP-1108 = { name_en = "Ota Prefectural Nature Park", name_ja = "太田県立自然公園" }
+JP-1109 = { name_en = "Okukuji Prefectural Nature Park", name_ja = "奥久慈県立自然公園（茨城県）" }
+JP-1110 = { name_en = "Oarai Prefectural Prefectural Nature Park", name_ja = "大洗県立自然公園" }
+JP-1111 = { name_en = "Mito Prefectural Nature Park", name_ja = "水戸県立自然公園" }
+JP-1112 = { name_en = "Gozenyama Prefectural Nature Park", name_ja = "御前山県立自然公園" }
+JP-1113 = { name_en = "Wagakuni Atago Prefectural Nature Park", name_ja = "吾国愛宕県立自然公園" }
+JP-1114 = { name_en = "Kasama Prefectural Nature Park", name_ja = "笠間県立自然公園" }
+JP-1115 = { name_en = "Kairakuen Prefectural Park", name_ja = "偕楽園" }
+JP-1116 = { name_en = "Kodokan Prefectural Park", name_ja = "弘道館公園" }
+JP-1117 = { name_en = "Oarai Prefectural Park", name_ja = "大洗公園" }
+JP-1118 = { name_en = "Kasama Geijutsu no mori Prefectural Park", name_ja = "笠間芸術の森公園" }
+JP-1119 = { name_en = "Minato Prefectural Park", name_ja = "港公園" }
+JP-1120 = { name_en = "Kashimanada Sea Side Prefectural Park", name_ja = "鹿島灘海浜公園" }
+JP-1121 = { name_en = "Daigo Koiki Prefectural Park", name_ja = "大子広域公園" }
+JP-1122 = { name_en = "Doho Prefectural Park", name_ja = "洞峰公園" }
+JP-1123 = { name_en = "Sanuma Koiki Prefectural Park", name_ja = "砂沼広域公園" }
+JP-1124 = { name_en = "Kensei Sogo Prefectural Park", name_ja = "県西総合公園" }
+JP-1125 = { name_en = "Kasamatsu Sports Prefectural Park", name_ja = "笠松運動公園" }
+JP-1126 = { name_en = "Horihara Sports Prefectural Park", name_ja = "堀原運動公園" }
+JP-1128 = { name_en = "Mae Nikko Prefectural Nature Park", name_ja = "前日光県立自然公園" }
+JP-1129 = { name_en = "Yamizo Prefectural Nature Park", name_ja = "八溝県立自然公園" }
+JP-1130 = { name_en = "Nakagawa Prefectural Nature Park", name_ja = "那珂川県立自然公園" }
+JP-1131 = { name_en = "Mashiko Prefectural Nature Park", name_ja = "益子県立自然公園" }
+JP-1132 = { name_en = "Ohirasan Prefectural Nature Park", name_ja = "太平山県立自然公園（栃木県）" }
+JP-1133 = { name_en = "Karasawayama Prefectural Nature Park", name_ja = "唐沢山県立自然公園" }
+JP-1134 = { name_en = "Ashikaga Prefectural Nature Park", name_ja = "足利県立自然公園" }
+JP-1135 = { name_en = "Utsunomiya Prefectural Nature Park", name_ja = "宇都宮県立自然公園" }
+JP-1136 = { name_en = "Tochigi Sports Prefectural Park", name_ja = "栃木県総合運動公園" }
+JP-1137 = { name_en = "Igashira Prefectural Park", name_ja = "井頭公園" }
+JP-1138 = { name_en = "Kinu Green Prefectural Park", name_ja = "鬼怒グリーンパーク" }
+JP-1139 = { name_en = "Tochigi Central Prefectural Park", name_ja = "栃木県中央公園" }
+JP-1140 = { name_en = "Nasunogahara Prefectural Park", name_ja = "那須野が原公園" }
+JP-1141 = { name_en = "Mikamoyama Prefectural Park", name_ja = "みかも山公園" }
+JP-1142 = { name_en = "Nikko Tamozawa Implerial Villa Memorial Prefectural Park", name_ja = "日光田母沢御用邸記念公園" }
+JP-1143 = { name_en = "Nikko Daiyagawa Prefectural Park", name_ja = "日光だいや川公園" }
+JP-1144 = { name_en = "Tochigi Wanpaku Prefectural Park", name_ja = "とちぎわんぱく公園" }
+JP-1145 = { name_en = "Sayama Prefectural Nature Park", name_ja = "狭山県立自然公園（埼玉県）" }
+JP-1146 = { name_en = "Okumusashi Prefectural Nature Park", name_ja = "奥武蔵県立自然公園" }
+JP-1147 = { name_en = "Kuroyama Prefectural Nature Park", name_ja = "黒山県立自然公園" }
+JP-1148 = { name_en = "Nagatoro Tamayodo Prefectural Nature Park", name_ja = "長瀞玉淀県立自然公園" }
+JP-1149 = { name_en = "Hikikyuryo Prefectural Nature Park", name_ja = "比企丘陵県立自然公園" }
+JP-1150 = { name_en = "Jobu Prefectural Nature Park", name_ja = "上武県立自然公園" }
+JP-1151 = { name_en = "Buko Prefectural Nature Park", name_ja = "武甲県立自然公園" }
+JP-1152 = { name_en = "Angyo Bunan Prefectural Nature Park", name_ja = "安行武南県立自然公園" }
+JP-1153 = { name_en = "Ryogami Prefectural Nature Park", name_ja = "両神県立自然公園" }
+JP-1154 = { name_en = "Nishichichibu Prefectural Nature Park", name_ja = "西秩父県立自然公園" }
+JP-1155 = { name_en = "Kitaurawa Prefectural Park", name_ja = "北浦和公園" }
+JP-1156 = { name_en = "Saitama Stadium 2002 Prefectural Park", name_ja = "埼玉スタジアム2002公園" }
+JP-1157 = { name_en = "Akigase Prefectural Park", name_ja = "秋ヶ瀬公園" }
+JP-1158 = { name_en = "Omiya Prefectural Park", name_ja = "大宮公園" }
+JP-1159 = { name_en = "Shirakobato Suijo Prefectural Park", name_ja = "しらこばと水上公園" }
+JP-1160 = { name_en = "Ageo Undo Prefectural Park", name_ja = "上尾運動公園" }
+JP-1162 = { name_en = "Kumagaya Sports & Culture Prefectural Park", name_ja = "熊谷スポーツ文化公園" }
+JP-1163 = { name_en = "Yoshimi Athletic Prefectural Park", name_ja = "吉見総合運動公園" }
+JP-1164 = { name_en = "Saitama Prefectural Forest", name_ja = "埼玉県県民の森" }
+JP-1165 = { name_en = "Wako Jurin Prefectural Park", name_ja = "和光樹林公園" }
+JP-1166 = { name_en = "Sainomori Iruma Prefectural Park", name_ja = "彩の森入間公園" }
+JP-1167 = { name_en = "Kazo Hanasaki Prefectural Park", name_ja = "加須はなさき公園" }
+JP-1168 = { name_en = "Matsubushi Midorinooka Prefectural Park", name_ja = "まつぶし緑の丘公園" }
+JP-1169 = { name_en = "Hanyu Suigo Prefectural Park", name_ja = "羽生水郷公園" }
+JP-1170 = { name_en = "Gongendo Prefectural Park", name_ja = "権現堂公園" }
+JP-1171 = { name_en = "Kukisyobu Prefectural Park", name_ja = "久喜菖蒲公園" }
+JP-1172 = { name_en = "Yoshikawa Prefectural Park", name_ja = "吉川公園" }
+JP-1173 = { name_en = "Misato Prefectural Park", name_ja = "みさと公園" }
+JP-1174 = { name_en = "Kawagoe Prefectural Park", name_ja = "川越公園" }
+JP-1175 = { name_en = "Kodomo Dobutsu Prefectural Park", name_ja = "こども動物自然公園" }
+JP-1176 = { name_en = "Kitamoto Shizen Kansatsu Prefectural Park", name_ja = "北本自然観察公園" }
+JP-1177 = { name_en = "Arakawa Oaso Prefectural Park", name_ja = "荒川大麻生公園" }
+JP-1178 = { name_en = "Sakitama Kofun Prefectural Park", name_ja = "さきたま古墳公園" }
+JP-1179 = { name_en = "Toda Prefectural Park", name_ja = "戸田公園" }
+JP-1180 = { name_en = "Tokorozawa Aviation Memorial Prefectural Park", name_ja = "所沢航空記念公園" }
+JP-1181 = { name_en = "Sayama Inariyama Prefectural Park", name_ja = "狭山稲荷山公園" }
+JP-1182 = { name_en = "Yoro Keikoku Okukiyosumi Prefectural Nature Park", name_ja = "養老渓谷奥清澄県立自然公園" }
+JP-1183 = { name_en = "Kujukuri Prefectural Nature Park", name_ja = "九十九里県立自然公園" }
+JP-1184 = { name_en = "Inba Tega Prefectural Nature Park", name_ja = "印旛手賀県立自然公園" }
+JP-1185 = { name_en = "Takagoyama Prefectural Nature Park", name_ja = "高宕山県立自然公園" }
+JP-1186 = { name_en = "Mineoka Sankei Prefectural Nature Park", name_ja = "嶺岡山系県立自然公園" }
+JP-1187 = { name_en = "Tomisan Prefectural Nature Park", name_ja = "富山県立自然公園" }
+JP-1188 = { name_en = "Otone Prefectural Nature Park", name_ja = "大利根県立自然公園" }
+JP-1189 = { name_en = "Kasamori Tsurumai Prefectural Nature Park", name_ja = "笠森鶴舞県立自然公園" }
+JP-1190 = { name_en = "Hagoromo Prefectural Park", name_ja = "羽衣公園" }
+JP-1191 = { name_en = "Aobanomori Prefectural Park", name_ja = "青葉の森公園" }
+JP-1192 = { name_en = "Chiba Central Sports Center Prefectural Park", name_ja = "千葉県総合スポーツセンター" }
+JP-1193 = { name_en = "Makuhari Seaside Prefectural Park", name_ja = "幕張海浜公園" }
+JP-1194 = { name_en = "Gyoda Prefectural Park", name_ja = "行田公園" }
+JP-1195 = { name_en = "Kashiwa no Ha Prefectural Park", name_ja = "柏の葉公園" }
+JP-1196 = { name_en = "Teganuma Shizen Fureai Greenway Prefectural Park", name_ja = "手賀沼自然ふれあい緑道" }
+JP-1197 = { name_en = "Inbanuma Prefectural Park", name_ja = "印旛沼公園" }
+JP-1198 = { name_en = "Hokuso Hananooka Prefectural Park", name_ja = "北総花の丘公園" }
+JP-1199 = { name_en = "Hasunuma Seaside Prefectural Park", name_ja = "蓮沼海浜公園" }
+JP-1200 = { name_en = "Chosei no mori Prefectural Park", name_ja = "長生の森公園" }
+JP-1201 = { name_en = "Tateyama Sports Prefectural Park", name_ja = "館山運動公園" }
+JP-1202 = { name_en = "Futtsu Prefectural Park", name_ja = "富津公園" }
+JP-1203 = { name_en = "Yachiyo Prefectural Park", name_ja = "八千代広域公園" }
+JP-1204 = { name_en = "Takiyama Nature Prefectural Nature Park", name_ja = "滝山都立自然公園" }
+JP-1205 = { name_en = "Takao Jinba Prefectural Nature Park", name_ja = "高尾陣場都立自然公園" }
+JP-1206 = { name_en = "Tama Kyuryo Prefectural Nature Park", name_ja = "多摩丘陵都立自然公園" }
+JP-1207 = { name_en = "Sayama Nature Prefectural Nature Park", name_ja = "狭山都立自然公園（東京都）" }
+JP-1208 = { name_en = "Hamura Kusabana Kyuryo Prefectural Nature Park", name_ja = "羽村草花丘陵都立自然公園" }
+JP-1209 = { name_en = "Akigawa Kyuryo Prefectural Nature Park", name_ja = "秋川丘陵都立自然公園" }
+JP-1210 = { name_ja = "旧岩崎邸庭園" }
+JP-1211 = { name_en = "Kyu Shiba Rikyu Garden Prefectural Park", name_ja = "旧芝離宮恩賜庭園" }
+JP-1212 = { name_en = "Kyu-Furukawa Gardens Prefectural Park", name_ja = "旧古河庭園" }
+JP-1213 = { name_en = "Kiyosumi Gardens Prefectural Park", name_ja = "清澄庭園" }
+JP-1214 = { name_en = "Koishikawa-Korakuen Gardens Prefectural Park", name_ja = "小石川後楽園" }
+JP-1215 = { name_en = "Tonogayato Gardens Prefectural Park", name_ja = "殿ヶ谷戸庭園" }
+JP-1216 = { name_en = "Hama-rikyu Gardens Prefectural Park", name_ja = "浜離宮恩賜庭園" }
+JP-1217 = { name_en = "Mukojima-Hyakkaen Gardens Prefectural Park", name_ja = "向島百花園" }
+JP-1218 = { name_en = "Rikugi-en Gardens Prefectural Park", name_ja = "六義園" }
+JP-1219 = { name_en = "Aoyama Prefectural Park", name_ja = "青山公園" }
+JP-1220 = { name_en = "Akatsuka Prefectural Park", name_ja = "赤塚公園" }
+JP-1221 = { name_en = "Ueno Prefectural Park", name_ja = "上野恩賜公園" }
+JP-1222 = { name_en = "Ukita Prefectural Park", name_ja = "宇喜田公園" }
+JP-1223 = { name_en = "Ukima Prefectural Park", name_ja = "浮間公園" }
+JP-1224 = { name_en = "Oizumi-Chuo Prefectural Park", name_ja = "大泉中央公園" }
+JP-1225 = { name_en = "Ojima Komatsugawa Prefectural Park", name_ja = "大島小松川公園" }
+JP-1226 = { name_en = "Ogunohara Prefectural Park", name_ja = "尾久の原公園" }
+JP-1227 = { name_en = "Kasai Rinkai Prefectural Park", name_ja = "葛西臨海公園" }
+JP-1228 = { name_en = "Kameido Chuo Prefectural Park", name_ja = "亀戸中央公園" }
+JP-1229 = { name_en = "Kinuta Prefectural Park", name_ja = "砧公園" }
+JP-1230 = { name_en = "Kiba Prefectural Park", name_ja = "木場公園" }
+JP-1231 = { name_en = "Komazawa Olympic Prefectural Park", name_ja = "駒沢オリンピック公園" }
+JP-1232 = { name_en = "Sarue Prefectural Park", name_ja = "猿江恩賜公園" }
+JP-1233 = { name_en = "Shioiri Prefectural Park", name_ja = "汐入公園" }
+JP-1234 = { name_en = "Shiokaze Prefectural Park", name_ja = "潮風公園" }
+JP-1235 = { name_en = "Shinozaki Prefectural Park", name_ja = "篠崎公園" }
+JP-1236 = { name_en = "Shiba Prefectural Park", name_ja = "芝公園" }
+JP-1237 = { name_en = "Shakujii Prefectural Park", name_ja = "石神井公園" }
+JP-1238 = { name_en = "Johoku-Chuo Prefectural Park", name_ja = "城北中央公園" }
+JP-1239 = { name_en = "Zenpukujigawa Prefectural Park", name_ja = "善福寺川緑地" }
+JP-1240 = { name_en = "Zenpukuji Prefectural Park", name_ja = "善福寺公園" }
+JP-1241 = { name_en = "Soshigaya Prefectural Park", name_ja = "祖師谷公園" }
+JP-1242 = { name_en = "Daiba Prefectural Park", name_ja = "台場公園" }
+JP-1243 = { name_en = "The Tokyo Rinkai Disaster Prevention Prefectural Park", name_ja = "東京臨海広域防災公園（都立公園）" }
+JP-1244 = { name_en = "Toneri Prefectural Park", name_ja = "舎人公園" }
+JP-1245 = { name_en = "Toyama Prefectural Park", name_ja = "戸山公園" }
+JP-1246 = { name_en = "Nakagawa Prefectural Park", name_ja = "中川公園" }
+JP-1247 = { name_en = "Higashi Ayase Prefectural Park", name_ja = "東綾瀬公園" }
+JP-1248 = { name_en = "Higashi Shirahige Prefectural Park", name_ja = "東白鬚公園" }
+JP-1249 = { name_en = "Hikarigaoka Prefectural Park", name_ja = "光が丘公園" }
+JP-1250 = { name_en = "Hibiya Prefectural Park", name_ja = "日比谷公園" }
+JP-1251 = { name_en = "Mizumoto Prefectural Park", name_ja = "水元公園" }
+JP-1252 = { name_en = "Meiji Prefectural Park", name_ja = "都立明治公園" }
+JP-1253 = { name_en = "Yumenoshima Prefectural Park", name_ja = "夢の島公園" }
+JP-1254 = { name_en = "Yokoamicho Prefectural Park", name_ja = "横網町公園" }
+JP-1255 = { name_en = "Yoyogi Prefectural Park", name_ja = "代々木公園" }
+JP-1256 = { name_en = "Rinshinomori Prefectural Park", name_ja = "林試の森公園" }
+JP-1257 = { name_en = "Roka Koshunen Prefectural Park", name_ja = "蘆花恒春園" }
+JP-1258 = { name_en = "Wadabori Prefectural Park", name_ja = "和田堀公園" }
+JP-1259 = { name_en = "Akirudai Prefectural Park", name_ja = "秋留台公園" }
+JP-1260 = { name_en = "Inokashira Prefectural Park", name_ja = "井の頭恩賜公園" }
+JP-1261 = { name_en = "Oto Prefectural Park", name_ja = "大戸緑地" }
+JP-1262 = { name_en = "Oyamadairi Prefectural Park", name_ja = "小山内裏公園" }
+JP-1263 = { name_en = "Oyamada Prefectural Park", name_ja = "小山田緑地" }
+JP-1264 = { name_en = "Koganei Prefectural Park", name_ja = "小金井公園" }
+JP-1265 = { name_en = "Komiya Prefectural Park", name_ja = "小宮公園" }
+JP-1266 = { name_en = "Sakuragaoka Prefectural Park", name_ja = "桜ヶ丘公園" }
+JP-1267 = { name_en = "Sayama Prefectural Park", name_ja = "狭山公園" }
+JP-1268 = { name_en = "Sayama Sakai Ryokudo Prefectural Park", name_ja = "狭山・境緑道" }
+JP-1269 = { name_en = "Sengenyama Prefectural Park", name_ja = "浅間山公園" }
+JP-1270 = { name_en = "Takiyama Prefectural Park", name_ja = "滝山公園（滝山城跡）" }
+JP-1271 = { name_en = "Tamagawa Jyosui Ryokudo Prefectural Park", name_ja = "玉川上水緑道" }
+JP-1272 = { name_en = "Naganuma Prefectural Park", name_ja = "長沼公園" }
+JP-1273 = { name_en = "Nogawa Prefectural Park", name_ja = "野川公園" }
+JP-1274 = { name_en = "Noyamakita Rokudoyama Prefectural Park", name_ja = "野山北・六道山公園" }
+JP-1275 = { name_en = "Hachikokuyama Ryokuchi Prefectural Park", name_ja = "八国山緑地" }
+JP-1276 = { name_en = "Higashifushimi Prefectural Park", name_ja = "東伏見公園" }
+JP-1277 = { name_en = "Higashimurayama Chuo Prefectural Park", name_ja = "東村山中央公園" }
+JP-1278 = { name_en = "Higashiyamato Prefectural Park", name_ja = "東大和公園" }
+JP-1279 = { name_en = "Higashiyamato Minami Prefectural Park", name_ja = "東大和南公園" }
+JP-1280 = { name_en = "Hirayama Joshi Prefectural Park", name_ja = "平山城址公園" }
+JP-1281 = { name_en = "Fuchunomori Prefectural Park", name_ja = "府中の森公園" }
+JP-1282 = { name_en = "Musashi Kokubunji Prefectural Park", name_ja = "武蔵国分寺公園" }
+JP-1283 = { name_en = "Musashino Prefectural Park", name_ja = "武蔵野公園" }
+JP-1284 = { name_en = "Musashino Chuo Prefectural Park", name_ja = "武蔵野中央公園" }
+JP-1285 = { name_en = "Musashinonomori Prefectural Park", name_ja = "武蔵野の森公園" }
+JP-1286 = { name_en = "Ryonan Prefectural Park", name_ja = "陵南公園" }
+JP-1287 = { name_en = "Rokusen Prefectural Park", name_ja = "六仙公園" }
+JP-1288 = { name_en = "Ogamiyama Prefectural Park", name_ja = "大神山公園" }
+JP-1289 = { name_en = "Tanzawa Oyama Prefectural Nature Park", name_ja = "丹沢大山県立自然公園" }
+JP-1290 = { name_en = "Jinba Sagamiko Prefectural Nature Park", name_ja = "陣馬相模湖県立自然公園" }
+JP-1291 = { name_en = "Oku Yugawara Prefectural Nature Park", name_ja = "奥湯河原県立自然公園" }
+JP-1292 = { name_en = "Manazuru Hanto Prefectural Nature Park", name_ja = "真鶴半島県立自然公園" }
+JP-1293 = { name_en = "Odawara Suwanohara Prefectural Park", name_ja = "おだわら諏訪の原公園" }
+JP-1294 = { name_en = "Hayama Sangaokayama Prefectural Park", name_ja = "はやま三ヶ岡山緑地" }
+JP-1295 = { name_en = "Hayama Prefectural Park", name_ja = "葉山公園" }
+JP-1296 = { name_en = "Onshi Hakone Prefectural Park", name_ja = "恩賜箱根公園" }
+JP-1297 = { name_en = "Oiso Joyama Prefectural Park", name_ja = "大磯城山公園" }
+JP-1298 = { name_en = "Jogashima Prefectural Park", name_ja = "城ケ島公園" }
+JP-1299 = { name_en = "Zama Yatoyama Prefectural Park", name_ja = "座間谷戸山公園" }
+JP-1300 = { name_en = "Sagami Sansen Prefectural Park", name_ja = "相模三川公園" }
+JP-1301 = { name_en = "Nanasawa Shinrin Prefectural Park", name_ja = "七沢森林公園" }
+JP-1302 = { name_en = "Shonan Shiomidai Prefectural Park", name_ja = "湘南汐見台公園" }
+JP-1303 = { name_en = "Tsukayama Prefectural Park", name_ja = "塚山公園" }
+JP-1304 = { name_en = "Hodogaya Prefectural Park", name_ja = "保土ケ谷公園" }
+JP-1305 = { name_en = "Sagamiko Prefectural Park", name_ja = "相模湖公園" }
+JP-1306 = { name_en = "Higashitakane Shinrin Prefectural Park", name_ja = "東高根森林公園" }
+JP-1307 = { name_en = "Shikinomori Prefectural Park", name_ja = "四季の森公園" }
+JP-1308 = { name_en = "Aikawa Prefectural Park", name_ja = "あいかわ公園" }
+JP-1309 = { name_en = "Hadano Tokawa Prefectural Park", name_ja = "秦野戸川公園" }
+JP-1310 = { name_en = "Chigasaki Satoyama Prefectural Park", name_ja = "茅ケ崎里山公園" }
+JP-1311 = { name_en = "Shonan Coast Prefectural Park", name_ja = "湘南海岸公園" }
+JP-1312 = { name_en = "Kannonzaki Prefectural Park", name_ja = "観音崎公園" }
+JP-1313 = { name_en = "Tsukuiko Shiroyama Prefectural Park", name_ja = "津久井湖城山公園" }
+JP-1314 = { name_en = "Tsujido Seaside Prefectural Park", name_ja = "辻堂海浜公園" }
+JP-1315 = { name_en = "Sagamihara Prefectural Park", name_ja = "相模原公園" }
+JP-1316 = { name_en = "Sakaigawa Yusuichi Prefectural Park", name_ja = "境川遊水地公園" }
+JP-1317 = { name_en = "Mitsuike Prefectural Park", name_ja = "三ツ池公園" }
+JP-1318 = { name_en = "Akagi Prefectural Park", name_ja = "赤城公園" }
+JP-1319 = { name_en = "Haruna Prefectural Park", name_ja = "榛名公園" }
+JP-1320 = { name_en = "Myogi Prefectural Park", name_ja = "妙義公園" }
+JP-1321 = { name_en = "Shikishima Prefectural Park", name_ja = "敷島公園" }
+JP-1322 = { name_en = "Gunma no Mori Prefectural Park", name_ja = "群馬の森" }
+JP-1323 = { name_en = "Kanayama General Prefectural Park", name_ja = "金山総合公園" }
+JP-1324 = { name_en = "Kannonyama Family Prefectural Park", name_ja = "観音山ファミリーパーク" }
+JP-1325 = { name_en = "Tataranuma Prefectural Park", name_ja = "多々良沼公園" }
+JP-1326 = { name_en = "Shibireko Prefectural Nature Park", name_ja = "四尾連湖県立自然公園" }
+JP-1327 = { name_en = "Minami Alps Koma Prefectural Nature Park", name_ja = "南アルプス巨摩県立自然公園" }
+JP-1328 = { name_en = "Kose Sports Prefectural Park", name_ja = "小瀬スポーツ公園" }
+JP-1329 = { name_en = "Atagoyama Koiki Prefectural Park", name_ja = "愛宕山広域公園" }
+JP-1330 = { name_en = "Sone Kyuryo Prefectural Park", name_ja = "甲斐風土記の丘・曽根丘陵公園" }
+JP-1331 = { name_en = "Midai Minami Prefectural Park", name_ja = "御勅使南公園" }
+JP-1332 = { name_en = "Flower Center Heidi's Village Prefectural Park", name_ja = "県立フラワーセンター ハイジの村" }
+JP-1333 = { name_en = "Fujikawa Craft Prefectural Park", name_ja = "富士川クラフトパーク" }
+JP-1334 = { name_en = "Fujihokuroku Prefectural Park", name_ja = "富士北麓公園" }
+JP-1335 = { name_ja = "御岳県立公園" }
+JP-1336 = { name_en = "Mibugawa Suikei Prefectural Nature Park", name_ja = "三峰川水系県立公園" }
+JP-1337 = { name_en = "Enrei Ojo Prefectural Nature Park", name_ja = "塩嶺王城県立自然公園" }
+JP-1338 = { name_en = "Hijiriyama Kogen Prefectural Nature Park", name_ja = "聖山高原県立公園" }
+JP-1339 = { name_en = "Tenryu Koshibu Suikei Prefectural Nature Park", name_ja = "天竜小渋水系県立自然公園" }
+JP-1340 = { name_en = "Karasugawa Keikoku Ryokuchi Prefectural Park", name_ja = "烏川渓谷緑地" }
+JP-1341 = { name_en = "Matsumotodaira Koiki Prefectural Park", name_ja = "松本平広域公園" }
+JP-1342 = { name_en = "Minami Shinshu Koiki Prefectural Park", name_ja = "南信州広域公園" }
+JP-1343 = { name_en = "Iida Undo Prefectural Park", name_ja = "飯田運動公園" }
+JP-1344 = { name_en = "Komaba Prefectural Park", name_ja = "駒場公園" }
+JP-1345 = { name_en = "Wakasato Prefectural Park", name_ja = "若里公園" }
+JP-1347 = { name_en = "Nagano Sports Prefectural Park", name_ja = "長野運動公園" }
+JP-1348 = { name_en = "Senami Sasagawanagare Awashima Prefectural Nature Park", name_ja = "瀬波笹川流れ粟島県立自然公園" }
+JP-1349 = { name_en = "Tainai Ninoji Prefectural Nature Park", name_ja = "胎内二王子県立自然公園" }
+JP-1350 = { name_en = "Aganogawa Line Prefectural Nature Park", name_ja = "阿賀野川ライン県立自然公園" }
+JP-1351 = { name_en = "Gozu Renpo Prefectural Nature Park", name_ja = "五頭連峰県立自然公園" }
+JP-1352 = { name_en = "Nagaoka Higashiyama Yamamotoyama Prefectural Nature Park", name_ja = "長岡東山山本山県立自然公園" }
+JP-1353 = { name_en = "Okuhayade Awa Sumon Prefectural Nature Park", name_ja = "奥早出粟守門県立自然公園" }
+JP-1354 = { name_en = "Uonuma Renpo Prefectural Nature Park", name_ja = "魚沼連峰県立自然公園" }
+JP-1355 = { name_en = "Yoneyama Fukuurahakkei Prefectural Nature Park", name_ja = "米山福浦八景県立自然公園" }
+JP-1356 = { name_en = "Naomine Matsunoyama Oike Prefectural Nature Park", name_ja = "直峰松之山大池県立自然公園" }
+JP-1357 = { name_en = "Kubiki Prefectural Nature Park", name_ja = "久比岐県立自然公園" }
+JP-1358 = { name_en = "Hakuba Sanroku Prefectural Nature Park", name_ja = "白馬山麓県立自然公園" }
+JP-1359 = { name_en = "Oyashirazu Koshirazu Prefectural Nature Park", name_ja = "親不知子不知県立自然公園" }
+JP-1360 = { name_en = "Kosado Prefectural Nature Park", name_ja = "小佐渡県立自然公園" }
+JP-1361 = { name_ja = "新潟県スポーツ公園" }
+JP-1362 = { name_en = "Toyanogata Prefectural Park", name_ja = "鳥屋野潟公園" }
+JP-1363 = { name_en = "Shimami Ryokuchi Prefectural Park", name_ja = "島見緑地" }
+JP-1364 = { name_en = "Shiunji Kinen Prefectural Park", name_ja = "紫雲寺記念公園" }
+JP-1365 = { name_en = "Seiro Ryokuchi Prefectural Park", name_ja = "聖籠緑地" }
+JP-1366 = { name_en = "Niigata Prefectural Botanical Garden Prefectural Park", name_ja = "新潟県立植物園" }
+JP-1367 = { name_en = "Okutadami Recreation City Prefectural Park", name_ja = "奥只見レクリェーション都市公園" }
+JP-1368 = { name_en = "Ogata Mizu to Mori Prefectural Park", name_ja = "新潟県立大潟水と森公園" }
+JP-1369 = { name_en = "Asahi Prefectural Nature Park", name_ja = "朝日県立自然公園" }
+JP-1370 = { name_en = "Arimine Prefectural Nature Park", name_ja = "有峰県立自然公園" }
+JP-1371 = { name_en = "Gokayama Prefectural Nature Park", name_ja = "五箇山県立自然公園" }
+JP-1372 = { name_en = "Shiraki Mizunashi Prefectural Nature Park", name_ja = "白木水無県立自然公園" }
+JP-1373 = { name_en = "Iozen Prefectural Nature Park", name_ja = "医王山県立自然公園（富山県）" }
+JP-1374 = { name_en = "Sogatake Prefectural Nature Park", name_ja = "僧ヶ岳県立自然公園" }
+JP-1375 = { name_en = "Toyama Athletic Recreation Prefectural Park", name_ja = "富山県総合運動公園" }
+JP-1376 = { name_en = "Gofuku Prefectural Park", name_ja = "富山県五福公園" }
+JP-1377 = { name_en = "Iwase Sports Prefectural Park", name_ja = "富山県岩瀬スポーツ公園" }
+JP-1378 = { name_en = "Joganjigawa Prefectural Park", name_ja = "富山県常願寺川公園" }
+JP-1379 = { name_en = "Kuko Sports Ryokuchi Prefectural Park", name_ja = "富山県空港スポーツ緑地" }
+JP-1380 = { name_en = "Fuganunga Kansui Prefectural Park", name_ja = "富岩運河環水公園" }
+JP-1381 = { name_en = "Shinko no Mori Prefectural Park", name_ja = "県民公園新港の森" }
+JP-1382 = { name_en = "Taikoyama Land Prefectural Park", name_ja = "県民公園太閤山ランド" }
+JP-1383 = { name_en = "Yamanaka Dainichisan Prefectural Nature Park", name_ja = "山中・大日山県立自然公園" }
+JP-1384 = { name_en = "Shishiku Tedori Prefectural Nature Park", name_ja = "獅子吼・手取県立自然公園" }
+JP-1385 = { name_en = "Goishigamine Prefectural Nature Park", name_ja = "碁石ケ峰県立自然公園" }
+JP-1386 = { name_en = "Hakusan Ichirino Prefectural Nature Park", name_ja = "白山一里野県立自然公園" }
+JP-1387 = { name_en = "Iozen Prefectural Nature Park", name_ja = "医王山県立自然公園（石川県）" }
+JP-1388 = { name_en = "Kenmin Kaihin Prefectural Park", name_ja = "健民海浜公園" }
+JP-1389 = { name_en = "Kibagata Prefectural Park", name_ja = "木場潟公園" }
+JP-1390 = { name_en = "Hakusanroku Theme Prefectural Park", name_ja = "白山ろくテーマパーク" }
+JP-1391 = { name_en = "Noto Rekishi Prefectural Park", name_ja = "能登歴史公園" }
+JP-1392 = { name_en = "Hokubu Prefectural Park", name_ja = "北部公園" }
+JP-1393 = { name_en = "Kanazawajo Prefectural Park", name_ja = "金沢城公園" }
+JP-1394 = { name_en = "Okuutatsuyama Kenmin Prefectural Park", name_ja = "奥卯辰山健民公園" }
+JP-1395 = { name_en = "Awazu Prefectural Park", name_ja = "粟津公園" }
+JP-1396 = { name_en = "Matto Seaside Prefectural Park", name_ja = "松任海浜公園" }
+JP-1397 = { name_en = "Seibu Ryokuchi Prefectural Park", name_ja = "西部緑地公園" }
+JP-1398 = { name_en = "Tedori Prefectural Park", name_ja = "手取公園" }
+JP-1399 = { name_en = "Honda no Mori Prefectural Park", name_ja = "本多の森公園" }
+JP-1400 = { name_en = "Kenrokuen Prefectural Park", name_ja = "兼六園" }
+JP-1401 = { name_en = "Ishikawa Shikou Kinen Prefectural Park", name_ja = "いしかわ四高記念公園" }
+JP-1402 = { name_en = "Kuratsuki Central Prefectural Park", name_ja = "鞍月セントラルパーク" }
+JP-1403 = { name_en = "Saigawa Ryokuchi Prefectural Park", name_ja = "犀川緑地" }
+JP-1404 = { name_en = "Onominato Ryokuchi Prefectural Park", name_ja = "大野湊緑地公園" }
+JP-1405 = { name_en = "Okuetsu Kogen Prefectural Nature Park", name_ja = "奥越高原県立自然公園" }
+JP-1406 = { name_en = "Wakasa no Sato Prefectural Park", name_ja = "若狭の里公園" }
+JP-1407 = { name_en = "Fukui Shonen Undo Prefectural Park", name_ja = "福井少年運動公園" }
+JP-1408 = { name_en = "Rinkai Chuo Prefectural Park", name_ja = "臨海中央公園" }
+JP-1409 = { name_en = "Echizen Togei Prefectural Park", name_ja = "越前陶芸公園" }
+JP-1410 = { name_en = "Fukui Toshi Ryokka Shokubutsuen Prefectural Park", name_ja = "福井都市緑化植物園" }
+JP-1411 = { name_en = "Wakasa Sogo Prefectural Park", name_ja = "若狭総合公園" }
+JP-1412 = { name_en = "Okuetsu Fureai Prefectural Park", name_ja = "奥越ふれあい公園" }
+JP-1413 = { name_en = "Trim Park Kanazu Prefectural Park", name_ja = "トリムパークかなづ" }
+JP-1414 = { name_en = "Tannan Sogo Prefectural Park", name_ja = "丹南総合公園" }
+JP-1415 = { name_en = "Fukui Sogo Prefectural Park", name_ja = "福井総合公園" }
+JP-1416 = { name_en = "Sanrihama Kansho Ryokuchi Prefectural Park", name_ja = "三里浜緩衝緑地" }
+JP-1417 = { name_en = "Fukui Joshi Prefectural Park", name_ja = "福井城址公園" }
+JP-1418 = { name_en = "Senbon Matsubara Prefectural Nature Park", name_ja = "千本松原県立自然公園" }
+JP-1419 = { name_en = "Ibi Prefectural Nature Park", name_ja = "揖斐県立自然公園" }
+JP-1420 = { name_en = "Okuhida Sugo Nagareha Prefectural Nature Park", name_ja = "奥飛騨数河流葉県立自然公園" }
+JP-1421 = { name_en = "Utsue Shijuhattaki Prefectural Nature Park", name_ja = "宇津江四十八滝県立自然公園" }
+JP-1422 = { name_en = "Enakyo Prefectural Nature Park", name_ja = "恵那峡県立自然公園" }
+JP-1423 = { name_en = "Enasan Prefectural Nature Park", name_ja = "胞山県立自然公園" }
+JP-1424 = { name_en = "Urakiso Prefectural Nature Park", name_ja = "裏木曽県立自然公園" }
+JP-1425 = { name_en = "Ibuki Prefectural Nature Park", name_ja = "伊吹県立自然公園" }
+JP-1426 = { name_en = "Toki Mikuniyama Prefectural Nature Park", name_ja = "土岐三国山県立自然公園" }
+JP-1427 = { name_en = "Kuraiyama Funayama Prefectural Nature Park", name_ja = "位山舟山県立自然公園" }
+JP-1428 = { name_en = "Okunagaragawa Prefectural Nature Park", name_ja = "奥長良川県立自然公園" }
+JP-1429 = { name_en = "Nomugi Prefectural Nature Park", name_ja = "野麦県立自然公園" }
+JP-1430 = { name_en = "Seseragi Keikoku Prefectural Nature Park", name_ja = "せせらぎ渓谷県立自然公園" }
+JP-1431 = { name_en = "Amo Prefectural Nature Park", name_ja = "天生県立自然公園" }
+JP-1432 = { name_ja = "御嶽山県立自然公園" }
+JP-1433 = { name_en = "Yoro Prefectural Park", name_ja = "養老公園" }
+JP-1434 = { name_en = "Gifuken Hyakunen Prefectural Park", name_ja = "岐阜県百年公園" }
+JP-1435 = { name_en = "GIFU WORLD ROSE GARDEN Prefectural Park", name_ja = "ぎふワールド・ローズガーデン" }
+JP-1436 = { name_en = "Gifu Memorial Center Prefectural Park", name_ja = "岐阜メモリアルセンター" }
+JP-1437 = { name_en = "Kakamigahara Prefectural Park", name_ja = "各務原公園" }
+JP-1438 = { name_en = "Gifu World Fresh Water Aquarium Prefectural Park", name_ja = "世界淡水魚園" }
+JP-1439 = { name_en = "Gifu Seiryu Satoyama Prefectural Park", name_ja = "ぎふ清流里山公園" }
+JP-1440 = { name_en = "Nihondaira Prefectural Nature Park", name_ja = "日本平・三保の松原県立自然公園" }
+JP-1441 = { name_en = "Okuoi Prefectural Nature Park", name_ja = "奥大井県立自然公園" }
+JP-1442 = { name_en = "Omaezaki Enshunada Prefectural Nature Park", name_ja = "御前崎遠州灘県立自然公園" }
+JP-1443 = { name_en = "Hamanako Prefectural Nature Park", name_ja = "浜名湖県立自然公園" }
+JP-1444 = { name_en = "Ashitaka Koiki Prefectural Park", name_ja = "愛鷹広域公園" }
+JP-1445 = { name_en = "Mt. Fuji Children's World Prefectural Park", name_ja = "富士山こどもの国" }
+JP-1446 = { name_en = "Yoshida Prefectural Park", name_ja = "県営吉田公園" }
+JP-1447 = { name_en = "Sekijin no Hoshi Prefectural Park", name_ja = "石人の星公園" }
+JP-1448 = { name_en = "Hamanako Garden Prefectural Park", name_ja = "浜名湖ガーデンパーク" }
+JP-1449 = { name_en = "Shizuoka Pre. Forest Prefectural Park", name_ja = "静岡県立森林公園" }
+JP-1450 = { name_en = "Kusanagi Sports Complex Prefectural Park", name_ja = "草薙総合運動場" }
+JP-1451 = { name_en = "Ogasayama Sports Prefectural Park", name_ja = "小笠山総合運動公園" }
+JP-1452 = { name_en = "Atsumi Hanto Prefectural Nature Park", name_ja = "渥美半島県立自然公園" }
+JP-1453 = { name_en = "Minami Chita Prefectural Nature Park", name_ja = "南知多県立自然公園" }
+JP-1454 = { name_en = "Dando Kogen Prefectural Nature Park", name_ja = "段戸高原県立自然公園" }
+JP-1455 = { name_en = "Furikusa Keikoku Prefectural Nature Park", name_ja = "振草渓谷県立自然公園" }
+JP-1456 = { name_en = "Hongusan Prefectural Nature Park", name_ja = "本宮山県立自然公園" }
+JP-1457 = { name_en = "Sakurabuchi Prefectural Nature Park", name_ja = "桜淵県立自然公園" }
+JP-1458 = { name_en = "Ishimakisan Tame Prefectural Nature Park", name_ja = "石巻山多米県立自然公園" }
+JP-1459 = { name_en = "Atsuta Jingu Prefectural Park", name_ja = "熱田神宮公園" }
+JP-1460 = { name_en = "Odaka Ryokuchi Prefectural Park", name_ja = "大高緑地" }
+JP-1461 = { name_en = "Obata Ryokuchi Prefectural Park", name_ja = "小幡緑地" }
+JP-1463 = { name_en = "Shinshiro General Prefectural Park", name_ja = "新城総合公園" }
+JP-1464 = { name_en = "Kisogawa Sobue Ryokuchi Prefectural Park", name_ja = "木曽川祖父江緑地" }
+JP-1465 = { name_en = "Owari Koiki Ryokudo Prefectural Park", name_ja = "尾張広域緑道" }
+JP-1466 = { name_en = "Aichi Health Village Prefectural Park", name_ja = "あいち健康の森公園" }
+JP-1467 = { name_en = "Makinogaike Greens Prefectural Park", name_ja = "牧野ヶ池緑地" }
+JP-1468 = { name_en = "Higashi-mikawa Furusato Prefectural Park", name_ja = "東三河ふるさと公園" }
+JP-1469 = { name_en = "Expo 2005 Aichi Commemorative Prefectural Park", name_ja = "愛・地球博記念公園" }
+JP-1470 = { name_en = "Aburagafuchi Waterside Prefectural Park", name_ja = "油ヶ淵水辺公園" }
+JP-1471 = { name_en = "Suigo Prefectural Nature Park", name_ja = "水郷県立自然公園" }
+JP-1472 = { name_en = "Ise no Umi Prefectural Nature Park", name_ja = "伊勢の海県立自然公園" }
+JP-1473 = { name_en = "Akame Ichishikyo Prefectural Nature Park", name_ja = "赤目一志峡県立自然公園" }
+JP-1474 = { name_en = "Kahadakyo Prefectural Nature Park", name_ja = "香肌峡県立自然公園" }
+JP-1475 = { name_en = "Okuise Miyagawakyo Prefectural Nature Park", name_ja = "奥伊勢宮川峡県立自然公園" }
+JP-1476 = { name_en = "Hokusei Central Prefectural Park", name_ja = "北勢中央公園" }
+JP-1477 = { name_en = "Suzuka Seishonen no Mori Prefectural Park", name_ja = "鈴鹿青少年の森" }
+JP-1478 = { name_en = "Kameyama Sunshine Prefectural Park", name_ja = "亀山サンシャインパーク" }
+JP-1479 = { name_en = "Daibutsuyama Prefectural Park", name_ja = "大仏山公園" }
+JP-1480 = { name_en = "Kumanonada Rinkai Prefectural Park", name_ja = "熊野灘臨海公園" }
+JP-1481 = { name_en = "Isuzu Prefectural Park", name_ja = "五十鈴公園" }
+JP-1482 = { name_en = "Kencho Mae Prefectural Park", name_ja = "県庁前公園" }
+JP-1483 = { name_en = "Mikami Tanakami Shigaraki Prefectural Nature Park", name_ja = "三上・田上・信楽県立自然公園" }
+JP-1484 = { name_en = "Kutsuki Katsuragawa Prefectural Nature Park", name_ja = "朽木・葛川県立自然公園" }
+JP-1485 = { name_en = "Koto Prefectural Nature Park", name_ja = "湖東県立自然公園" }
+JP-1486 = { name_en = "Obanagawa Prefectural Park", name_ja = "尾花川公園" }
+JP-1487 = { name_en = "Biwako Bunka Prefectural Park", name_ja = "びわこ文化公園" }
+JP-1488 = { name_en = "Okubiwa Sports no Mori Prefectural Park", name_ja = "奥びわスポーツの森" }
+JP-1489 = { name_en = "Kogan Ryokuchi Prefectural Park", name_ja = "湖岸緑地" }
+JP-1490 = { name_en = "Kasugayama Prefectural Park", name_ja = "春日山公園" }
+JP-1491 = { name_en = "Biwako Chikyu Shimin no Mori Prefectural Park", name_ja = "びわこ地球市民の森" }
+JP-1492 = { name_en = "Rurikei Prefectural Nature Park", name_ja = "るり渓府立自然公園" }
+JP-1493 = { name_en = "Hozukyo Prefectural Nature Park", name_ja = "保津峡府立自然公園" }
+JP-1494 = { name_en = "Kasagiyama Prefectural Nature Park", name_ja = "笠置山府立自然公園" }
+JP-1495 = { name_en = "Arashiyama Prefectural Park", name_ja = "嵐山公園" }
+JP-1496 = { name_en = "Arashiyama Higashi Prefectural Park", name_ja = "嵐山東公園" }
+JP-1497 = { name_en = "Kamogawa Prefectural Park", name_ja = "鴨川公園" }
+JP-1498 = { name_en = "Fushimiko Prefectural Park", name_ja = "伏見港公園" }
+JP-1499 = { name_en = "Rakusai Joka Center Prefectural Park", name_ja = "洛西浄化センター公園" }
+JP-1500 = { name_en = "Uji Prefectural Park", name_ja = "宇治公園" }
+JP-1501 = { name_en = "Yamashiro Sogo Undo Prefectural Park", name_ja = "京都府立山城総合運動公園" }
+JP-1502 = { name_en = "Amanohashidate Prefectural Park", name_ja = "天橋立公園" }
+JP-1503 = { name_en = "Tango Eco-Future Prefectural Park", name_ja = "丹後海と星の見える丘公園" }
+JP-1504 = { name_en = "Kizugawa Undo Prefectural Park", name_ja = "木津川運動公園" }
+JP-1505 = { name_en = "Keihanna Commemorative Prefectural Park", name_ja = "関西文化学術研究都市記念公園" }
+JP-1506 = { name_en = "Tamba Prefectural Park", name_ja = "京都府立丹波自然運動公園" }
+JP-1507 = { name_en = "Hokusetsu Prefectural Nature Park", name_ja = "北摂府立自然公園" }
+JP-1508 = { name_en = "Hannan Misaki Prefectural Nature Park", name_ja = "阪南・岬府立自然公園" }
+JP-1509 = { name_en = "Hattori Ryokuchi Prefectural Park", name_ja = "服部緑地" }
+JP-1510 = { name_en = "Neyagawa Prefectural Park", name_ja = "寝屋川公園" }
+JP-1511 = { name_en = "Hiraoka Prefectural Park", name_ja = "枚岡公園" }
+JP-1512 = { name_en = "Ishikawa Kasen Prefectural Park", name_ja = "石川河川公園" }
+JP-1513 = { name_en = "Oizumi Ryokuchi Prefectural Park", name_ja = "大泉緑地" }
+JP-1514 = { name_en = "Hamadera Prefectural Park", name_ja = "浜寺公園" }
+JP-1515 = { name_en = "Rinku Prefectural Park", name_ja = "りんくう公園" }
+JP-1516 = { name_en = "Tonboike Prefectural Park", name_ja = "蜻蛉池公園" }
+JP-1517 = { name_en = "Sennan Satoumi Prefectural Park", name_ja = "せんなん里海公園" }
+JP-1518 = { name_en = "Yamadaike Prefectural Park", name_ja = "山田池公園" }
+JP-1519 = { name_en = "Mino Prefectural Park", name_ja = "箕面公園" }
+JP-1520 = { name_en = "Fukakita Ryokuchi Prefectural Park", name_ja = "深北緑地" }
+JP-1521 = { name_en = "Kyuhoji Ryokuchi Prefectural Park", name_ja = "久宝寺緑地" }
+JP-1522 = { name_en = "Suminoe Prefectural Park", name_ja = "住之江公園" }
+JP-1523 = { name_en = "Sumiyoshi Prefectural Park", name_ja = "住吉公園" }
+JP-1524 = { name_en = "Nishikori Prefectural Park", name_ja = "錦織公園" }
+JP-1525 = { name_en = "Nagano Prefectural Park", name_ja = "長野公園" }
+JP-1526 = { name_en = "Nishiki no Hama Prefectural Park", name_ja = "二色の浜公園" }
+JP-1527 = { name_en = "Izumisano Kyuryo Ryokuchi Prefectural Park", name_ja = "泉佐野丘陵緑地" }
+JP-1528 = { name_en = "Takirenzan Prefectural Nature Park", name_ja = "多紀連山県立自然公園" }
+JP-1529 = { name_en = "Inagawa Keikoku Prefectural Nature Park", name_ja = "猪名川渓谷県立自然公園" }
+JP-1530 = { name_en = "Kiyomizu Tojoko Tachikui Prefectural Nature Park", name_ja = "清水東条湖立杭県立自然公園" }
+JP-1531 = { name_en = "Asago Gunzan Prefectural Nature Park", name_ja = "朝来群山県立自然公園" }
+JP-1532 = { name_en = "Onzui Chikusa Prefectural Nature Park", name_ja = "音水ちくさ県立自然公園" }
+JP-1533 = { name_en = "Tajima Sangaku Prefectural Nature Park", name_ja = "但馬山岳県立自然公園" }
+JP-1534 = { name_en = "Seiban Kyuryo Prefectural Nature Park", name_ja = "西播丘陵県立自然公園" }
+JP-1535 = { name_en = "Izushi Itoi Prefectural Nature Park", name_ja = "出石糸井県立自然公園" }
+JP-1536 = { name_en = "Harima Chubu Kyuryo Prefectural Nature Park", name_ja = "播磨中部丘陵県立自然公園" }
+JP-1537 = { name_en = "Seppiko Mineyama Prefectural Nature Park", name_ja = "雪彦峰山県立自然公園" }
+JP-1538 = { name_en = "Kasagatayama Sengamine Prefectural Nature Park", name_ja = "笠形山千ヶ峰県立自然公園" }
+JP-1539 = { name_en = "Awajishima Prefectural Park", name_ja = "淡路島公園" }
+JP-1540 = { name_en = "Arima Fuji Prefectural Park", name_ja = "有馬富士公園" }
+JP-1541 = { name_ja = "西はりま天文台公園" }
+JP-1542 = { name_en = "Akashi Prefectural Park", name_ja = "明石公園" }
+JP-1544 = { name_en = "Ako Seaside Prefectural Park", name_ja = "赤穂海浜公園" }
+JP-1545 = { name_en = "Takasago Seaside Prefectural Park", name_ja = "高砂海浜公園" }
+JP-1546 = { name_en = "Kabutoyama Forest Prefectural Park", name_ja = "甲山森林公園" }
+JP-1547 = { name_en = "Mikiyama Forest Prefectural Park", name_ja = "三木山森林公園" }
+JP-1548 = { name_en = "Hyogo Park of the Oriental White Stork Prefectural Park", name_ja = "コウノトリの郷公園" }
+JP-1549 = { name_en = "Hitokura Prefectural Park", name_ja = "一庫公園" }
+JP-1550 = { name_en = "Tajima Bokujyo Prefectural Park", name_ja = "但馬牧場公園" }
+JP-1551 = { name_en = "Harima Central Prefectural Park", name_ja = "播磨中央公園" }
+JP-1552 = { name_en = "Ball Park Awaji Prefectural Park", name_ja = "淡路佐野運動公園" }
+JP-1553 = { name_en = "Flower Center Prefectural Park", name_ja = "フラワーセンター" }
+JP-1554 = { name_en = "Yata Prefectural Nature Park", name_ja = "矢田県立自然公園" }
+JP-1555 = { name_en = "Tsukigase Konosan Prefectural Nature Park", name_ja = "月ヶ瀬神野山県立自然公園" }
+JP-1556 = { name_en = "Yoshinogawa Tsuburo Prefectural Nature Park", name_ja = "吉野川津風呂県立自然公園" }
+JP-1557 = { name_en = "Nara Prefectural Park", name_ja = "奈良公園" }
+JP-1558 = { name_en = "Umami Kyuryo Prefectural Park", name_ja = "馬見丘陵公園" }
+JP-1559 = { name_en = "Obuchiike Prefectural Park", name_ja = "大渕池公園" }
+JP-1560 = { name_en = "Mahoroba Kenko Prefectural Park", name_ja = "まほろば健康パーク（浄化センター公" }
+JP-1561 = { name_en = "Tatsuta Prefectural Park", name_ja = "奈良県立竜田公園" }
+JP-1562 = { name_en = "Yamato Minzoku Prefectural Park", name_ja = "奈良県立大和民俗公園" }
+JP-1563 = { name_en = "Kashihara Prefectural Park", name_ja = "奈良県立橿原公苑" }
+JP-1565 = { name_en = "Uda Animal Prefectural Park", name_ja = "うだ・アニマルパーク" }
+JP-1566 = { name_en = "Nara Palace Site Historical Prefectural Park", name_ja = "県営平城宮跡歴史公園" }
+JP-1567 = { name_en = "Koyasan Choishimichi Tamagawakyo Prefectural Nature Park", name_ja = "高野山町石道玉川峡県立自然公園" }
+JP-1568 = { name_en = "Ryumonzan Prefectural Nature Park", name_ja = "龍門山県立自然公園" }
+JP-1569 = { name_en = "Oishi Kogen Prefectural Nature Park", name_ja = "生石高原県立自然公園" }
+JP-1570 = { name_en = "Nishi Arida Prefectural Nature Park", name_ja = "西有田県立自然公園" }
+JP-1571 = { name_en = "Shirasaki Kaigan Prefectural Nature Park", name_ja = "白崎海岸県立自然公園" }
+JP-1572 = { name_en = "Enju Kaigan Prefectural Nature Park", name_ja = "煙樹海岸県立自然公園" }
+JP-1573 = { name_en = "Jogamori Hokodai Prefectural Nature Park", name_ja = "城ヶ森鉾尖県立自然公園" }
+JP-1574 = { name_en = "Hatenashi Sanmyaku Prefectural Nature Park", name_ja = "果無山脈県立自然公園" }
+JP-1575 = { name_en = "Hikigawa Prefectural Nature Park", name_ja = "日置川県立自然公園" }
+JP-1576 = { name_en = "Shiramisan Wadagawakyo Prefectural Nature Park", name_ja = "白見山和田川峡県立自然公園" }
+JP-1577 = { name_en = "Kozagawa Prefectural Nature Park", name_ja = "古座川県立自然公園" }
+JP-1578 = { name_en = "Kimiidera Prefectural Park", name_ja = "紀三井寺公園" }
+JP-1579 = { name_en = "Kasei Prefectural Park", name_ja = "河西緩衝緑地" }
+JP-1580 = { name_en = "Waka Prefectural Park", name_ja = "和歌公園" }
+JP-1581 = { name_en = "Misasa Togoko Prefectural Nature Park", name_ja = "三朝東郷湖県立自然公園" }
+JP-1582 = { name_en = "Okuhino Prefectural Nature Park", name_ja = "奥日野県立自然公園" }
+JP-1583 = { name_en = "Nishi Inaba Prefectural Nature Park", name_ja = "西因幡県立自然公園" }
+JP-1585 = { name_en = "Lake Togo Hawai Seaside Prefectural Park", name_ja = "東郷湖羽合臨海公園" }
+JP-1586 = { name_ja = "燕趙園" }
+JP-1587 = { name_en = "Fuse Sports Prefectural Park", name_ja = "布勢総合運動公園（ヤマタスポーツパーク）" }
+JP-1588 = { name_en = "Dandan Hiroba Prefectural Park", name_ja = "だんだん広場" }
+JP-1589 = { name_en = "Kiyomizu Gassan Prefectural Nature Park", name_ja = "清水月山県立自然公園" }
+JP-1590 = { name_en = "Oni no Shitaburui Prefectural Nature Park", name_ja = "鬼の舌震県立自然公園" }
+JP-1591 = { name_en = "Shinjiko Kitayama Prefectural Nature Park", name_ja = "宍道湖北山県立自然公園" }
+JP-1592 = { name_en = "Tachikuekyo Prefectural Nature Park", name_ja = "立久恵峡県立自然公園" }
+JP-1593 = { name_en = "Ryuzu Yaedaki Prefectural Nature Park", name_ja = "竜頭八重滝県立自然公園" }
+JP-1594 = { name_en = "Gokawa Suikei Prefectural Nature Park", name_ja = "江川水系県立自然公園" }
+JP-1595 = { name_en = "Dangyokei Kannondaki Prefectural Nature Park", name_ja = "断魚渓・観音滝県立自然公園" }
+JP-1596 = { name_en = "Senjokei Prefectural Nature Park", name_ja = "千丈渓県立自然公園" }
+JP-1597 = { name_en = "Hamada Kaigan Prefectural Nature Park", name_ja = "浜田海岸県立自然公園" }
+JP-1598 = { name_en = "Banryuko Prefectural Nature Park", name_ja = "蟠竜湖県立自然公園" }
+JP-1599 = { name_en = "Aonoyama Prefectural Nature Park", name_ja = "青野山県立自然公園" }
+JP-1600 = { name_en = "Hamayama Prefectural Park", name_ja = "島根県立浜山公園" }
+JP-1601 = { name_en = "Iwami Seaside Prefectural Park", name_ja = "島根県立石見海浜公園" }
+JP-1602 = { name_en = "Manyo Prefectural Park", name_ja = "島根県立万葉公園" }
+JP-1603 = { name_en = "Takahashigawa Joryu Prefectural Nature Park", name_ja = "高梁川上流県立自然公園" }
+JP-1604 = { name_en = "Kibi Shiseki Prefectural Nature Park", name_ja = "吉備史跡県立自然公園" }
+JP-1605 = { name_en = "Yubara Okutsu Prefectural Nature Park", name_ja = "湯原奥津県立自然公園" }
+JP-1606 = { name_en = "Kibiji Fudoki no Oka Prefectural Nature Park", name_ja = "吉備路風土記の丘県立自然公園" }
+JP-1607 = { name_en = "Bisaku Sanchi Prefectural Nature Park", name_ja = "備作山地県立自然公園" }
+JP-1608 = { name_en = "Kibi Seiryu Prefectural Nature Park", name_ja = "吉備清流県立自然公園" }
+JP-1609 = { name_en = "Yoshiigawa Churyu Prefectural Nature Park", name_ja = "吉井川中流県立自然公園" }
+JP-1610 = { name_en = "Okayama Prefectural Multipurpose Grounds Prefectural Park", name_ja = "岡山県総合グラウンド" }
+JP-1611 = { name_en = "Korakuen Prefectural Park", name_ja = "後楽園" }
+JP-1612 = { name_en = "Kurashiki Sports Prefectural Park", name_ja = "倉敷スポーツ公園" }
+JP-1613 = { name_en = "Mizushima Ryokuchi Prefectural Park", name_ja = "水島緑地" }
+JP-1614 = { name_en = "Nabarakyo Prefectural Nature Park", name_ja = "南原峡県立自然公園" }
+JP-1615 = { name_en = "Yamanokyo Prefectural Nature Park", name_ja = "山野峡県立自然公園" }
+JP-1616 = { name_en = "Mikuradake Prefectural Nature Park", name_ja = "三倉岳県立自然公園" }
+JP-1617 = { name_en = "Chikurinji Yokurayama Prefectural Nature Park", name_ja = "竹林寺用倉山県立自然公園" }
+JP-1618 = { name_en = "Buttsuji Mitsugi Hachimangu Prefectural Nature Park", name_ja = "仏通寺御調八幡宮県立自然公園" }
+JP-1619 = { name_en = "kannosekyo Prefectural Nature Park", name_ja = "神之瀬峡県立自然公園" }
+JP-1620 = { name_en = "Hiroshimaken Sogo Ground Prefectural Park", name_ja = "広島県総合グランド" }
+JP-1621 = { name_en = "Shukkeien Garden Prefectural Park", name_ja = "縮景園" }
+JP-1622 = { name_en = "Hiroshima Ryokka Shokubutsu Prefectural Park", name_ja = "広島緑化植物公園" }
+JP-1623 = { name_en = "Sera Kenmin Prefectural Park", name_ja = "せら県民公園" }
+JP-1624 = { name_en = "Miyoshi Prefectural Park", name_ja = "広島県立みよし公園" }
+JP-1625 = { name_en = "Bingo Sports Prefectural Park", name_ja = "広島県立びんご運動公園" }
+JP-1626 = { name_en = "Chomonkyo Prefectural Nature Park", name_ja = "長門峡県立自然公園" }
+JP-1627 = { name_en = "Rakanzan Prefectural Nature Park", name_ja = "羅漢山県立自然公園" }
+JP-1628 = { name_en = "Iwakisan Prefectural Nature Park", name_ja = "石城山県立自然公園" }
+JP-1629 = { name_en = "Toyota Prefectural Nature Park", name_ja = "豊田県立自然公園" }
+JP-1630 = { name_en = "Ishin Hyakunen Prefectural Park", name_ja = "維新百年記念公園" }
+JP-1631 = { name_en = "Yamaguchi Kirara Expo Memorial Prefectural Park", name_ja = "山口きらら博記念公園" }
+JP-1632 = { name_en = "Katazoegahama Kaihin Prefectural Park", name_ja = "片添ヶ浜海浜公園" }
+JP-1633 = { name_en = "Hagi Wellness Prefectural Park", name_ja = "萩ウェルネスパーク" }
+JP-1634 = { name_en = "Kameyama Prefectural Park", name_ja = "亀山公園" }
+JP-1635 = { name_en = "Hashikura Prefectural Nature Park", name_ja = "箸蔵県立自然公園" }
+JP-1636 = { name_en = "Dochu Kotsu Prefectural Nature Park", name_ja = "土柱高越県立自然公園" }
+JP-1637 = { name_en = "Oasayama Prefectural Nature Park", name_ja = "大麻山県立自然公園" }
+JP-1638 = { name_en = "Okuimiyagawauchidani Prefectural Nature Park", name_ja = "奥宮川内谷県立自然公園" }
+JP-1639 = { name_en = "Higashisankei Prefectural Nature Park", name_ja = "東山渓県立自然公園" }
+JP-1640 = { name_en = "Chubusankei Prefectural Nature Park", name_ja = "中部山渓県立自然公園" }
+JP-1641 = { name_ja = "徳島県立青少年の森" }
+JP-1642 = { name_en = "Bunkanomori Prefectural Park", name_ja = "文化の森総合公園" }
+JP-1643 = { name_en = "Kamiyama Shinrin Prefectural Park", name_ja = "神山森林公園" }
+JP-1644 = { name_en = "Tsukimigaoka Kaihin Prefectural Park", name_ja = "月見ヶ丘海浜公園" }
+JP-1645 = { name_en = "Naruto Sogo Undo Prefectural Park", name_ja = "鳴門総合運動公園" }
+JP-1646 = { name_en = "Nanbu Kenko Undo Prefectural Park", name_ja = "南部健康運動公園" }
+JP-1647 = { name_en = "Otaki Daisen Prefectural Nature Park", name_ja = "大滝大川県立自然公園" }
+JP-1648 = { name_en = "Mannoike Prefectural Park", name_ja = "満濃池森林公園" }
+JP-1649 = { name_en = "Kinbuchi Forest Prefectural Park", name_ja = "公渕森林公園" }
+JP-1650 = { name_en = "Kikaku Prefectural Park", name_ja = "香川県立亀鶴公園" }
+JP-1651 = { name_en = "Toryo Prefectural Park", name_ja = "香川県立桃陵公園" }
+JP-1652 = { name_en = "Kagawa Sports Prefectural Park", name_ja = "香川県総合運動公園" }
+JP-1653 = { name_en = "Kinrin Prefectural Park", name_ja = "琴林公園" }
+JP-1654 = { name_en = "Kinshako Prefectural Nature Park", name_ja = "金砂湖県立自然公園" }
+JP-1655 = { name_en = "Okudogo Tamagawa Prefectural Nature Park", name_ja = "奥道後玉川県立自然公園" }
+JP-1656 = { name_en = "Saragamine Renpo Prefectural Nature Park", name_ja = "皿ヶ嶺連峰県立自然公園" }
+JP-1657 = { name_en = "Shikoku Karst(Ehime) Prefectural Nature Park", name_ja = "四国カルスト県立自然公園（愛媛県）" }
+JP-1658 = { name_en = "Hijikawa Prefectural Nature Park", name_ja = "肱川県立自然公園" }
+JP-1659 = { name_en = "Sadamisakihanto Uwakai Prefectural Nature Park", name_ja = "佐田岬半島宇和海県立自然公園" }
+JP-1660 = { name_en = "Sasayama Prefectural Nature Park", name_ja = "篠山県立自然公園" }
+JP-1661 = { name_en = "Dogo Prefectural Park", name_ja = "道後公園" }
+JP-1662 = { name_en = "Ehime Prefectural Sports Complex Prefectural Park", name_ja = "愛媛県総合運動公園" }
+JP-1663 = { name_en = "Nanyo Recreation Toshi Prefectural Park", name_ja = "南予レクリエーション都市公園" }
+JP-1664 = { name_en = "Teisumiyoshi Provincial Park", name_ja = "手結住吉県立自然公園" }
+JP-1665 = { name_en = "Okumonobe Prefectural Nature Park", name_ja = "奥物部県立自然公園" }
+JP-1666 = { name_en = "Shiragayama Prefectural Nature Park", name_ja = "白髪山県立自然公園" }
+JP-1667 = { name_en = "Yokogurayama Prefectural Nature Park", name_ja = "横倉山県立自然公園" }
+JP-1668 = { name_en = "Yokonami Prefectural Nature Park", name_ja = "横浪県立自然公園" }
+JP-1669 = { name_en = "Irino Prefectural Nature Park", name_ja = "入野県立自然公園" }
+JP-1670 = { name_en = "Sukumo Prefectural Nature Park", name_ja = "宿毛県立自然公園" }
+JP-1671 = { name_en = "Ryugado Prefectural Nature Park", name_ja = "龍河洞県立自然公園" }
+JP-1672 = { name_en = "Nakatsu Keikoku Prefectural Nature Park", name_ja = "中津渓谷龍河洞県立自然公園" }
+JP-1673 = { name_en = "Susakiwan Prefectural Nature Park", name_ja = "須崎湾県立自然公園" }
+JP-1674 = { name_en = "Okitsu Prefectural Nature Park", name_ja = "興津県立自然公園" }
+JP-1675 = { name_en = "Yasui Keikoku Prefectural Nature Park", name_ja = "安居渓谷県立自然公園" }
+JP-1676 = { name_en = "Shikoku Karst(Kochi) Prefectural Nature Park", name_ja = "四国カルスト県立自然公園（高知県）" }
+JP-1677 = { name_en = "Kitayama Prefectural Nature Park", name_ja = "北山県立自然公園" }
+JP-1678 = { name_en = "Yanase Prefectural Nature Park", name_ja = "魚梁瀬県立自然公園" }
+JP-1679 = { name_en = "Kajigamori Prefectural Nature Park", name_ja = "梶ヶ森県立自然公園" }
+JP-1680 = { name_en = "Washioyama Prefectural Nature Park", name_ja = "鷲尾山県立自然公園" }
+JP-1681 = { name_en = "Kuishiyama Jingamori Prefectural Nature Park", name_ja = "工石山陣ヶ森県立自然公園" }
+JP-1682 = { name_en = "Muroto Koiki Prefectural Park", name_ja = "室戸広域公園" }
+JP-1683 = { name_en = "Haruno Athletic Recreation Prefectural Park", name_ja = "春野総合運動公園" }
+JP-1684 = { name_en = "Tosa Seinan Daikibo Prefectural Park", name_ja = "土佐西南大規模公園" }
+JP-1685 = { name_en = "Aki Koiki Prefectural Park", name_ja = "安芸広域公園" }
+JP-1686 = { name_en = "Noichi Zoological Park of Kochi Prefecture Prefectural Park", name_ja = "野市総合公園" }
+JP-1687 = { name_en = "Kochi Prefectural Park", name_ja = "高知公園" }
+JP-1688 = { name_en = "Godaisan Prefectural Park", name_ja = "五台山公園" }
+JP-1689 = { name_en = "Tanezaki Sensho Prefectural Park", name_ja = "種崎千松公園" }
+JP-1690 = { name_en = "Kagamino Prefectural Park", name_ja = "鏡野公園" }
+JP-1691 = { name_en = "Kagamikawa Ryokuchi Prefectural Park", name_ja = "鏡川緑地" }
+JP-1692 = { name_en = "Kochi Kuko Midori no Hiroba Prefectural Park", name_ja = "高知空港 緑の広場" }
+JP-1693 = { name_en = "Ike Prefectural Park", name_ja = "池公園" }
+JP-1694 = { name_en = "Dazaifu Prefectural Nature Park", name_ja = "大宰府県立自然公園" }
+JP-1695 = { name_en = "Chikuho Prefectural Nature Park", name_ja = "筑豊県立自然公園" }
+JP-1696 = { name_en = "Chikugogawa Prefectural Nature Park", name_ja = "筑後川県立自然公園" }
+JP-1697 = { name_en = "Yabegawa Prefectural Nature Park", name_ja = "矢部川県立自然公園" }
+JP-1698 = { name_en = "Sefuriraizan Prefectural Nature Park", name_ja = "脊振雷山県立自然公園" }
+JP-1699 = { name_en = "Higashi Prefectural Park", name_ja = "東公園" }
+JP-1700 = { name_en = "Najima Undo Prefectural Park", name_ja = "名島運動公園" }
+JP-1701 = { name_en = "Nishi Prefectural Park", name_ja = "西公園" }
+JP-1702 = { name_en = "Ohori Prefectural Park", name_ja = "大濠公園" }
+JP-1703 = { name_en = "Tenjin Chuo Prefectural Park", name_ja = "天神中央公園" }
+JP-1704 = { name_en = "Central Prefectural Park", name_ja = "中央公園" }
+JP-1705 = { name_en = "Kasuga Prefectural Park", name_ja = "春日公園" }
+JP-1706 = { name_en = "Chikuho Ryokuchi Prefectural Park", name_ja = "筑豊緑地" }
+JP-1707 = { name_en = "Chikugo Regional Prefectural Park", name_ja = "筑後広域公園" }
+JP-1708 = { name_en = "Kurokamiyama Prefectural Nature Park", name_ja = "黒髪山県立自然公園" }
+JP-1709 = { name_en = "Taradake Prefectural Nature Park", name_ja = "多良岳県立自然公園（佐賀県）" }
+JP-1710 = { name_en = "Tenzan Prefectural Nature Park", name_ja = "天山県立自然公園" }
+JP-1711 = { name_en = "Hachimandake Prefectural Nature Park", name_ja = "八幡岳県立自然公園" }
+JP-1712 = { name_en = "Sefuri Hokusan Prefectural Nature Park", name_ja = "脊振・北山県立自然公園" }
+JP-1713 = { name_en = "Kawakami Kinryu Prefectural Nature Park", name_ja = "川上・金立県立自然公園" }
+JP-1714 = { name_en = "Yoshinogari Historical Prefectural Park", name_ja = "吉野ヶ里歴史公園" }
+JP-1715 = { name_en = "Sagajo Prefectural Park", name_ja = "佐賀城公園" }
+JP-1716 = { name_en = "Shinrin Prefectural Park", name_ja = "森林公園" }
+JP-1717 = { name_en = "Taradake Prefectural Nature Park", name_ja = "多良岳県立公園（長崎県）" }
+JP-1718 = { name_en = "Nomo Hanto Prefectural Nature Park", name_ja = "野母半島県立公園" }
+JP-1719 = { name_en = "Hokusho Prefectural Park", name_ja = "北松県立自然公園" }
+JP-1720 = { name_en = "Omurawan Prefectural Park", name_ja = "大村湾県立自然公園" }
+JP-1721 = { name_en = "Nishisonogi Hanto Prefectural Nature Park", name_ja = "西彼杵半島県立自然公園" }
+JP-1722 = { name_en = "Shimabara Hanto Prefectural Nature Park", name_ja = "島原半島県立自然公園" }
+JP-1723 = { name_en = "Hirado Prefectural Park", name_ja = "平戸公園" }
+JP-1724 = { name_en = "Tabira Prefectural Park", name_ja = "田平公園" }
+JP-1725 = { name_en = "Saikaibashi Prefectural Park", name_ja = "西海橋公園" }
+JP-1726 = { name_en = "Nagasaki Sogo Undo Prefectural Park", name_ja = "長崎県立総合運動公園" }
+JP-1727 = { name_en = "Hyakkadai Prefectural Park", name_ja = "百花台公園" }
+JP-1728 = { name_en = "Kinpozan Prefectural Nature Park", name_ja = "金峰山県立自然公園" }
+JP-1729 = { name_en = "Shotaizan Prefectural Nature Park", name_ja = "小岱山県立自然公園" }
+JP-1730 = { name_en = "Misumi Oyano Kaihen Prefectural Nature Park", name_ja = "三角大矢野海辺県立自然公園" }
+JP-1731 = { name_en = "Ashikita Kaigan Prefectural Nature Park", name_ja = "芦北海岸県立自然公園" }
+JP-1732 = { name_en = "Yabe Shuhen Prefectural Nature Park", name_ja = "矢部周辺県立自然公園" }
+JP-1733 = { name_en = "Itsuki Gokanosho Prefectural Nature Park", name_ja = "五木五家荘県立自然公園" }
+JP-1734 = { name_en = "Okukuma Prefectural Nature Park", name_ja = "奥球磨県立自然公園" }
+JP-1735 = { name_en = "Minamata Koiki Prefectural Park", name_ja = "水俣広域公園" }
+JP-1736 = { name_en = "Techno Chuo Ryokuchi Prefectural Park", name_ja = "熊本県テクノ中央緑地" }
+JP-1737 = { name_en = "Honmyojiyama Ryokuchi Prefectural Park", name_ja = "本妙寺山緑地公園" }
+JP-1738 = { name_en = "Mannichiyama Ryokuchi Prefectural Park", name_ja = "万日山緑地公園" }
+JP-1739 = { name_en = "Kumamoto Athletic Prefectural Park", name_ja = "熊本県民総合運動公園" }
+JP-1740 = { name_en = "Yatsushiro Sports Prefectural Park", name_ja = "熊本県営八代運動公園" }
+JP-1741 = { name_en = "Kunisaki Hanto Prefectural Nature Park", name_ja = "国東半島県立自然公園" }
+JP-1742 = { name_en = "Bungo Suido Prefectural Nature Park", name_ja = "豊後水道県立自然公園" }
+JP-1743 = { name_en = "Jinkakuji Serikawa Prefectural Nature Park", name_ja = "神角寺芹川県立自然公園" }
+JP-1744 = { name_en = "Tsue Sankei Prefectural Nature Park", name_ja = "津江山系県立自然公園" }
+JP-1745 = { name_en = "Sobo Katamuki Prefectural Nature Park", name_ja = "祖母傾県立自然公園（大分県）" }
+JP-1746 = { name_en = "Oita Sports Prefectural Park", name_ja = "大分スポーツ公園" }
+JP-1747 = { name_en = "Takaoyama Prefectural Park", name_ja = "高尾山自然公園" }
+JP-1748 = { name_en = "Osu Sogo Comprehensive Athletic Prefectural Park", name_ja = "大洲総合運動公園" }
+JP-1749 = { name_en = "Sobo Katamuki Prefectural Nature Park", name_ja = "祖母傾県立自然公園（宮崎県）" }
+JP-1750 = { name_en = "Osuzu Prefectural Nature Park", name_ja = "尾鈴県立自然公園" }
+JP-1751 = { name_en = "Saitobaru Sugiyasukyo Prefectural Nature Park", name_ja = "西都原杉安峡県立自然公園" }
+JP-1752 = { name_en = "Mochio Sekinoo Prefectural Nature Park", name_ja = "母智丘関之尾県立自然公園" }
+JP-1753 = { name_en = "Wanitsuka Prefectural Nature Park", name_ja = "わにつか県立自然公園" }
+JP-1754 = { name_en = "Yatake Kogen Prefectural Nature Park", name_ja = "矢岳高原県立自然公園" }
+JP-1755 = { name_en = "Heiwadai Prefectural Park", name_ja = "平和台公園" }
+JP-1756 = { name_en = "Sogo Bunka Prefectural Park", name_ja = "宮崎県総合文化公園" }
+JP-1757 = { name_en = "Miyazaki Prefectural Comprehensive Sports Prefectural Park", name_ja = "宮崎県総合運動公園" }
+JP-1758 = { name_en = "Saitobaru Burial Mounds Prefectural Park", name_ja = "特別史跡公園西都原古墳群" }
+JP-1759 = { name_en = "Awakigahara Forest Prefectural Park", name_ja = "阿波岐原森林公園" }
+JP-1760 = { name_en = "Akune Prefectural Nature Park", name_ja = "阿久根県立自然公園" }
+JP-1761 = { name_en = "Fukiagehama Kinpozan Prefectural Nature Park", name_ja = "吹上浜金峰山県立自然公園" }
+JP-1762 = { name_en = "Imutaike Prefectural Nature Park", name_ja = "藺牟田池県立自然公園" }
+JP-1763 = { name_en = "Bounoma Prefectural Nature Park", name_ja = "坊野間県立自然公園" }
+JP-1764 = { name_en = "Sendaigawa Ryuiki Prefectural Nature Park", name_ja = "川内川流域県立自然公園" }
+JP-1765 = { name_en = "Takakumayama Prefectural Nature Park", name_ja = "高隈山県立自然公園" }
+JP-1766 = { name_en = "Osumi Nanbu Prefectural Nature Park", name_ja = "大隅南部県立自然公園" }
+JP-1767 = { name_en = "Tokara Retto Prefectural Nature Park", name_ja = "トカラ列島県立自然公園" }
+JP-1768 = { name_en = "Yoshino Prefectural Park", name_ja = "鹿児島県立吉野公園" }
+JP-1769 = { name_en = "Taniyama Ryokuchi Prefectural Park", name_ja = "谷山緑地" }
+JP-1770 = { name_en = "Kamoike Prefectural Nature Park", name_ja = "鴨池公園" }
+JP-1771 = { name_en = "Kamoike Ryokuchi Prefectural Park", name_ja = "鴨池緑地公園" }
+JP-1772 = { name_en = "Fukiagehama Kaihin Prefectural Park", name_ja = "吹上浜海浜公園" }
+JP-1773 = { name_en = "Osumi Koiki Prefectural Park", name_ja = "大隅広域公園" }
+JP-1774 = { name_en = "Ishibashi Kinen Prefectural Park", name_ja = "石橋記念公園" }
+JP-1775 = { name_en = "Hokusatsu Koiki Prefectural Park", name_ja = "北薩広域公園" }
+JP-1776 = { name_en = "Fureai Sports Land Prefectural Park", name_ja = "鹿児島ふれあいスポーツランド" }
+JP-1777 = { name_en = "Kumejima Prefectural Nature Park", name_ja = "久米島県立自然公園" }
+JP-1778 = { name_en = "Irabu Prefectural Nature Park", name_ja = "伊良部県立自然公園" }
+JP-1779 = { name_en = "Tonaki Prefectural Nature Park", name_ja = "渡名喜県立自然公園" }
+JP-1780 = { name_en = "Tarama Prefectural Nature Park", name_ja = "多良間県立自然公園" }
+JP-1781 = { name_en = "Onoyama Prefectural Park", name_ja = "沖縄県営奥武山公園（那覇市）" }
+JP-1782 = { name_en = "Okinawa Comprehensive Athletic Prefectural Park", name_ja = "沖縄県総合運動公園（沖縄市・北中城" }
+JP-1783 = { name_en = "Nago Chuo Prefectural Park", name_ja = "名護中央公園" }
+JP-1784 = { name_en = "Nakagusuku Prefectural Park", name_ja = "中城公園" }
+JP-1785 = { name_en = "Urasoe Dai Prefectural Park", name_ja = "浦添大公園" }
+JP-1786 = { name_en = "Shurijo Castle Prefectural Park", name_ja = "首里城公園" }
+JP-1787 = { name_en = "Kaigungo Prefectural Park", name_ja = "海軍壕公園" }
+JP-1788 = { name_en = "Peace Memorial Prefectural Park", name_ja = "平和祈念公園" }
+JP-1789 = { name_en = "Banna Prefectural Park", name_ja = "バンナ公園" }
+JP-1790 = { name_en = "Isehara Tounoyama Prefectural Park", name_ja = "いせはら塔の山緑地公園" }
+JP-1791 = { name_en = "Yamakita Tsuburano Prefectural Park", name_ja = "山北つぶらの公園" }
+JP-1792 = { name_en = "Odaiba Marine Prefectural Park", name_ja = "お台場海浜公園" }
+JP-1793 = { name_en = "Symbol Promenade Prefectural Park", name_ja = "シンボルプロムナード公園" }
+JP-1794 = { name_en = "Aomi-Kita Port Prefectural Park", name_ja = "青海北ふ頭公園" }
+JP-1795 = { name_en = "Aomi-Minami Port Prefectural Park", name_ja = "青海南ふ頭公園" }
+JP-1796 = { name_en = "Akatsuki Port Prefectural Park", name_ja = "暁ふ頭公園" }
+JP-1797 = { name_en = "Aomi Greenway Prefectural Park", name_ja = "青海緑道公園" }
+JP-1798 = { name_en = "Aomi-Chuou Port Prefectural Park", name_ja = "青海中央ふ頭公園" }
+JP-1799 = { name_en = "Mizu-no-Hiroba Prefectural Park", name_ja = "水の広場公園" }
+JP-1800 = { name_en = "Ariake Nishi Port Prefectural Park", name_ja = "有明西ふ頭公園" }
+JP-1801 = { name_en = "Ariake Kita Greenway Prefectural Park", name_ja = "有明北緑道公園" }
+JP-1802 = { name_en = "Ariake Tennis Prefectural Park", name_ja = "有明テニスの森公園" }
+JP-1803 = { name_en = "Harumibashi Prefectural Park", name_ja = "春海橋公園" }
+JP-1804 = { name_en = "Higashi Yashio Greenway Prefectural Park", name_ja = "東八潮緑道公園" }
+JP-1805 = { name_en = "Kasai Marine Prefectural Park", name_ja = "葛西海浜公園" }
+JP-1806 = { name_en = "Tatsumi-no-Mori Seaside Prefectural Park", name_ja = "辰巳の森海浜公園" }
+JP-1807 = { name_en = "Shin-kiba Prefectural Park", name_ja = "新木場公園" }
+JP-1808 = { name_en = "Tatsumi Greenway Prefectural Park", name_ja = "辰巳の森緑道公園" }
+JP-1809 = { name_en = "Yumenoshima Greenway Prefectural Park", name_ja = "夢の島緑道公園" }
+JP-1810 = { name_en = "Shin-kiba Greenway Prefectural Park", name_ja = "新木場緑道公園" }
+JP-1811 = { name_en = "Wakasu Seaside Prefectural Park", name_ja = "若洲海浜公園" }
+JP-1812 = { name_en = "Tokyo Port Wild Bird Prefectural Park", name_ja = "東京港野鳥公園" }
+JP-1813 = { name_en = "Oi Port Central Seaside Prefectural Park", name_ja = "大井ふ頭中央海浜公園" }
+JP-1814 = { name_en = "Jonanjima Seaside Prefectural Park", name_ja = "城南島海浜公園" }
+JP-1815 = { name_en = "Shinagawa Kita Port Prefectural Park", name_ja = "品川北ふ頭公園" }
+JP-1816 = { name_en = "Container Terminal Prefectural Park", name_ja = "コンテナふ頭公園" }
+JP-1817 = { name_en = "Jonanjima Port Prefectural Park", name_ja = "城南島ふ頭公園" }
+JP-1818 = { name_ja = "京浜島ふ頭公園" }
+JP-1819 = { name_en = "Minato-ga-oka Port Prefectural Park", name_ja = "みなとが丘ふ頭公園" }
+JP-1820 = { name_en = "Tokai Port Prefectural Park", name_ja = "東海ふ頭公園" }
+JP-1821 = { name_en = "Keihinjima Tsubasa Prefectural Park", name_ja = "京浜島つばさ公園" }
+JP-1822 = { name_en = "Shibaura Minami Port Prefectural Park", name_ja = "芝浦南ふ頭公園" }
+JP-1823 = { name_en = "Keihin Canalside Greenway Prefectural Park", name_ja = "京浜運河緑道公園" }
+JP-1824 = { name_en = "Oi Port Greenway Prefectural Park", name_ja = "大井ふ頭緑道公園" }
+JP-1825 = { name_en = "Tokai Greenway Prefectural Park", name_ja = "東海緑道公園" }
+JP-1826 = { name_en = "Jonanjima Greenway Prefectural Park", name_ja = "城南島緑道公園" }
+JP-1827 = { name_en = "Keihinjima Greenway Prefectural Park", name_ja = "京浜島緑道公園" }
+JP-1828 = { name_en = "Lake Okutama Hotori Prefectural Park", name_ja = "奥多摩湖畔公園" }
+JP-1829 = { name_en = "Komine Prefectural Park", name_ja = "小峰公園" }
+JP-1830 = { name_en = "Oshima Prefectural Park", name_ja = "大島公園" }
+JP-1831 = { name_en = "Takowan Prefectural Park", name_ja = "多幸湾公園" }
+JP-1832 = { name_en = "Habushiura Prefectural Park", name_ja = "羽伏浦公園" }
+JP-1833 = { name_en = "Hachijo Botanical Garden Prefectural Park", name_ja = "八丈植物公園" }
+JP-1834 = { name_en = "Chichibu Muse Prefectural Park", name_ja = "秩父ミューズパーク" }
+JP-1835 = { name_en = "Niiza Greenway Prefectural Park", name_ja = "新座緑道" }
+JP-1836 = { name_en = "Shinrinkoen Park Walking Road Prefectural Park", name_ja = "森林公園緑道" }
+JP-1837 = { name_en = "Sakitama Greenway Prefectural Park", name_ja = "さきたま緑道" }
+JP-1838 = { name_en = "Hananosato Greenway Prefectural Park", name_ja = "花の里緑道" }
+JP-1839 = { name_en = "Akigase Greenway Prefectural Park", name_ja = "秋ヶ瀬緑道" }
+JP-1842 = { name_ja = "県民健康福祉村" }
+JP-1843 = { name_en = "Saitamaken Agricultual and Forestry Prefectural Park", name_ja = "埼玉県農林公園" }
+JP-1844 = { name_en = "Fuetsu Prefectural Park", name_ja = "風越公園" }
+JP-1845 = { name_en = "Ikaho Forest Prefectural Park", name_ja = "伊香保森林公園" }
+JP-1846 = { name_en = "Akagi Forest Prefectural Park", name_ja = "赤城森林公園" }
+JP-1847 = { name_en = "Akagi Community Forest Prefectural Park", name_ja = "赤城ふれあいの森" }
+JP-1848 = { name_en = "Sakuranosato Forest Prefectural Park", name_ja = "さくらの里" }
+JP-1849 = { name_en = "Sakurayama Forest Prefectural Park", name_ja = "桜山森林公園" }
+JP-1850 = { name_en = "Mikabo Forest Prefectural Park", name_ja = "みかぼ森林公園" }
+JP-1851 = { name_en = "Gunma Forest Park 21st Century Prefectural Park", name_ja = "２１世紀の森" }
+JP-1852 = { name_en = "Gunma Insect World Forest Prefectural Park", name_ja = "群馬県立ぐんま昆虫の森" }
+JP-1853 = { name_en = "Gunma Flower Prefectural Park", name_ja = "ぐんまフラワーパークプラス" }
+JP-1854 = { name_en = "Oura no Mori Forest Prefectural Park", name_ja = "おうらの森（群馬県立森林公園）" }
+JP-1855 = { name_en = "Oneyama Bird Forest Prefectural Park", name_ja = "小根山森林公園 野鳥の森" }
+JP-1856 = { name_ja = "篠原園地" }
+JP-1857 = { name_en = "Midorinomura Agricultual and Forestry Prefectural Park", name_ja = "みどりの村" }
+JP-1858 = { name_en = "Saino-Kuni Fureai Forest Prefectural Park", name_ja = "彩の国ふれあいの森" }
+JP-1859 = { name_en = "Tochigi Prefectual Forest Prefectural Park", name_ja = "栃木県県民の森" }
+JP-1860 = { name_en = "Italian Embassy Villa Memorial Prefectural Park", name_ja = "イタリア大使館別荘記念公園" }
+JP-1861 = { name_en = "British Embassy Villa Memorial Prefectural Park", name_ja = "英国大使館別荘記念公園" }
+JP-1862 = { name_en = "Otosan Prefectural Nature Park", name_ja = "大塔山県立自然公園" }
+JP-1863 = { name_en = "Choukai-no-mori Prefectural Park", name_ja = "眺海の森" }
+JP-1864 = { name_en = "Genryu-no-mori Prefectural Park", name_ja = "源流の森" }
+JP-1865 = { name_en = "Kenmin-no-mori Prefectural Park", name_ja = "県民の森" }
+JP-1866 = { name_en = "Yugaku-no-mori Prefectural Park", name_ja = "遊学の森" }
+JP-1867 = { name_en = "Yamagata Nature Museum Prefectural Park", name_ja = "山形県立自然博物園" }
+JP-1868 = { name_en = "Rinkuu-kouen Prefectural Park", name_ja = "仙台空港臨空公園" }
+JP-1869 = { name_en = "Kenmin-no-mori Prefectural Park", name_ja = "県民の森" }
+JP-1870 = { name_en = "Forest Park Adatara Prefectural Park", name_ja = "フォレストパークあだたら" }
+JP-1871 = { name_en = "Showa-no-mori Prefectural Park", name_ja = "福島県昭和の森" }
+JP-1872 = { name_en = "Rachihama Bosai Ryokuchi Prefectural Park", name_ja = "埓浜防災緑地" }
+JP-1873 = { name_en = "Haragamaobama Bosai Ryokuchi Prefectural Park", name_ja = "原釜尾浜防災緑地" }
+JP-1874 = { name_en = "Hisanohama Bosai Ryokuchi Prefectural Park", name_ja = "久之浜防災緑地" }
+JP-1875 = { name_en = "Yotsukura Bosai Ryokuchi Prefectural Park", name_ja = "四倉防災緑地" }
+JP-1876 = { name_en = "Numanouchi Bosai Ryokuchi Prefectural Park", name_ja = "沼ノ内防災緑地" }
+JP-1877 = { name_en = "Usuiso Bosai Ryokuchi Prefectural Park", name_ja = "薄磯防災緑地" }
+JP-1878 = { name_en = "Toyoma Bosai Ryokuchi Prefectural Park", name_ja = "豊間防災緑地" }
+JP-1879 = { name_en = "Nagasaki Bosai Ryokuchi Prefectural Park", name_ja = "永崎防災緑地" }
+JP-1880 = { name_en = "Iwama Bosai Ryokuchi Prefectural Park", name_ja = "岩間防災緑地" }
+JP-1881 = { name_en = "Kenmin-no-mori Prefectural Park", name_ja = "県民の森" }
+JP-1883 = { name_en = "Oita Prefecture Museum of History Prefectural Park", name_ja = "大分県歴史博物館・風土記の丘" }
+JP-1884 = { name_en = "Oita Kenmin no Mori Prefectural Park", name_ja = "大分県県民の森" }
+JP-1885 = { name_en = "Oita Agricultural Prefectural Park", name_ja = "大分農業文化公園（るるパーク）" }
+JP-1886 = { name_en = "Expo '70 Commemorative Prefectural Park", name_ja = "万博記念公園" }
+JP-1887 = { name_en = "Kenmin-no-mori Prefectural Park", name_ja = "県民の森" }
+JP-1888 = { name_en = "Senganishi Forest Prefectural Park", name_ja = "千貫石森林公園" }
+JP-1889 = { name_en = "Ohokuboyama Forest Prefectural Park", name_ja = "大窪山森林公園" }
+JP-1890 = { name_en = "Orizumedake Forest Prefectural Park", name_ja = "折爪岳森林公園" }
+JP-1891 = { name_en = "Takatamatsubara Memorial Prefectural Park", name_ja = "高田松原津波復興祈念公園" }
+JP-1892 = { name_en = "Ishinomakiminamihama Memorial Prefectural Park", name_ja = "石巻南浜津波復興祈念公園" }
+JP-1893 = { name_en = "Fukushima Memorial Prefectural Park", name_ja = "福島県復興祈念公園" }
+JP-1894 = { name_ja = "響きの森公園" }
+JP-1895 = { name_ja = "根小屋 花と緑と雪の里" }
+JP-1896 = { name_ja = "大湯公園" }
+JP-1897 = { name_ja = "須原公園" }
+JP-1898 = { name_ja = "浅草岳公園" }
+JP-1899 = { name_en = "Kasukabe Yumeno-mori Prefectural Park", name_ja = "春日部夢の森公園" }
+JP-1900 = { name_en = "Chiba Prefectural Funabashi Forest Prefectural Park", name_ja = "船橋県民の森" }
+JP-1901 = { name_en = "Chiba Prefectural Tonosho Forest Prefectural Park", name_ja = "東庄県民の森" }
+JP-1902 = { name_en = "Chiba Prefectural Uchiurayama Forest Prefectural Park", name_ja = "内浦山県民の森" }
+JP-1903 = { name_en = "Tateyama Wild Bird Sanctuary Prefectural Park", name_ja = "館山野鳥の森" }
+JP-1904 = { name_en = "Chiba Prefectural Seiwa Forest Prefectural Park", name_ja = "清和県民の森" }
+JP-1905 = { name_en = "Chiba Prefectural Otaki Forest Prefectural Park", name_ja = "大多喜県民の森" }
+JP-1906 = { name_en = "Fuefukigawa Fruit Prefectural Park", name_ja = "笛吹川フルーツ公園" }
+JP-1907 = { name_en = "Midorigaoka Sports Prefectural Park", name_ja = "緑が丘スポーツ公園" }
+JP-1908 = { name_en = "Kamanashigawa Sports Prefectural Park", name_ja = "釜無川スポーツ公園" }
+JP-1909 = { name_en = "Yamanashi Prefectural Museum of Art Prefectural Park", name_ja = "芸術の森公園" }
+JP-1910 = { name_en = "Maizuru Castle Prefectural Park", name_ja = "舞鶴城公園" }
+JP-1911 = { name_en = "Kofu Chu-ou Prefectural Park", name_ja = "中央公園" }
+JP-1912 = { name_en = "Kofu Marunouchi Prefectural Park", name_ja = "丸の内公園" }
+JP-1913 = { name_en = "Midai Prefectural Park", name_ja = "御勅使公園" }
+JP-1914 = { name_en = "Kanegawano mori Provincial Forest Prefectural Park", name_ja = "森林公園金川の森" }
+JP-1915 = { name_en = "Katsuragawa Wellness Prefectural Park", name_ja = "桂川ウェルネスパーク" }
+JP-1916 = { name_en = "Yamanashi Prefectural Makiba Prefectural Park", name_ja = "まきば公園" }
+JP-1917 = { name_en = "Kiyosato Okanokouen Prefectural Park", name_ja = "丘の公園" }
+JP-1918 = { name_en = "Aichiken ryokka center Prefectural Park", name_ja = "愛知県緑化センター" }
+JP-1919 = { name_en = "Kainan Kodomonokuni Prefectural Park", name_ja = "海南こどもの国" }
+JP-1920 = { name_en = "AichiYatomi Yachouen Prefectural Park", name_ja = "愛知県弥富野鳥園" }
+JP-1921 = { name_en = "Aichi KenminnoMori Prefectural Park", name_ja = "愛知県民の森" }
+JP-1922 = { name_en = "Aichiken Forest Prefectural Park", name_ja = "愛知県森林公園" }
+JP-1923 = { name_en = "Korogi Athletic Prefectural Park", name_ja = "愛知県口論義運動公園" }
+JP-1924 = { name_en = "LAGUNA BEACH Prefectural Park", name_ja = "大塚海浜緑地（ラグーナビーチ）" }
+JP-1925 = { name_en = "Kaisho Forest Prefectural Park", name_ja = "あいち海上の森" }
+JP-1926 = { name_en = "Aichi Education and Sports Foundation Prefectural Park", name_ja = "愛知県一宮総合運動場(いちい信金ス" }
+JP-1927 = { name_en = "Jindai Botanical Garden Prefectural Park", name_ja = "神代植物公園" }
+JP-1928 = { name_en = "Nakato Prefectural Park", name_ja = "中藤公園" }
+JP-1929 = { name_en = "Takaido Prefectural Park", name_ja = "高井戸公園" }
+JP-1930 = { name_en = "Niigata Seishonen no Mori Prefectural Park", name_ja = "新潟県青少年の森" }
+JP-1931 = { name_en = "Gozu Kenmin-no-mori Prefectural Park", name_ja = "五頭県民の森" }
+JP-1932 = { name_en = "Mitsuke Sugisawa no Mori Prefectural Park", name_ja = "見附杉沢の森" }
+JP-1933 = { name_en = "Myoko Sanroku Kenmin-no-mori Prefectural Park", name_ja = "妙高山麓県民の森" }
+JP-1934 = { name_en = "komorebi no Mori Prefectural Park", name_ja = "こもれびの森" }
+JP-1935 = { name_en = "Showa Manyo no Mori Prefectural Park", name_ja = "昭和万葉の森" }
+JP-1936 = { name_en = "Jomon no Mori Prefectural Park", name_ja = "縄文の森" }
+JP-1937 = { name_en = "Forest Park Of Mie Prefectural Park", name_ja = "三重県民の森" }
+JP-1938 = { name_en = "Ueno Forest Prefectural Park", name_ja = "三重県上野森林公園" }
+JP-1939 = { name_en = "Ichinoyanomori Prefectural Park", name_ja = "市野谷の森公園" }
+JP-1940 = { name_en = "Kihoku Prefectural Park", name_ja = "紀北公園" }
+JP-1941 = { name_en = "Wakayama Koutsuu Prefectural Park", name_ja = "和歌山交通公園" }
+JP-1942 = { name_en = "Ken-ei Fukushi Prefectural Park", name_ja = "県営福祉パーク" }
+JP-1944 = { name_en = "Satsunankaigan Prefectural Nature Park", name_ja = "薩南海岸県立自然公園" }
+JP-1945 = { name_en = "Mishima Prefectural Park", name_ja = "みしま県立自然公園" }
+JP-1946 = { name_en = "Tama Zoological(Nanao) Prefectural Park", name_ja = "多摩動物公園（都立七生公園）" }
+JP-1947 = { name_en = "Hinohara Tokyo Citizens' Forest Prefectural Park", name_ja = "檜原都民の森" }
+JP-1948 = { name_en = "Okutama Tokyo Citizens' Forest Prefectural Park", name_ja = "奥多摩都民の森" }
+JP-1949 = { name_en = "Ibaraki Prefectural Okukuji Forest Prefectural Park", name_ja = "奥久慈憩いの森" }
+JP-1950 = { name_en = "Ibaraki Prefectural Suigo Forest Prefectural Park", name_ja = "水郷県民の森" }
+JP-1951 = { name_en = "Osaka Prefectural Agricultural Prefectural Park", name_ja = "大阪府立農業公園" }
+JP-1952 = { name_ja = "くろんど園地" }
+JP-1953 = { name_en = "Fumin-no-mori Hoshida Enchi Prefectural Park", name_ja = "ほしだ園地" }
+JP-1954 = { name_en = "Fumin-no-mori Muroike Enchi Prefectural Park", name_ja = "むろいけ園地" }
+JP-1955 = { name_en = "Fumin-no-mori Kusaka Enchi Prefectural Park", name_ja = "くさか園地" }
+JP-1956 = { name_en = "Fumin-no-mori Nukata Enchi Prefectural Park", name_ja = "ぬかた園地" }
+JP-1957 = { name_en = "Fumin-no-mori Narukawa Enchi Prefectural Park", name_ja = "なるかわ園地" }
+JP-1958 = { name_en = "Fumin-no-mori Mizunomi Enchi Provincial Park", name_ja = "みずのみ園地" }
+JP-1959 = { name_en = "Fumin-no-mori Chihaya Enchi Prefectural Park", name_ja = "ちはや園地" }
+JP-1960 = { name_en = "Fumin-no-mori Horigo Enchi Prefectural Park", name_ja = "ほりご園地" }
+JP-1961 = { name_en = "Chiba Port Prefectural Park", name_ja = "千葉ポートパーク" }
+JP-1962 = { name_en = "Sodegaura Kaihin Prefectural Park", name_ja = "袖ケ浦海浜公園" }
+JP-1963 = { name_en = "Funabashi Port Shinsui Prefectural Park", name_ja = "船橋港親水公園" }
+JP-1964 = { name_en = "Shinminato Prefectural Park", name_ja = "新港公園" }
+JP-1965 = { name_en = "Shiohama Prefectural Park", name_ja = "潮浜公園" }
+JP-1966 = { name_en = "Futtsuminato Prefectural Park", name_ja = "富津みなと公園" }
+JP-1967 = { name_en = "Naikou Prefectural Park", name_ja = "内港公園" }
+JP-1968 = { name_en = "Naikou Kita Prefectural Park", name_ja = "内港北公園" }
+JP-1969 = { name_en = "Kazusa Minatoko Kaihin Prefectural Park", name_ja = "上総湊港海浜公園" }
+JP-1970 = { name_en = "Naaraiko Kaihin Prefectural Park", name_ja = "名洗港海浜公園" }
+JP-1971 = { name_en = "Okitsu Port Seashore Prefectural Park", name_ja = "興津港海浜公園" }
+JP-1972 = { name_en = "Senba Prefectural Park", name_ja = "千波公園（茨城県近代美術館の周辺の" }
+JP-1973 = { name_en = "Kencho Higashi Park SHIBA Prefectural Park", name_ja = "県庁東公園SHIBA" }
+JP-1974 = { name_en = "Sawatarigawa Ryokuchi Prefectural Park", name_ja = "沢渡川緑地" }
+JP-1975 = { name_en = "Sakuragawa Ryokuchi Prefectural Park", name_ja = "桜川緑地" }
+JP-1976 = { name_en = "Kitauragawa Ryokuchi Prefectural Park", name_ja = "北浦川緑地" }
+JP-1977 = { name_en = "Geidai Ryokuchi Prefectural Park", name_ja = "芸大緑地（アルスの森）" }
+JP-1978 = { name_en = "Akatsuka (JP-IB) Prefectural Park", name_ja = "赤塚公園" }
+JP-1979 = { name_en = "Kasumigaura Comprehensive Prefectural Park", name_ja = "霞ヶ浦総合公園" }
+JP-1980 = { name_en = "Ibaraki Airport Prefectural Park", name_ja = "茨城空港公園" }
+JP-1981 = { name_en = "Gunma Ikoi-no-mori Prefectural Park", name_ja = "群馬県憩の森" }
+JP-1982 = { name_en = "Shizuoka Performing Arts Prefectural Park", name_ja = "舞台芸術公園" }
+JP-1983 = { name_en = "Shizuoka Prefectural Public Forest Prefectural Park", name_ja = "静岡県県民の森" }
+JP-1984 = { name_en = "Kyoto Botanical Gardens Prefectural Park", name_ja = "京都府立植物園" }
+JP-1985 = { name_en = "Katsuragawa Sports Prefectural Park", name_ja = "桂川運動公園" }
+JP-1986 = { name_en = "Wakagawa Riverside Prefectural Park", name_ja = "和歌川河川公園" }
+JP-1987 = { name_en = "Wakayama Prefecture Botanical Park Ryokka Center Prefectural Park", name_ja = "和歌山県植物公園緑花センター" }
+JP-1988 = { name_en = "Negoroyama Genkinomori Prefectural Park", name_ja = "根来山げんきの森" }
+JP-1989 = { name_en = "Gomadanzan Forest Prefectural Park", name_ja = "護摩壇山森林公園" }
+JP-1990 = { name_en = "Wakayama Prefecture Kii-fudoki-no-oka Museum of Archaeology and Folklore Prefectural Park", name_ja = "紀伊風土記の丘" }
+JP-1991 = { name_en = "Maiko Prefectural Park", name_ja = "舞子公園" }
+JP-1992 = { name_en = "Amagasaki no Mori Chuo Ryokuchi Prefectural Park", name_ja = "尼崎の森中央緑地" }
+JP-1993 = { name_en = "Takarazuka Nishitani no Mori Prefectural Park", name_ja = "宝塚西谷の森公園" }
+JP-1994 = { name_en = "Sasayama no Mori Prefectural Park", name_ja = "ささやまの森公園" }
+JP-1995 = { name_en = "Tamba Namikimichi Chuo Prefectural Park", name_ja = "丹波並木道中央公園" }
+JP-1996 = { name_en = "Awaji Ishi no Neya Ryokuchi Prefectural Park", name_ja = "あわじ石の寝屋緑地" }
+JP-1997 = { name_en = "Miki Sogo Bosai Prefectural Park", name_ja = "三木総合防災公園" }
+JP-1998 = { name_en = "Nishiina Prefectural Park", name_ja = "西猪名公園" }
+JP-1999 = { name_en = "Nadayama Ryokuchi Prefectural Park", name_ja = "灘山緑地" }
+JP-2000 = { name_en = "Awaji Hanasajiki Prefectural Park", name_ja = "あわじ花さじき" }
+JP-2001 = { name_en = "Yashiro Forest Prefectural Park", name_ja = "やしろの森公園" }
+JP-2002 = { name_en = "Naka,Yachiyo Forest Prefectural Park", name_ja = "なか・やちよの森公園" }
+JP-2003 = { name_en = "Yumesaki no Mori Prefectural Park", name_ja = "ゆめさきの森公園" }
+JP-2004 = { name_en = "Toga Art Prefectural Park", name_ja = "利賀芸術公園" }
+JP-2005 = { name_en = "Ishikawa Prefectural Forest", name_ja = "石川県森林公園" }
+JP-2006 = { name_en = "Konan Sports Prefectural Park", name_ja = "湖南運動公園" }
+JP-2007 = { name_en = "Notojima Seaside Prefectural Park", name_ja = "のとじま臨海公園" }
+JP-2008 = { name_en = "Yuuhidera Kenmin Nature Garden Prefectural Park", name_ja = "夕日寺健民自然園" }
+JP-2009 = { name_en = "Ishikawa Kenmin-no-mori Prefectural Park", name_ja = "石川県県民の森" }
+JP-2010 = { name_ja = "石川県健康の森" }
+JP-2011 = { name_en = "Tottori Sakyu Kodomonokuni Prefectural Park", name_ja = "鳥取砂丘こどもの国" }
+JP-2012 = { name_en = "Tottori Hanakairo-Flower Prefectural Park", name_ja = "とっとり花回廊" }
+JP-2013 = { name_en = "Forest Park Tottori Deainomori Prefectural Park", name_ja = "とっとり出合いの森" }
+JP-2014 = { name_en = "Forest Park 21st Century Prefectural Park", name_ja = "21世紀の森" }
+JP-2015 = { name_en = "Tottori Mukibanda Historic Site Prefectural Park", name_ja = "むきばんだ史跡公園" }
+JP-2016 = { name_en = "Miyajima Prefectural Park", name_ja = "宮島公園" }
+JP-2017 = { name_en = "Ehime Kodomonoshiro Prefectural Park", name_ja = "えひめこどもの城" }
+JP-2018 = { name_en = "Ehime Forest Prefectural Park", name_ja = "えひめ森林公園" }
+JP-2019 = { name_en = "Miyazaki Seaside Prefectural Park", name_ja = "みやざき臨海公園" }
+JP-2020 = { name_en = "Miyazaki Prefectural Aoshima Subtropical Botanic Garden Prefectural Park", name_ja = "県立青島亜熱帯植物園" }
+JP-2021 = { name_en = "Lupinus Prefectural Park", name_ja = "宮崎県農業科学公園" }
+JP-2022 = { name_en = "Kawaminami Yugaku no Mori National Park", name_ja = "川南遊学の森" }
+JP-2023 = { name_en = "Hinamoridai Kenmin Fureai no Mori Prefectural Park", name_ja = "ひなもり台県民ふれあいの森" }
+JP-2024 = { name_en = "Tomoni Manabu Mori Prefectural Park", name_ja = "共に学ぶ森" }
+JP-2025 = { name_en = "The Shigaraki Ceramic Cultural Prefectural Park", name_ja = "陶芸の森" }
+JP-2026 = { name_en = "Biwako Kodomonokuni Prefectural Park", name_ja = "びわ湖こどもの国" }
+JP-2027 = { name_en = "Shiga Prefecture Kibougaoka Cultural Prefectural Park", name_ja = "滋賀県希望が丘文化公園" }
+JP-2028 = { name_en = "Omifuji Karyoku Prefectural Park", name_ja = "近江富士花緑公園" }
+JP-2029 = { name_en = "Hinomine Omiko Regional Prefectural Park", name_ja = "日峯大神子広域公園" }
+JP-2030 = { name_en = "Naruto Uchinoumi Prefectural Park", name_ja = "鳴門ウチノ海総合公園" }
+JP-2031 = { name_en = "Asutamu Land Tokushima Prefectural Park", name_ja = "あすたむらんど徳島" }
+JP-2032 = { name_en = "Tokushima Prefectural Sanagouchi Ikimonofureainosato Prefectural Park", name_ja = "徳島県立佐那河内いきものふれあいの里" }
+JP-2033 = { name_en = "Takamaruyama Sennennomori Prefectural Park", name_ja = "高丸山千年の森" }
+JP-2034 = { name_en = "Kuramoto Prefectural Park", name_ja = "蔵本公園" }
+JP-2035 = { name_en = "Shikoku Saburo No Sato Prefectural Park", name_ja = "四国三郎の郷(徳島県立美馬野外交流" }
+JP-2036 = { name_en = "Tokushima Prefectural Dejima Wild Bird Garden Prefectural Park", name_ja = "徳島県立出島野鳥園" }
+JP-2037 = { name_en = "Shinmachigawa Prefectural Park", name_ja = "新町川公園" }
+JP-2038 = { name_en = "Imperial Palace Outer Garden National Government Park", name_ja = "皇居外苑" }
+JP-2039 = { name_en = "Kyoto Gyoen National Government Park", name_ja = "京都御苑" }
+JP-2040 = { name_en = "Shinjuku Gyoen National Government Park", name_ja = "新宿御苑" }
+JP-2041 = { name_en = "Donguri Land Prefectural Park", name_ja = "ドングリランド" }
+JP-2042 = { name_en = "Sanuki Kodomonokuni Prefectural Park", name_ja = "さぬきこどもの国" }
+JP-2043 = { name_en = "Sakaide Kansyo Ryokuchi Prefectural Park", name_ja = "坂出緩衝緑地" }
+JP-2044 = { name_en = "Setoohashi kinenkouen Prefectural Park", name_ja = "瀬戸大橋記念公園" }
+JP-2045 = { name_en = "Kagawayosui Memorial Prefectural Park", name_ja = "香川用水記念公園" }
+JP-2046 = { name_en = "Kozai Nishichiku Kowan Ryokuchi Prefectural Park", name_ja = "香西西地区港湾緑地" }
+JP-2047 = { name_en = "Sanuki Airport Prefectural Park", name_ja = "さぬき空港公園" }
+JP-2048 = { name_en = "Koutougawa Prefectural Park", name_ja = "香東川公園" }
+JP-2049 = { name_en = "Olive Prefectural Park", name_ja = "香川県オリーブ公園" }
+JP-2050 = { name_en = "Dokigawa Prefectural Park", name_ja = "土器川公園" }
+JP-2051 = { name_en = "Ritsurin Garden Prefectural Park", name_ja = "栗林公園" }
+JP-2052 = { name_en = "Ohno Odaiba Prefectural Park", name_ja = "大野お台場公園" }
+JP-2053 = { name_en = "Aomori Prefectural Sport Prefectural Park", name_ja = "青森県総合運動公園" }
+JP-2054 = { name_en = "Iwate Prefectural Sports Prefectural Park", name_ja = "岩手県営運動公園" }
+JP-2055 = { name_en = "Fureai Ryokuchi Prefectural Park", name_ja = "大館能代空港周辺ふれあい緑地" }
+JP-2056 = { name_en = "Toyama Nature Museum Prefectural Park", name_ja = "県民公園自然博物園" }
+JP-2057 = { name_en = "Yatyou no sono Prefectural Park", name_ja = "県民公園野鳥の園" }
+JP-2058 = { name_en = "Ranjyou no mori Prefectural Park", name_ja = "県民公園頼成の森" }
+JP-2059 = { name_en = "Toyama 21st Century Forest Prefectural Park", name_ja = "富山県21世紀の森" }
+JP-2060 = { name_en = "Arimine Shinrin Bunka Prefectural Park", name_ja = "富山県有峰森林文化公園" }
+JP-2061 = { name_en = "Botanic Gardens of Toyama Prefectural Park", name_ja = "富山県中央植物園" }
+JP-2062 = { name_en = "Kencho Mae Prefectural Park", name_ja = "県庁前公園" }
+JP-2063 = { name_en = "Rinkai Bird Prefectural Park", name_ja = "富山新港臨海野鳥園" }
+JP-2064 = { name_en = "Minami Suiro Ryokuchi Prefectural Park", name_ja = "南水路緑地" }
+JP-2065 = { name_en = "lumberyard Ryokuchi Prefectural Park", name_ja = "第一貯木場緑地広場" }
+JP-2066 = { name_en = "Kaikou monument Ryokuchi Prefectural Park", name_ja = "開港記念碑緑地広場" }
+JP-2067 = { name_en = "Genki no mori Prefectural Park", name_ja = "富山新港元気の森公園" }
+JP-2068 = { name_en = "Ariake Shinsui Seaside Prefectural Park", name_ja = "有明親水海浜公園" }
+JP-2069 = { name_en = "Harumi Greenway Prefectural Park", name_ja = "晴海緑道公園" }
+JP-2070 = { name_en = "Harumi Port Prefectural Park", name_ja = "晴海ふ頭公園" }
+JP-2071 = { name_en = "National Ainu National Government Park", name_ja = "国立民族共生公園" }
+JP-2072 = { name_en = "Marine Park Nezugaseki Prefectural Park", name_ja = "マリンパークねずがせき" }
+JP-2073 = { name_en = "Yamizo Kenmin Recreation Prefectural Park", name_ja = "八溝県民休養公園" }
+JP-2074 = { name_en = "Nerima-joshi Prefectural Park", name_ja = "練馬城址公園" }
+JP-2075 = { name_en = "Umi-no-Mori Prefectural Park", name_ja = "海の森公園" }
+JP-2076 = { name_en = "Kaiwomaru Prefectural Park", name_ja = "海王丸パーク" }
+JP-2077 = { name_en = "Tatsunokuchi Kyuuryou Prefectural Park", name_ja = "辰口丘陵公園" }
+JP-2078 = { name_en = "Jyumoku Prefectural Park", name_ja = "林業試験場樹木公園" }
+JP-2079 = { name_en = "Higashi Prefectural Park", name_ja = "東公園" }
+JP-2080 = { name_en = "Minato Prefectural Park", name_ja = "みなと公園" }
+JP-2081 = { name_en = "Goroujima Prefectural Park", name_ja = "五郎島公園" }
+JP-2082 = { name_en = "Chikaokaryokuchi Prefectural Park", name_ja = "近岡緑地公園" }
+JP-2083 = { name_en = "Minato syou Prefectural Park", name_ja = "みなと小公園" }
+JP-2084 = { name_en = "Biwan Prefectural Park", name_ja = "尾湾公園" }
+JP-2085 = { name_en = "Nanao Marine Prefectural Park", name_ja = "七尾マリンパーク" }
+JP-2086 = { name_en = "Togakushi Forest Botanical Garden Prefectural Park", name_ja = "戸隠森林植物園" }
+JP-2087 = { name_en = "Ikuhisa Prefectural Park", name_ja = "幾久公園" }
+JP-2088 = { name_en = "Fukui Undou Prefectural Park", name_ja = "福井運動公園" }
+JP-2089 = { name_en = "Tamba-no-Mori Prefectural Park", name_ja = "丹波の森公苑" }
+JP-2090 = { name_en = "Maruyamagawa Prefectural Park", name_ja = "円山川公苑" }
+JP-2091 = { name_en = "Kunimi-no-Mori Prefectural Park", name_ja = "国見の森公園" }
+JP-2092 = { name_en = "Shimane Prefecutural Furusato Forest Prefectural Park", name_ja = "島根県立ふるさと森林公園" }
+JP-2093 = { name_en = "Okayama Prefectural Forest", name_ja = "岡山県立森林公園" }
+JP-2094 = { name_en = "Yamaguchi Prefectural Seminar Prefectural Park", name_ja = "山口県セミナーパーク" }
+JP-2095 = { name_en = "Kirarahama Nature Observation Prefectural Park", name_ja = "きらら浜自然観察公園" }
+JP-2096 = { name_en = "Hokigamine Forest Prefectural Park", name_ja = "甫喜ヶ峰森林公園" }
+JP-2097 = { name_en = "Kannourako Kaigan Ryokuchi Prefectural Park", name_ja = "甲浦港海岸緑地公園" }
+JP-2098 = { name_en = "Teiko Kaigan Ryokuchi Prefectural Park", name_ja = "手結港海岸緑地公園" }
+JP-2099 = { name_en = "Hijima Kotsu Prefectural Park", name_ja = "比島交通公園" }
+JP-2100 = { name_en = "Shiouji Kenmin No Mori Prefectural Park", name_ja = "四王寺県民の森" }
+JP-2101 = { name_en = "Yasu Kogen Kinen No Mori Prefectural Park", name_ja = "夜須高原記念の森" }
+JP-2102 = { name_en = "Hadomisaki Kaihin Prefectural Park", name_ja = "波戸岬海浜公園" }
+JP-2103 = { name_en = "Nagasaki Kotsu Prefectural Park", name_ja = "長崎交通公園" }
+JP-2104 = { name_en = "Amami Prefectural Park", name_ja = "奄美パーク" }
+JP-2105 = { name_en = "Aichi Children's World Prefectural Park", name_ja = "愛知こどもの国" }
+JP-2106 = { name_en = "Showa-no-mori Prefectural Park", name_ja = "昭和の森" }
+JP-2107 = { name_en = "Hidakasanmyaku-Erimo-Tokachi National Park", name_ja = "日高山脈襟裳十勝国立公園" }
+JP-2108 = { name_en = "Chikatsu Asuka Fudoki-No-Oka Historical Prefectural Park", name_ja = "近つ飛鳥風土記の丘" }
+JP-2109 = { name_en = "Garden of the Diet Front Park", name_ja = "国会前庭" }
+JP-2110 = { name_en = "The Kochi Prefectural Makino Botanical Garden Prefectural Park", name_ja = "高知県立牧野植物園" }
+JP-2111 = { name_en = "Mikawa Rinkai Ryokuchi Prefectural Park", name_ja = "三河臨海緑地" }
+JP-2112 = { name_en = "Aoya Kamijichi Historical Prefectural Park", name_ja = "青谷かみじち史跡公園" }
+JP-2113 = { name_en = "Kamezaki Kaihin Ryokuchi Prefectural Park", name_ja = "亀崎海浜緑地" }
+JP-2114 = { name_en = "Taketoyo Ryokuchi Prefectural Park", name_ja = "武豊緑地" }
+JP-2115 = { name_en = "Handa Ryokuchi Prefectural Park", name_ja = "半田緑地" }
+JP-2116 = { name_en = "Hekinan Ryokuchi Prefectural Park", name_ja = "碧南緑地" }
+JP-2117 = { name_en = "Takeshima  Futo Ryokuchi Prefectural Park", name_ja = "竹島ふ頭緑地" }
+JP-2118 = { name_en = "Funato Ryokuchi Prefectural Park", name_ja = "船渡緑地" }
+JP-2119 = { name_en = "Gamagori Ryokuchi Prefectural Park", name_ja = "蒲郡緑地" }
+JP-2120 = { name_en = "Jinno West Ryokuchi Prefectural Park", name_ja = "神野西緑地" }
+JP-2121 = { name_en = "Jinno Ryokuchi Prefectural Park", name_ja = "神野緑地" }
+JP-2122 = { name_en = "Fukui Kenkou no Mori Prefectural Park", name_ja = "ふくい健康の森" }
+JP-2123 = { name_en = "Ontakesan Quasi-National Park", name_ja = "御嶽山国定公園" }
+JP-2124 = { name_en = "Kojimako Fureai Yacho Shinsui Prefectural Park", name_ja = "児島湖ふれあい野鳥親水公園" }
+JP-2125 = { name_en = "Shizen Kankyo Taiken Prefectural Park", name_ja = "自然環境体験公園" }
+JP-2126 = { name_en = "Yaguinoiwa Prefectural Park", name_ja = "矢喰の岩公園" }
+JP-2127 = { name_en = "Koshigaya Prefectural Park", name_ja = "越谷公園（たかもとヘルスパーク）" }
+JP-2128 = { name_en = "21st Century Prefectural Forest", name_ja = "県立21世紀の森" }
+JP-2129 = { name_en = "Hiroshima Minato Prefectural Park", name_ja = "広島みなと公園" }
+JP-2130 = { name_en = "Ujina Pier Prefectural Park", name_ja = "宇品波止場公園" }
+JP-2131 = { name_en = "Ujina Chuo Prefectural Park", name_ja = "宇品中央臨海公園" }
+JP-2132 = { name_en = "Kanon Marina Prefectural Park", name_ja = "観音マリーナ海浜公園" }
+JP-2133 = { name_en = "Yabase Kihan Island Prefectural Park", name_ja = "矢橋帰帆島公園" }
+JP-2134 = { name_en = "Omi Fudoki no Oka Historical Prefectural Park", name_ja = "近江風土記の丘" }
+JP-2135 = { name_en = "Water Front Prefectural Park", name_ja = "ウォーターフロントパーク" }
+JP-2136 = { name_en = "Kenmin no Mori Prefectural Park", name_ja = "県民の森" }
+JP-2137 = { name_en = "Uenohara Jomon no Mori Historical Prefectural Park", name_ja = "上野原縄文の森" }
+JP-2138 = { name_en = "Fujinokuni Tagonoura Port Prefectural Park", name_ja = "ふじのくに田子の浦みなと公園" }
+JP-2139 = { name_en = "Suzukawa Seaside Sports Prefectural Park", name_ja = "鈴川海浜スポーツ公園" }
+JP-2140 = { name_en = "Akogiura Seaside Prefectural Park", name_ja = "阿漕浦海浜公園" }

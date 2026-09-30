@@ -2,5 +2,27 @@
 name = "qso-tools"
 version = "0.1.0"
 edition = "2024"
+license = "MIT OR Apache-2.0"
+authors = ["Yū KOBAYASHI <kb10uy@kb10uy.org>"]
 
 [dependencies]
+adif-reader = { git = "https://github.com/kb10uy/adif-reader", version = "0.1.1" }
+anyhow = "1.0.104"
+callfind = { git = "https://github.com/kb10uy/callfind", version = "0.1.0" }
+clap = { version = "4.6.7", features = ["derive"] }
+compact_str = "0.10.0"
+dialoguer = "0.12.0"
+etcetera = "0.11.0"
+mlua = { version = "0.12.1", features = ["vendored", "lua54", "send"] }
+regex = "1.13.1"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+thiserror = "2.0.21"
+time = { version = "0.3.55", features = ["local-offset", "formatting", "parsing", "macros"] }
+toml = "1.1.6"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+[profile.release]
+lto = true
+strip = true

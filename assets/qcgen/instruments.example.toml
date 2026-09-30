@@ -1,0 +1,19 @@
+[ic705-ivdp]
+rig = "Icom IC-705"
+antenna = "Inverted-V Dipole"
+default_power = 10
+
+[ic705-rh770]
+rig = "Icom IC-705"
+antenna = "Diamond RH770"
+default_power = 10
+
+[ic705-rhm12]
+rig = "Icom IC-705"
+antenna = "Diamond RHM12"
+default_power = 10
+
+[ftdx10-ivdp]
+rig = "Yaesu FTDX10(M)"
+antenna = "Inverted-V Dipole"
+default_power = 50

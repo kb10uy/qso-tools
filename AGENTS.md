@@ -1,18 +1,28 @@
 # AGENTS.md of QSO Tools
 
 ## Overview
-TBW
+
+QSO Tools is a single Rust binary (`qso-tools`) that bundles tools working on ADIF.
+Each tool is a clap subcommand. Tools _do not_ access Wavelog or other network services;
+fetching QSOs from Wavelog belongs to wavelog-tools.
+
+- `qcgen`: generates JSON data for QSL cards from ADIF (local file or stdin) through a Lua script
 
 ## Project Layout
 
 - `src/main.rs`: entry point, dispatches subcommands
-- `src/cli.rs`: top-level clap definitions (`Cli`, `Command`) and shared arguments (`QsoQueryArgs`)
+- `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
+- `src/config.rs`: `config.toml` shared by all tools (operators)
+- `src/qso.rs`, `src/qso/`: common QSO data extracted from ADIF records
+- `src/schope.rs`, `src/schope/`: Lua scripting engine and Lua-facing data types
+- `src/<tool>.rs`, `src/<tool>/`: implementation of each subcommand (e.g. `qcgen`)
 - `assets/`: example files, Lua scripts and Lua type definitions
 
-TBW
-
 ### Adding a Tool
-TBW
+
+1. Create `src/<tool>.rs` exposing `Arguments` (`clap::Args`) and `run(args, &Config)`
+2. Add a variant to `Command` in `src/cli.rs` and dispatch it in `src/main.rs`
+3. Read ADIF from a file or stdin; put reference data in TOML files next to `config.toml`
 
 ## Commands
 
@@ -29,7 +39,6 @@ TBW
 
 - Use `modname.rs` with `modname/` for modules that have submodules; _do not_ use `modname/mod.rs`
 - Run `cargo fmt` and keep `cargo clippy` free of warnings
-- Keep Wavelog API types and requests inside `src/wavelog/`
 
 ### Text Files
 
