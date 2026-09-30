@@ -35,6 +35,11 @@ pub struct Arguments {
     /// It overrides default instrument's value.
     #[arg(short = 'P', long)]
     pub power: Option<f64>,
+
+    /// Sort QSOs in the order JARL QSL bureau asks members to bundle cards.
+    /// cty.dat next to config file is used to group foreign cards by DXCC entity.
+    #[arg(short = 'B', long)]
+    pub bureau_order: bool,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default, ValueEnum)]

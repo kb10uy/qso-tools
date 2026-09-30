@@ -30,7 +30,9 @@ use crate::{
         source::read_document,
     },
     core::{
+        bureau::BureauOrder,
         config::{Config, OperatorConfig, read_items_from_tomls},
+        cty::{CTY_FILENAME, load_cty},
         jcx::{County, JAPAN_DXCC, Jcx, JcxCode},
         qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
         schope::engine::{initialize_lua, lua_to_json},
@@ -95,6 +97,9 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
 
         let qsl_status = QslStatus::new(record)?;
         entries.push(build_entry(record, qsl_status, &context)?);
+    }
+    if args.bureau_order {
+        entries = sort_in_bureau_order(document.records(), entries, config)?;
     }
     info!("processing {} QSOs", entries.len());
 
@@ -167,6 +172,30 @@ fn build_entry(
             sent_via: compact_field(record, "QSL_SENT_VIA"),
         },
     })
+}
+
+/// Sorts entries in JARL QSL bureau order by `CALL` or `QSL_VIA` of corresponding records.
+fn sort_in_bureau_order(
+    records: &[AdifRecord],
+    entries: Vec<QslCardEntry>,
+    config: &Config,
+) -> Result<Vec<QslCardEntry>> {
+    let cty = load_cty(config)?;
+    if cty.is_none() {
+        warn!("{CTY_FILENAME} not found; foreign cards are grouped by callsign prefix");
+    }
+
+    let mut keyed: Vec<_> = records
+        .iter()
+        .map(|r| {
+            let call = get_optional_field(r, "CALL").unwrap_or_default();
+            let via = get_optional_field(r, "QSL_VIA");
+            BureauOrder::new(call, via, cty.as_ref())
+        })
+        .zip(entries)
+        .collect();
+    keyed.sort_by(|(a, _), (b, _)| a.cmp(b));
+    Ok(keyed.into_iter().map(|(_, e)| e).collect())
 }
 
 /// Checks whether the power value is valid; zero is treated as missing.

@@ -15,6 +15,7 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
 - `src/core.rs`, `src/core/`: functionality shared by tools
+    - `bureau.rs`: JARL QSL bureau order of cards
     - `config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
     - `cty.rs`: AD1C `cty.dat` loader for callsign resolution through callfind
     - `jcx.rs`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`
