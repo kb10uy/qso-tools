@@ -7,7 +7,7 @@ use std::{
 
 use anyhow::{Context, Result};
 use etcetera::{BaseStrategy, choose_base_strategy};
-use serde::Deserialize;
+use serde::{Deserialize, de::DeserializeOwned};
 
 const APP_NAME: &str = "qso-tools";
 const CONFIG_FILENAME: &str = "config.toml";
@@ -61,4 +61,20 @@ impl Config {
         let path = self.path.parent()?.join(filename);
         path.is_file().then_some(path)
     }
+}
+
+pub fn read_items_from_tomls<T: DeserializeOwned>(
+    files: impl IntoIterator<Item = impl AsRef<Path>>,
+) -> Result<HashMap<String, T>> {
+    let mut items = HashMap::new();
+
+    for file in files {
+        let file = file.as_ref();
+        let toml =
+            read_to_string(file).with_context(|| format!("failed to read {}", file.display()))?;
+        let file_items: HashMap<_, T> =
+            toml::from_str(&toml).with_context(|| format!("failed to parse {}", file.display()))?;
+        items.extend(file_items);
+    }
+    Ok(items)
 }

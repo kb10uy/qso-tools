@@ -1,5 +1,6 @@
 mod cli;
 mod config;
+mod jcx;
 mod qcgen;
 mod qso;
 mod schope;

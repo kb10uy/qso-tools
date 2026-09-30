@@ -21,13 +21,14 @@ use time::UtcOffset;
 use tracing::{Level, info, span, warn};
 
 use crate::{
-    config::{Config, OperatorConfig},
+    config::{Config, OperatorConfig, read_items_from_tomls},
+    jcx::{Jcx, JcxCode},
     qcgen::{
         card::{
             QslCardEntry, QslCounty, QslInstrument, QslLocation, QslOperator, QslPark,
             QslReferences, QslRouting, QslState, QslStation,
         },
-        data::{County, Instrument, Park, Town, read_items_from_tomls},
+        data::{Instrument, Park},
         source::read_document,
     },
     qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
@@ -38,8 +39,6 @@ pub use cli::Arguments;
 
 const INSTRUMENTS_FILENAME: &str = "instruments.toml";
 const PARKS_FILENAME: &str = "parks.toml";
-const COUNTIES_FILENAME: &str = "japan-jcx.toml";
-const HAMLOG_TOWNS_FILENAME: &str = "japan-jcx-town.toml";
 const SUBDIVISIONS_FILENAME: &str = "subdivisions.toml";
 
 static RE_EXTRA_TAG: LazyLock<Regex> =
@@ -48,8 +47,7 @@ static RE_EXTRA_TAG: LazyLock<Regex> =
 struct EntryContext<'a> {
     instruments: HashMap<String, Instrument>,
     parks: HashMap<String, Park>,
-    counties: HashMap<String, County>,
-    hamlog_towns: HashMap<String, HashMap<String, Town>>,
+    jcx: Jcx,
     operators: &'a HashMap<String, OperatorConfig>,
     default_instrument: Option<&'a str>,
     default_power: Option<f64>,
@@ -81,16 +79,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
             .into_iter()
             .map(|(k, v)| (k.to_ascii_uppercase(), v))
             .collect(),
-        counties: read_items_from_tomls::<County>(config.sibling_file(COUNTIES_FILENAME))?
-            .into_iter()
-            .map(|(k, v)| (k.to_ascii_uppercase(), v))
-            .collect(),
-        hamlog_towns: read_items_from_tomls::<HashMap<String, Town>>(
-            config.sibling_file(HAMLOG_TOWNS_FILENAME),
-        )?
-        .into_iter()
-        .map(|(k, v)| (k.to_ascii_uppercase(), v))
-        .collect(),
+        jcx: Jcx::load(config)?,
         operators: &config.operators,
         default_instrument: args.instrument.as_deref(),
         default_power: args.power,
@@ -207,8 +196,7 @@ fn build_station(record: &AdifRecord, context: &EntryContext) -> QslStation {
         location: QslLocation {
             grid,
             city: compact_field(record, "MY_CITY"),
-            county: get_optional_field(record, "MY_CNTY")
-                .map(|c| build_county(c, &context.counties, &context.hamlog_towns)),
+            county: get_optional_field(record, "MY_CNTY").map(|c| build_county(c, &context.jcx)),
             state,
             country: compact_field(record, "MY_COUNTRY"),
         },
@@ -243,37 +231,18 @@ fn read_subdivisions(file: Option<PathBuf>) -> Result<HashMap<u32, HashMap<Strin
 }
 
 /// Resolves JCC/JCG code (with optional HAMLOG town suffix like `15006C`) into its names.
-fn build_county(
-    code: &str,
-    counties: &HashMap<String, County>,
-    hamlog_towns: &HashMap<String, HashMap<String, Town>>,
-) -> QslCounty {
-    let code = code.trim().to_ascii_uppercase();
-    let (county, town) = match counties.get(&code) {
-        Some(county) => (Some(county), None),
-        None => {
-            let split = code
-                .char_indices()
-                .last()
-                .filter(|(_, c)| c.is_ascii_alphabetic())
-                .map(|(i, _)| code.split_at(i));
-            match split {
-                Some((base, suffix)) => match counties.get(base) {
-                    Some(county) => {
-                        let town = hamlog_towns.get(base).and_then(|t| t.get(suffix));
-                        if town.is_none() {
-                            warn!("unknown HAMLOG town: {code}");
-                        }
-                        (Some(county), town)
-                    }
-                    None => (None, None),
-                },
-                None => (None, None),
-            }
-        }
+fn build_county(code: &str, jcx: &Jcx) -> QslCounty {
+    let (county, town, has_town) = match code.parse::<JcxCode>() {
+        Ok(c) => (jcx.county(&c), jcx.town(&c), c.town().is_some()),
+        Err(_) => (None, None, false),
     };
-    if county.is_none() && !counties.is_empty() {
-        warn!("unknown county: {code}");
+    let code = code.trim().to_ascii_uppercase();
+    if county.is_none() {
+        if !jcx.is_empty() {
+            warn!("unknown county: {code}");
+        }
+    } else if has_town && town.is_none() {
+        warn!("unknown HAMLOG town: {code}");
     }
 
     QslCounty {
@@ -288,7 +257,8 @@ fn build_county(
             .and_then(|c| c.name_en.as_deref())
             .filter(|n| !n.is_empty())
             .map(|n| n.to_compact_string()),
-        town_ja: town
+        town_ja: county
+            .and(town)
             .and_then(|t| t.name_ja.as_deref())
             .filter(|n| !n.is_empty())
             .map(|n| n.to_compact_string()),
@@ -359,6 +329,7 @@ fn run_script(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::jcx::{County, Town};
 
     #[test]
     fn builds_parks() {
@@ -392,36 +363,38 @@ mod tests {
 
     #[test]
     fn builds_county() {
-        let counties = HashMap::from([
-            (
-                "1001".to_string(),
-                County {
-                    kind: Some("city".to_string()),
-                    name_ja: Some("市一".to_string()),
-                    name_en: None,
-                },
-            ),
-            (
-                "15006".to_string(),
-                County {
-                    kind: Some("gun".to_string()),
-                    name_ja: Some("郡一".to_string()),
-                    name_en: None,
-                },
-            ),
-        ]);
-        let hamlog_towns = HashMap::from([(
-            "15006".to_string(),
+        let jcx = Jcx::new(
+            HashMap::from([
+                (
+                    "1001".to_string(),
+                    County {
+                        kind: Some("city".to_string()),
+                        name_ja: Some("市一".to_string()),
+                        name_en: None,
+                    },
+                ),
+                (
+                    "15006".to_string(),
+                    County {
+                        kind: Some("gun".to_string()),
+                        name_ja: Some("郡一".to_string()),
+                        name_en: None,
+                    },
+                ),
+            ]),
             HashMap::from([(
-                "C".to_string(),
-                Town {
-                    name_ja: Some("町一".to_string()),
-                },
+                "15006".to_string(),
+                HashMap::from([(
+                    "C".to_string(),
+                    Town {
+                        name_ja: Some("町一".to_string()),
+                    },
+                )]),
             )]),
-        )]);
+        );
 
         assert_eq!(
-            build_county("1001", &counties, &hamlog_towns),
+            build_county("1001", &jcx),
             QslCounty {
                 code: "1001".into(),
                 kind: Some("city".into()),
@@ -431,7 +404,7 @@ mod tests {
             }
         );
         assert_eq!(
-            build_county("15006c", &counties, &hamlog_towns),
+            build_county("15006c", &jcx),
             QslCounty {
                 code: "15006C".into(),
                 kind: Some("gun".into()),
@@ -441,7 +414,7 @@ mod tests {
             }
         );
         assert_eq!(
-            build_county("9999", &counties, &hamlog_towns),
+            build_county("9999", &jcx),
             QslCounty {
                 code: "9999".into(),
                 kind: None,

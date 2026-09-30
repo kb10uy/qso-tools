@@ -12,7 +12,8 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
-- `src/config.rs`: `config.toml` shared by all tools (operators)
+- `src/config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
+- `src/jcx.rs`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`
 - `src/qso.rs`, `src/qso/`: common QSO data extracted from ADIF records
 - `src/schope.rs`, `src/schope/`: Lua scripting engine and Lua-facing data types
 - `src/<tool>.rs`, `src/<tool>/`: implementation of each subcommand (e.g. `qcgen`)
