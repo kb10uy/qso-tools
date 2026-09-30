@@ -9,12 +9,14 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 - `qcgen`: generates JSON data for QSL cards from ADIF (local file or stdin) through a Lua script
 - `jcx`: shows full names of JCC/JCG codes (with optional HAMLOG town suffix)
 - `callsign`: shows DXCC entities of callsigns from `cty.dat`
+- `json`: converts ADIF (local file or stdin) into JSON
 
 ## Project Layout
 
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
 - `src/core.rs`, `src/core/`: functionality shared by tools
+    - `adif.rs`: ADIF document reader from a file or stdin
     - `bureau.rs`: JARL QSL bureau order of cards
     - `config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
     - `cty.rs`: AD1C `cty.dat` loader for callsign resolution through callfind
@@ -22,14 +24,14 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
     - `qso.rs`, `qso/`: common QSO data extracted from ADIF records
     - `schope.rs`, `schope/`: Lua scripting engine and Lua-facing data types
 - `src/commands.rs`, `src/commands/`: subcommands
-    - `<tool>.rs`, `<tool>/`: implementation of each subcommand (e.g. `qcgen`, `jcx`, `callsign`)
+    - `<tool>.rs`, `<tool>/`: implementation of each subcommand (e.g. `qcgen`, `jcx`, `callsign`, `json`)
 - `assets/`: example files, Lua scripts and Lua type definitions
 
 ### Adding a Tool
 
 1. Create `src/commands/<tool>.rs` exposing `Arguments` (`clap::Args`) and `run(args, &Config)`, and declare it in `src/commands.rs`
 2. Add a variant to `Command` in `src/cli.rs` and dispatch it in `src/main.rs`
-3. Read ADIF from a file or stdin; put reference data in TOML files next to `config.toml`
+3. Read ADIF from a file or stdin with `core::adif::read_document`; put reference data in TOML files next to `config.toml`
 
 ## Commands
 

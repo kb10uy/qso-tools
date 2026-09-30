@@ -6,6 +6,7 @@ use std::{
 
 use adif_reader::{LengthMode, document::AdifDocument, read_adi, read_adx};
 use anyhow::{Context, Result, bail};
+use clap::ValueEnum;
 
 /// Reads ADIF document from the file (ADX if `.adx`, otherwise ADI) or ADI from stdin.
 pub fn read_document(path: Option<&Path>, length_mode: LengthMode) -> Result<AdifDocument> {
@@ -29,4 +30,28 @@ pub fn read_document(path: Option<&Path>, length_mode: LengthMode) -> Result<Adi
         read_adi(&text, length_mode)
     }
     .with_context(|| format!("failed to parse {}", path.display()))
+}
+
+/// Length count mode of ADI data for lenient files.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, ValueEnum)]
+pub enum LenientMode {
+    /// Count by bytes.
+    #[default]
+    Bytes,
+
+    /// Count by codepoints.
+    Codepoints,
+
+    /// Count by grapheme clusters.
+    Graphemes,
+}
+
+impl From<LenientMode> for LengthMode {
+    fn from(value: LenientMode) -> Self {
+        match value {
+            LenientMode::Bytes => LengthMode::Bytes,
+            LenientMode::Codepoints => LengthMode::Codepoints,
+            LenientMode::Graphemes => LengthMode::Graphemes,
+        }
+    }
 }

@@ -1,7 +1,8 @@
 use std::{convert::Infallible, path::PathBuf, str::FromStr};
 
-use adif_reader::LengthMode;
-use clap::{Args, ValueEnum};
+use clap::Args;
+
+use crate::core::adif::LenientMode;
 
 /// Generates JSON data for QSL cards.
 #[derive(Debug, Clone, Args)]
@@ -40,29 +41,6 @@ pub struct Arguments {
     /// cty.dat next to config file is used to group foreign cards by DXCC entity.
     #[arg(short = 'B', long)]
     pub bureau_order: bool,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, ValueEnum)]
-pub enum LenientMode {
-    /// Count by bytes.
-    #[default]
-    Bytes,
-
-    /// Count by codepoints.
-    Codepoints,
-
-    /// Count by grapheme clusters.
-    Graphemes,
-}
-
-impl From<LenientMode> for LengthMode {
-    fn from(value: LenientMode) -> Self {
-        match value {
-            LenientMode::Bytes => LengthMode::Bytes,
-            LenientMode::Codepoints => LengthMode::Codepoints,
-            LenientMode::Graphemes => LengthMode::Graphemes,
-        }
-    }
 }
 
 /// Script argument given as `KEY` or `KEY=VALUE`; a bare `KEY` has an empty value.

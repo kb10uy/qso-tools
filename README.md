@@ -65,3 +65,16 @@ qso-tools callsign JL1HIS W1AW/KH6
 - Portable notation like `W1AW/KH6` or `JA1XYZ/P` is resolved by the operating location
 - `--waedc` keeps WAEDC-only entities such as Sicily (`IT9`) instead of folding them into DXCC entities
 - Exits with an error after printing the others if any callsign is unknown
+
+## json
+
+Converts ADIF into JSON.
+
+```sh
+wavelog-tools export --qso-since 2026-01-01 | qso-tools json -l codepoints -p
+```
+
+- QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin, with the same `-l` option as `qcgen`
+- Output is an object with `preamble` (string), `header` (object of header fields) and `records` (array of objects of record fields)
+- Field names are uppercased and all values are strings as written in ADIF
+- `-p/--pretty` pretty-prints JSON

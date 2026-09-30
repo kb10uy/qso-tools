@@ -1,7 +1,6 @@
 mod card;
 mod cli;
 mod data;
-mod source;
 
 use std::{
     collections::HashMap,
@@ -27,9 +26,9 @@ use crate::{
             QslOperator, QslPark, QslReferences, QslRouting, QslState, QslStation,
         },
         data::{Instrument, Park},
-        source::read_document,
     },
     core::{
+        adif::read_document,
         bureau::BureauOrder,
         config::{Config, OperatorConfig, read_items_from_tomls},
         cty::{CTY_FILENAME, load_cty},
