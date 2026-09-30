@@ -1,0 +1,1734 @@
+# 01 北海道 (Hokkaido)
+["01001"]
+B = { name_ja = "鶴居村" }
+
+["01002"]
+A = { name_ja = "足寄町" }
+B = { name_ja = "陸別町" }
+
+["01003"]
+A = { name_ja = "厚岸町" }
+B = { name_ja = "浜中町" }
+
+["01005"]
+B = { name_ja = "津別町" }
+D = { name_ja = "美幌町" }
+E = { name_ja = "大空町" }
+
+["01006"]
+A = { name_ja = "京極町" }
+B = { name_ja = "倶知安町" }
+C = { name_ja = "真狩村" }
+D = { name_ja = "留寿都村" }
+E = { name_ja = "喜茂別町" }
+F = { name_ja = "ニセコ町" }
+
+["01007"]
+C = { name_ja = "豊浦町" }
+D = { name_ja = "洞爺湖町" }
+
+["01008"]
+B = { name_ja = "新篠津村" }
+C = { name_ja = "当別町" }
+
+["01009"]
+A = { name_ja = "蘭越町" }
+
+["01010"]
+A = { name_ja = "岩内町" }
+B = { name_ja = "共和町" }
+
+["01011"]
+B = { name_ja = "壮瞥町" }
+
+["01013"]
+A = { name_ja = "浦河町" }
+
+["01014"]
+A = { name_ja = "秩父別町" }
+B = { name_ja = "妹背牛町" }
+C = { name_ja = "雨竜町" }
+D = { name_ja = "沼田町" }
+E = { name_ja = "北竜町" }
+
+["01015"]
+B = { name_ja = "枝幸町" }
+C = { name_ja = "中頓別町" }
+D = { name_ja = "浜頓別町" }
+
+["01016"]
+A = { name_ja = "奥尻町" }
+
+["01018"]
+A = { name_ja = "更別村" }
+B = { name_ja = "中札内村" }
+C = { name_ja = "芽室町" }
+
+["01019"]
+A = { name_ja = "音更町" }
+B = { name_ja = "上士幌町" }
+C = { name_ja = "鹿追町" }
+D = { name_ja = "士幌町" }
+
+["01020"]
+A = { name_ja = "浦臼町" }
+B = { name_ja = "新十津川町" }
+C = { name_ja = "月形町" }
+
+["01021"]
+B = { name_ja = "木古内町" }
+C = { name_ja = "知内町" }
+
+["01022"]
+A = { name_ja = "清水町" }
+B = { name_ja = "新得町" }
+
+["01023"]
+B = { name_ja = "上川町" }
+C = { name_ja = "剣淵町" }
+D = { name_ja = "鷹栖町" }
+E = { name_ja = "当麻町" }
+F = { name_ja = "比布町" }
+G = { name_ja = "愛別町" }
+H = { name_ja = "下川町" }
+I = { name_ja = "美瑛町" }
+J = { name_ja = "東神楽町" }
+K = { name_ja = "東川町" }
+M = { name_ja = "和寒町" }
+
+["01024"]
+E = { name_ja = "七飯町" }
+
+["01025"]
+B = { name_ja = "鹿部町" }
+D = { name_ja = "森町" }
+
+["01026"]
+A = { name_ja = "標茶町" }
+B = { name_ja = "弟子屈町" }
+
+["01027"]
+A = { name_ja = "釧路町" }
+
+["01028"]
+B = { name_ja = "せたな町" }
+
+["01030"]
+A = { name_ja = "様似町" }
+
+["01031"]
+A = { name_ja = "日高町" }
+B = { name_ja = "平取町" }
+
+["01033"]
+A = { name_ja = "標津町" }
+B = { name_ja = "中標津町" }
+
+["01034"]
+A = { name_ja = "島牧村" }
+
+["01035"]
+A = { name_ja = "積丹町" }
+
+["01036"]
+A = { name_ja = "清里町" }
+B = { name_ja = "小清水町" }
+C = { name_ja = "斜里町" }
+
+["01037"]
+A = { name_ja = "白老町" }
+
+["01038"]
+B = { name_ja = "白糠町" }
+
+["01039"]
+A = { name_ja = "黒松内町" }
+B = { name_ja = "寿都町" }
+
+["01040"]
+A = { name_ja = "今金町" }
+
+["01041"]
+A = { name_ja = "猿払村" }
+
+["01042"]
+A = { name_ja = "上砂川町" }
+B = { name_ja = "奈井江町" }
+C = { name_ja = "南幌町" }
+
+["01043"]
+A = { name_ja = "中富良野町" }
+B = { name_ja = "上富良野町" }
+C = { name_ja = "南富良野町" }
+
+["01045"]
+A = { name_ja = "遠別町" }
+B = { name_ja = "天塩町" }
+
+["01046"]
+A = { name_ja = "豊富町" }
+B = { name_ja = "幌延町" }
+
+["01047"]
+A = { name_ja = "浦幌町" }
+
+["01048"]
+A = { name_ja = "訓子府町" }
+B = { name_ja = "置戸町" }
+C = { name_ja = "佐呂間町" }
+
+["01049"]
+A = { name_ja = "初山別村" }
+B = { name_ja = "苫前町" }
+C = { name_ja = "羽幌町" }
+
+["01050"]
+A = { name_ja = "音威子府村" }
+B = { name_ja = "中川町" }
+C = { name_ja = "美深町" }
+
+["01051"]
+A = { name_ja = "池田町" }
+B = { name_ja = "豊頃町" }
+C = { name_ja = "本別町" }
+D = { name_ja = "幕別町" }
+
+["01052"]
+A = { name_ja = "新冠町" }
+
+["01053"]
+A = { name_ja = "乙部町" }
+
+["01055"]
+A = { name_ja = "別海町" }
+
+["01059"]
+A = { name_ja = "江差町" }
+B = { name_ja = "厚沢部町" }
+C = { name_ja = "上ノ国町" }
+
+["01060"]
+A = { name_ja = "大樹町" }
+C = { name_ja = "広尾町" }
+
+["01062"]
+A = { name_ja = "泊村" }
+B = { name_ja = "神恵内村" }
+
+["01063"]
+A = { name_ja = "古平町" }
+
+["01064"]
+A = { name_ja = "えりも町" }
+
+["01066"]
+A = { name_ja = "増毛町" }
+
+["01067"]
+A = { name_ja = "福島町" }
+B = { name_ja = "松前町" }
+
+["01069"]
+A = { name_ja = "羅臼町" }
+
+["01070"]
+D = { name_ja = "遠軽町" }
+E = { name_ja = "雄武町" }
+F = { name_ja = "興部町" }
+H = { name_ja = "滝上町" }
+I = { name_ja = "西興部村" }
+J = { name_ja = "湧別町" }
+
+["01071"]
+A = { name_ja = "長万部町" }
+
+["01072"]
+A = { name_ja = "栗山町" }
+B = { name_ja = "長沼町" }
+C = { name_ja = "由仁町" }
+
+["01073"]
+C = { name_ja = "厚真町" }
+F = { name_ja = "安平町" }
+G = { name_ja = "むかわ町" }
+
+["01074"]
+A = { name_ja = "占冠村" }
+
+["01075"]
+A = { name_ja = "赤井川村" }
+B = { name_ja = "仁木町" }
+C = { name_ja = "余市町" }
+
+["01076"]
+A = { name_ja = "利尻富士町" }
+B = { name_ja = "利尻町" }
+
+["01077"]
+A = { name_ja = "小平町" }
+
+["01078"]
+A = { name_ja = "礼文町" }
+
+["01079"]
+A = { name_ja = "八雲町" }
+
+["01080"]
+A = { name_ja = "新ひだか町" }
+
+["01081"]
+A = { name_ja = "幌加内町" }
+
+# 02 青森県 (Aomori)
+["02001"]
+B = { name_ja = "七戸町" }
+C = { name_ja = "東北町" }
+D = { name_ja = "野辺地町" }
+E = { name_ja = "横浜町" }
+J = { name_ja = "六戸町" }
+K = { name_ja = "六ヶ所村" }
+L = { name_ja = "おいらせ町" }
+
+["02002"]
+B = { name_ja = "鶴田町" }
+D = { name_ja = "板柳町" }
+G = { name_ja = "中泊町" }
+
+["02003"]
+B = { name_ja = "階上町" }
+D = { name_ja = "五戸町" }
+E = { name_ja = "三戸町" }
+F = { name_ja = "新郷村" }
+G = { name_ja = "田子町" }
+J = { name_ja = "南部町" }
+
+["02004"]
+B = { name_ja = "大間町" }
+C = { name_ja = "風間浦村" }
+D = { name_ja = "佐井村" }
+G = { name_ja = "東通村" }
+
+["02005"]
+B = { name_ja = "西目屋村" }
+
+["02006"]
+E = { name_ja = "鰺ヶ沢町" }
+H = { name_ja = "深浦町" }
+
+["02007"]
+D = { name_ja = "蓬田村" }
+E = { name_ja = "今別町" }
+F = { name_ja = "平内町" }
+G = { name_ja = "外ヶ浜町" }
+
+["02008"]
+B = { name_ja = "田舎館村" }
+F = { name_ja = "藤崎町" }
+G = { name_ja = "大鰐町" }
+
+# 03 岩手県 (Iwate)
+["03001"]
+A = { name_ja = "金ヶ崎町" }
+
+["03002"]
+B = { name_ja = "岩手町" }
+C = { name_ja = "葛巻町" }
+D = { name_ja = "雫石町" }
+
+["03004"]
+A = { name_ja = "大槌町" }
+
+["03005"]
+C = { name_ja = "野田村" }
+D = { name_ja = "軽米町" }
+E = { name_ja = "九戸村" }
+G = { name_ja = "洋野町" }
+
+["03006"]
+B = { name_ja = "住田町" }
+
+["03007"]
+A = { name_ja = "田野畑村" }
+D = { name_ja = "普代村" }
+E = { name_ja = "岩泉町" }
+G = { name_ja = "山田町" }
+
+["03008"]
+A = { name_ja = "矢巾町" }
+B = { name_ja = "紫波町" }
+
+["03009"]
+A = { name_ja = "平泉町" }
+
+["03010"]
+C = { name_ja = "一戸町" }
+
+["03013"]
+F = { name_ja = "西和賀町" }
+
+# 04 秋田県 (Akita)
+["04001"]
+A = { name_ja = "東成瀬村" }
+C = { name_ja = "羽後町" }
+
+["04002"]
+A = { name_ja = "小坂町" }
+
+["04004"]
+A = { name_ja = "上小阿仁村" }
+
+["04005"]
+N = { name_ja = "美郷町" }
+
+["04007"]
+B = { name_ja = "井川町" }
+D = { name_ja = "八郎潟町" }
+E = { name_ja = "大潟村" }
+F = { name_ja = "五城目町" }
+
+["04008"]
+C = { name_ja = "藤里町" }
+H = { name_ja = "三種町" }
+I = { name_ja = "八峰町" }
+
+# 05 山形県 (Yamagata)
+["05001"]
+D = { name_ja = "遊佐町" }
+
+["05002"]
+A = { name_ja = "大石田町" }
+
+["05003"]
+A = { name_ja = "飯豊町" }
+B = { name_ja = "小国町" }
+C = { name_ja = "白鷹町" }
+
+["05005"]
+A = { name_ja = "河北町" }
+B = { name_ja = "朝日町" }
+C = { name_ja = "大江町" }
+D = { name_ja = "西川町" }
+
+["05006"]
+A = { name_ja = "川西町" }
+B = { name_ja = "高畠町" }
+
+["05007"]
+C = { name_ja = "三川町" }
+H = { name_ja = "庄内町" }
+
+["05008"]
+A = { name_ja = "中山町" }
+B = { name_ja = "山辺町" }
+
+["05011"]
+A = { name_ja = "金山町" }
+B = { name_ja = "鮭川村" }
+C = { name_ja = "大蔵村" }
+D = { name_ja = "戸沢村" }
+E = { name_ja = "舟形町" }
+F = { name_ja = "真室川町" }
+G = { name_ja = "最上町" }
+
+# 06 宮城県 (Miyagi)
+["06001"]
+A = { name_ja = "丸森町" }
+
+["06002"]
+A = { name_ja = "女川町" }
+
+["06003"]
+A = { name_ja = "蔵王町" }
+B = { name_ja = "七ヶ宿町" }
+
+["06004"]
+B = { name_ja = "色麻町" }
+E = { name_ja = "加美町" }
+
+["06006"]
+A = { name_ja = "大郷町" }
+B = { name_ja = "大衡村" }
+C = { name_ja = "富谷町", deleted = "2016-10" }
+D = { name_ja = "大和町" }
+
+["06008"]
+A = { name_ja = "大河原町" }
+B = { name_ja = "川崎町" }
+C = { name_ja = "柴田町" }
+D = { name_ja = "村田町" }
+
+["06010"]
+D = { name_ja = "涌谷町" }
+E = { name_ja = "美里町" }
+
+["06013"]
+A = { name_ja = "七ヶ浜町" }
+B = { name_ja = "松島町" }
+C = { name_ja = "利府町" }
+
+["06014"]
+F = { name_ja = "南三陸町" }
+
+["06016"]
+A = { name_ja = "亘理町" }
+B = { name_ja = "山元町" }
+
+# 07 福島県 (Fukushima)
+["07002"]
+D = { name_ja = "大玉村" }
+
+["07003"]
+A = { name_ja = "浅川町" }
+B = { name_ja = "石川町" }
+C = { name_ja = "玉川村" }
+D = { name_ja = "平田村" }
+E = { name_ja = "古殿町" }
+
+["07005"]
+A = { name_ja = "鏡石町" }
+C = { name_ja = "天栄村" }
+
+["07006"]
+D = { name_ja = "金山町" }
+E = { name_ja = "昭和村" }
+F = { name_ja = "三島町" }
+G = { name_ja = "会津美里町" }
+
+["07007"]
+B = { name_ja = "湯川村" }
+C = { name_ja = "会津坂下町" }
+D = { name_ja = "柳津町" }
+
+["07010"]
+B = { name_ja = "飯舘村" }
+D = { name_ja = "新地町" }
+
+["07011"]
+B = { name_ja = "国見町" }
+C = { name_ja = "桑折町" }
+H = { name_ja = "川俣町" }
+
+["07012"]
+E = { name_ja = "小野町" }
+G = { name_ja = "三春町" }
+
+["07013"]
+A = { name_ja = "泉崎村" }
+D = { name_ja = "中島村" }
+E = { name_ja = "西郷村" }
+G = { name_ja = "矢吹町" }
+
+["07014"]
+A = { name_ja = "鮫川村" }
+C = { name_ja = "棚倉町" }
+D = { name_ja = "塙町" }
+E = { name_ja = "矢祭町" }
+
+["07015"]
+A = { name_ja = "大熊町" }
+B = { name_ja = "富岡町" }
+C = { name_ja = "広野町" }
+D = { name_ja = "双葉町" }
+E = { name_ja = "葛尾村" }
+F = { name_ja = "川内村" }
+G = { name_ja = "浪江町" }
+H = { name_ja = "楢葉町" }
+
+["07016"]
+C = { name_ja = "檜枝岐村" }
+E = { name_ja = "下郷町" }
+G = { name_ja = "只見町" }
+H = { name_ja = "南会津町" }
+
+["07017"]
+B = { name_ja = "磐梯町" }
+D = { name_ja = "猪苗代町" }
+E = { name_ja = "北塩原村" }
+G = { name_ja = "西会津町" }
+
+# 08 新潟県 (Niigata)
+["08001"]
+B = { name_ja = "粟島浦村" }
+C = { name_ja = "関川村" }
+
+["08002"]
+C = { name_ja = "刈羽村" }
+
+["08004"]
+H = { name_ja = "聖籠町" }
+
+["08007"]
+C = { name_ja = "出雲崎町" }
+
+["08008"]
+B = { name_ja = "津南町" }
+
+["08011"]
+I = { name_ja = "弥彦村" }
+
+["08013"]
+E = { name_ja = "阿賀町" }
+
+["08015"]
+D = { name_ja = "湯沢町" }
+
+["08016"]
+B = { name_ja = "田上町" }
+
+# 09 長野県 (Nagano)
+["09001"]
+A = { name_ja = "南箕輪村" }
+B = { name_ja = "箕輪町" }
+C = { name_ja = "宮田村" }
+D = { name_ja = "飯島町" }
+F = { name_ja = "辰野町" }
+G = { name_ja = "中川村" }
+
+["09002"]
+A = { name_ja = "小布施町" }
+B = { name_ja = "高山村" }
+
+["09003"]
+A = { name_ja = "小川村" }
+D = { name_ja = "信濃町" }
+J = { name_ja = "飯綱町" }
+
+["09004"]
+A = { name_ja = "上松町" }
+B = { name_ja = "王滝村" }
+C = { name_ja = "大桑村" }
+E = { name_ja = "木祖村" }
+J = { name_ja = "南木曽町" }
+L = { name_ja = "木曽町" }
+
+["09005"]
+A = { name_ja = "池田町" }
+B = { name_ja = "松川村" }
+E = { name_ja = "小谷村" }
+F = { name_ja = "白馬村" }
+
+["09006"]
+B = { name_ja = "軽井沢町" }
+E = { name_ja = "立科町" }
+F = { name_ja = "御代田町" }
+
+["09008"]
+A = { name_ja = "阿智村" }
+B = { name_ja = "売木村" }
+C = { name_ja = "大鹿村" }
+G = { name_ja = "下條村" }
+I = { name_ja = "喬木村" }
+K = { name_ja = "根羽村" }
+L = { name_ja = "平谷村" }
+M = { name_ja = "泰阜村" }
+N = { name_ja = "阿南町" }
+O = { name_ja = "高森町" }
+P = { name_ja = "天龍村" }
+Q = { name_ja = "豊丘村" }
+R = { name_ja = "松川町" }
+
+["09009"]
+A = { name_ja = "木島平村" }
+B = { name_ja = "野沢温泉村" }
+C = { name_ja = "山ノ内町" }
+
+["09010"]
+B = { name_ja = "栄村" }
+
+["09011"]
+A = { name_ja = "下諏訪町" }
+B = { name_ja = "原村" }
+C = { name_ja = "富士見町" }
+
+["09012"]
+A = { name_ja = "青木村" }
+H = { name_ja = "長和町" }
+
+["09014"]
+B = { name_ja = "坂城町" }
+
+["09015"]
+B = { name_ja = "朝日村" }
+C = { name_ja = "麻績村" }
+H = { name_ja = "山形村" }
+I = { name_ja = "生坂村" }
+K = { name_ja = "筑北村" }
+
+["09017"]
+A = { name_ja = "川上村" }
+B = { name_ja = "北相木村" }
+C = { name_ja = "小海町" }
+D = { name_ja = "南相木村" }
+E = { name_ja = "南牧村" }
+I = { name_ja = "佐久穂町" }
+
+# 10 東京都 (Tokyo)
+["10002"]
+C = { name_ja = "日の出町" }
+D = { name_ja = "檜原村" }
+E = { name_ja = "瑞穂町" }
+F = { name_ja = "奥多摩町" }
+
+["10004"]
+A = { name_ja = "大島町" }
+B = { name_ja = "利島村" }
+C = { name_ja = "新島村" }
+D = { name_ja = "神津島村" }
+
+["10005"]
+A = { name_ja = "三宅村" }
+B = { name_ja = "御蔵島村" }
+
+["10006"]
+A = { name_ja = "八丈町" }
+B = { name_ja = "青ヶ島村" }
+
+["10007"]
+A = { name_ja = "小笠原村" }
+
+# 11 神奈川県 (Kanagawa)
+["11001"]
+A = { name_ja = "愛川町" }
+B = { name_ja = "清川村" }
+
+["11002"]
+A = { name_ja = "大井町" }
+B = { name_ja = "開成町" }
+C = { name_ja = "中井町" }
+D = { name_ja = "松田町" }
+E = { name_ja = "山北町" }
+
+["11003"]
+A = { name_ja = "真鶴町" }
+B = { name_ja = "湯河原町" }
+C = { name_ja = "箱根町" }
+
+["11004"]
+A = { name_ja = "寒川町" }
+
+["11006"]
+A = { name_ja = "二宮町" }
+B = { name_ja = "大磯町" }
+
+["11007"]
+A = { name_ja = "葉山町" }
+
+# 12 千葉県 (Chiba)
+["12001"]
+G = { name_ja = "鋸南町" }
+
+["12002"]
+C = { name_ja = "御宿町" }
+D = { name_ja = "大多喜町" }
+
+["12004"]
+C = { name_ja = "栄町" }
+D = { name_ja = "酒々井町" }
+
+["12006"]
+C = { name_ja = "神崎町" }
+F = { name_ja = "東庄町" }
+I = { name_ja = "多古町" }
+
+["12008"]
+A = { name_ja = "九十九里町" }
+C = { name_ja = "芝山町" }
+I = { name_ja = "横芝光町" }
+
+["12011"]
+A = { name_ja = "一宮町" }
+B = { name_ja = "白子町" }
+C = { name_ja = "長生村" }
+D = { name_ja = "長南町" }
+E = { name_ja = "長柄町" }
+F = { name_ja = "睦沢町" }
+
+# 13 埼玉県 (Saitama)
+["13001"]
+B = { name_ja = "越生町" }
+F = { name_ja = "三芳町" }
+G = { name_ja = "毛呂山町" }
+
+["13002"]
+F = { name_ja = "寄居町" }
+
+["13003"]
+A = { name_ja = "伊奈町" }
+
+["13004"]
+D = { name_ja = "杉戸町" }
+E = { name_ja = "松伏町" }
+
+["13006"]
+B = { name_ja = "上里町" }
+C = { name_ja = "美里町" }
+D = { name_ja = "神川町" }
+
+["13007"]
+B = { name_ja = "小鹿野町" }
+C = { name_ja = "長瀞町" }
+D = { name_ja = "東秩父村" }
+E = { name_ja = "横瀬町" }
+I = { name_ja = "皆野町" }
+
+["13008"]
+A = { name_ja = "小川町" }
+B = { name_ja = "川島町" }
+D = { name_ja = "滑川町" }
+E = { name_ja = "鳩山町" }
+F = { name_ja = "吉見町" }
+G = { name_ja = "嵐山町" }
+I = { name_ja = "ときがわ町" }
+
+["13009"]
+C = { name_ja = "宮代町" }
+
+# 14 茨城県 (Ibaraki)
+["14001"]
+E = { name_ja = "阿見町" }
+G = { name_ja = "河内町" }
+I = { name_ja = "美浦村" }
+
+["14003"]
+A = { name_ja = "利根町" }
+
+["14004"]
+D = { name_ja = "大子町" }
+
+["14005"]
+A = { name_ja = "五霞町" }
+B = { name_ja = "境町" }
+
+["14008"]
+A = { name_ja = "東海村" }
+
+["14012"]
+A = { name_ja = "茨城町" }
+C = { name_ja = "大洗町" }
+J = { name_ja = "城里町" }
+
+["14014"]
+C = { name_ja = "八千代町" }
+
+# 15 栃木県 (Tochigi)
+["15004"]
+C = { name_ja = "上三川町" }
+
+["15005"]
+C = { name_ja = "高根沢町" }
+F = { name_ja = "塩谷町" }
+
+["15006"]
+C = { name_ja = "野木町" }
+D = { name_ja = "壬生町" }
+
+["15007"]
+G = { name_ja = "那須町" }
+J = { name_ja = "那珂川町" }
+
+["15008"]
+A = { name_ja = "市貝町" }
+C = { name_ja = "芳賀町" }
+D = { name_ja = "益子町" }
+E = { name_ja = "茂木町" }
+
+# 16 群馬県 (Gunma)
+["16001"]
+B = { name_ja = "草津町" }
+C = { name_ja = "高山村" }
+F = { name_ja = "嬬恋村" }
+G = { name_ja = "長野原町" }
+H = { name_ja = "中之条町" }
+I = { name_ja = "東吾妻町" }
+
+["16003"]
+A = { name_ja = "板倉町" }
+B = { name_ja = "邑楽町" }
+C = { name_ja = "大泉町" }
+D = { name_ja = "明和町" }
+E = { name_ja = "千代田町" }
+
+["16004"]
+A = { name_ja = "甘楽町" }
+B = { name_ja = "下仁田町" }
+C = { name_ja = "南牧村" }
+
+["16005"]
+D = { name_ja = "吉岡町" }
+E = { name_ja = "榛東村" }
+
+["16007"]
+D = { name_ja = "玉村町" }
+
+["16009"]
+F = { name_ja = "上野村" }
+G = { name_ja = "神流町" }
+
+["16010"]
+A = { name_ja = "片品村" }
+B = { name_ja = "川場村" }
+C = { name_ja = "昭和村" }
+I = { name_ja = "みなかみ町" }
+
+# 17 山梨県 (Yamanashi)
+["17002"]
+A = { name_ja = "小菅村" }
+B = { name_ja = "丹波山村" }
+
+["17003"]
+D = { name_ja = "昭和町" }
+
+["17004"]
+F = { name_ja = "市川三郷町" }
+
+["17007"]
+E = { name_ja = "南部町" }
+F = { name_ja = "早川町" }
+G = { name_ja = "身延町" }
+H = { name_ja = "富士川町" }
+
+["17008"]
+C = { name_ja = "忍野村" }
+F = { name_ja = "道志村" }
+G = { name_ja = "鳴沢村" }
+H = { name_ja = "西桂町" }
+I = { name_ja = "山中湖村" }
+J = { name_ja = "富士河口湖町" }
+
+# 18 静岡県 (Shizuoka)
+["18006"]
+B = { name_ja = "西伊豆町" }
+C = { name_ja = "松崎町" }
+D = { name_ja = "河津町" }
+E = { name_ja = "東伊豆町" }
+F = { name_ja = "南伊豆町" }
+
+["18008"]
+B = { name_ja = "森町" }
+
+["18009"]
+A = { name_ja = "清水町" }
+B = { name_ja = "長泉町" }
+C = { name_ja = "小山町" }
+
+["18010"]
+I = { name_ja = "函南町" }
+
+["18011"]
+F = { name_ja = "吉田町" }
+I = { name_ja = "川根本町" }
+
+# 19 岐阜県 (Gifu)
+["19001"]
+A = { name_ja = "安八町" }
+C = { name_ja = "神戸町" }
+D = { name_ja = "輪之内町" }
+
+["19003"]
+A = { name_ja = "池田町" }
+B = { name_ja = "揖斐川町" }
+C = { name_ja = "大野町" }
+
+["19005"]
+G = { name_ja = "白川村" }
+
+["19007"]
+C = { name_ja = "御嵩町" }
+
+["19008"]
+A = { name_ja = "川辺町" }
+B = { name_ja = "坂祝町" }
+C = { name_ja = "富加町" }
+D = { name_ja = "東白川村" }
+E = { name_ja = "白川町" }
+F = { name_ja = "七宗町" }
+G = { name_ja = "八百津町" }
+
+["19011"]
+A = { name_ja = "笠松町" }
+C = { name_ja = "岐南町" }
+
+["19012"]
+A = { name_ja = "関ケ原町" }
+B = { name_ja = "垂井町" }
+
+["19015"]
+A = { name_ja = "北方町" }
+
+["19017"]
+B = { name_ja = "養老町" }
+
+# 20 愛知県 (Aichi)
+["20001"]
+A = { name_ja = "東郷町" }
+
+["20003"]
+A = { name_ja = "大治町" }
+B = { name_ja = "蟹江町" }
+I = { name_ja = "飛島村" }
+
+["20004"]
+D = { name_ja = "豊根村" }
+E = { name_ja = "設楽町" }
+F = { name_ja = "東栄町" }
+
+["20005"]
+A = { name_ja = "阿久比町" }
+B = { name_ja = "武豊町" }
+C = { name_ja = "東浦町" }
+D = { name_ja = "南知多町" }
+E = { name_ja = "美浜町" }
+
+["20007"]
+D = { name_ja = "豊山町" }
+
+["20009"]
+A = { name_ja = "大口町" }
+B = { name_ja = "扶桑町" }
+
+["20010"]
+A = { name_ja = "幸田町" }
+
+# 21 三重県 (Mie)
+["21006"]
+B = { name_ja = "東員町" }
+
+["21008"]
+C = { name_ja = "紀北町" }
+
+["21009"]
+A = { name_ja = "木曽岬町" }
+
+["21012"]
+B = { name_ja = "多気町" }
+C = { name_ja = "大台町" }
+E = { name_ja = "明和町" }
+
+["21014"]
+A = { name_ja = "朝日町" }
+B = { name_ja = "川越町" }
+D = { name_ja = "菰野町" }
+
+["21015"]
+B = { name_ja = "紀宝町" }
+D = { name_ja = "御浜町" }
+
+["21016"]
+C = { name_ja = "玉城町" }
+J = { name_ja = "度会町" }
+K = { name_ja = "大紀町" }
+L = { name_ja = "南伊勢町" }
+
+# 22 京都府 (Kyoto)
+["22003"]
+A = { name_ja = "大山崎町" }
+
+["22006"]
+A = { name_ja = "久御山町" }
+
+["22008"]
+A = { name_ja = "笠置町" }
+D = { name_ja = "精華町" }
+E = { name_ja = "南山城村" }
+G = { name_ja = "和束町" }
+
+["22010"]
+A = { name_ja = "井手町" }
+B = { name_ja = "宇治田原町" }
+
+["22012"]
+G = { name_ja = "京丹波町" }
+
+["22014"]
+D = { name_ja = "伊根町" }
+E = { name_ja = "与謝野町" }
+
+# 23 滋賀県 (Shiga)
+["23002"]
+A = { name_ja = "甲良町" }
+B = { name_ja = "豊郷町" }
+C = { name_ja = "多賀町" }
+
+["23003"]
+E = { name_ja = "愛荘町" }
+
+["23004"]
+C = { name_ja = "日野町" }
+D = { name_ja = "竜王町" }
+
+# 24 奈良県 (Nara)
+["24001"]
+A = { name_ja = "安堵町" }
+B = { name_ja = "斑鳩町" }
+C = { name_ja = "三郷町" }
+D = { name_ja = "平群町" }
+
+["24002"]
+C = { name_ja = "曽爾村" }
+D = { name_ja = "御杖村" }
+
+["24004"]
+A = { name_ja = "王寺町" }
+C = { name_ja = "上牧町" }
+D = { name_ja = "河合町" }
+F = { name_ja = "広陵町" }
+
+["24005"]
+A = { name_ja = "川西町" }
+B = { name_ja = "田原本町" }
+C = { name_ja = "三宅町" }
+
+["24007"]
+A = { name_ja = "明日香村" }
+B = { name_ja = "高取町" }
+
+["24009"]
+B = { name_ja = "山添村" }
+
+["24010"]
+A = { name_ja = "上北山村" }
+B = { name_ja = "黒滝村" }
+C = { name_ja = "下北山村" }
+E = { name_ja = "大淀町" }
+F = { name_ja = "川上村" }
+G = { name_ja = "下市町" }
+H = { name_ja = "天川村" }
+I = { name_ja = "十津川村" }
+K = { name_ja = "野迫川村" }
+L = { name_ja = "東吉野村" }
+M = { name_ja = "吉野町" }
+
+# 25 大阪府 (Osaka)
+["25002"]
+A = { name_ja = "熊取町" }
+B = { name_ja = "田尻町" }
+D = { name_ja = "岬町" }
+
+["25003"]
+A = { name_ja = "忠岡町" }
+
+["25004"]
+A = { name_ja = "豊能町" }
+B = { name_ja = "能勢町" }
+
+["25006"]
+A = { name_ja = "島本町" }
+
+["25007"]
+A = { name_ja = "河南町" }
+C = { name_ja = "太子町" }
+D = { name_ja = "千早赤阪村" }
+
+# 26 和歌山県 (Wakayama)
+["26001"]
+A = { name_ja = "広川町" }
+B = { name_ja = "湯浅町" }
+F = { name_ja = "有田川町" }
+
+["26002"]
+A = { name_ja = "九度山町" }
+C = { name_ja = "かつらぎ町" }
+D = { name_ja = "高野町" }
+
+["26003"]
+D = { name_ja = "紀美野町" }
+
+["26005"]
+B = { name_ja = "上富田町" }
+D = { name_ja = "白浜町" }
+E = { name_ja = "すさみ町" }
+
+["26006"]
+A = { name_ja = "北山村" }
+D = { name_ja = "古座川町" }
+E = { name_ja = "太地町" }
+F = { name_ja = "那智勝浦町" }
+H = { name_ja = "串本町" }
+
+["26007"]
+C = { name_ja = "由良町" }
+D = { name_ja = "印南町" }
+F = { name_ja = "日高町" }
+H = { name_ja = "美浜町" }
+K = { name_ja = "みなべ町" }
+L = { name_ja = "日高川町" }
+
+# 27 兵庫県 (Hyogo)
+["27001"]
+A = { name_ja = "上郡町" }
+
+["27005"]
+D = { name_ja = "太子町" }
+
+["27007"]
+A = { name_ja = "稲美町" }
+B = { name_ja = "播磨町" }
+
+["27010"]
+A = { name_ja = "猪名川町" }
+
+["27011"]
+A = { name_ja = "市川町" }
+C = { name_ja = "福崎町" }
+F = { name_ja = "神河町" }
+
+["27013"]
+C = { name_ja = "佐用町" }
+
+["27016"]
+E = { name_ja = "多可町" }
+
+["27020"]
+E = { name_ja = "香美町" }
+F = { name_ja = "新温泉町" }
+
+# 28 富山県 (Toyama)
+["28003"]
+A = { name_ja = "朝日町" }
+C = { name_ja = "入善町" }
+
+["28004"]
+A = { name_ja = "舟橋村" }
+B = { name_ja = "上市町" }
+C = { name_ja = "立山町" }
+
+# 29 福井県 (Fukui)
+["29002"]
+B = { name_ja = "池田町" }
+
+["29003"]
+B = { name_ja = "高浜町" }
+C = { name_ja = "おおい町" }
+
+["29008"]
+D = { name_ja = "南越前町" }
+
+["29009"]
+F = { name_ja = "越前町" }
+
+["29010"]
+B = { name_ja = "美浜町" }
+
+["29011"]
+A = { name_ja = "永平寺町" }
+
+["29012"]
+A = { name_ja = "若狭町" }
+
+# 30 石川県 (Ishikawa)
+["30003"]
+G = { name_ja = "中能登町" }
+
+["30004"]
+A = { name_ja = "内灘町" }
+E = { name_ja = "津幡町" }
+
+["30006"]
+B = { name_ja = "川北町" }
+
+["30007"]
+C = { name_ja = "志賀町" }
+E = { name_ja = "宝達志水町" }
+
+["30009"]
+A = { name_ja = "穴水町" }
+C = { name_ja = "能登町" }
+
+# 31 岡山県 (Okayama)
+["31001"]
+B = { name_ja = "西粟倉村" }
+
+["31003"]
+B = { name_ja = "里庄町" }
+
+["31006"]
+B = { name_ja = "矢掛町" }
+
+["31007"]
+B = { name_ja = "奈義町" }
+D = { name_ja = "勝央町" }
+
+["31010"]
+D = { name_ja = "久米南町" }
+F = { name_ja = "美咲町" }
+
+["31015"]
+B = { name_ja = "早島町" }
+
+["31016"]
+E = { name_ja = "鏡野町" }
+
+["31017"]
+D = { name_ja = "新庄村" }
+
+["31019"]
+B = { name_ja = "和気町" }
+
+["31020"]
+A = { name_ja = "吉備中央町" }
+
+# 32 島根県 (Shimane)
+["32003"]
+F = { name_ja = "飯南町" }
+
+["32004"]
+C = { name_ja = "川本町" }
+H = { name_ja = "美郷町" }
+I = { name_ja = "邑南町" }
+
+["32006"]
+B = { name_ja = "知夫村" }
+D = { name_ja = "海士町" }
+G = { name_ja = "西ノ島町" }
+H = { name_ja = "隠岐の島町" }
+
+["32008"]
+C = { name_ja = "津和野町" }
+E = { name_ja = "吉賀町" }
+
+["32012"]
+C = { name_ja = "奥出雲町" }
+
+# 33 山口県 (Yamaguchi)
+["33002"]
+D = { name_ja = "阿武町" }
+
+["33003"]
+E = { name_ja = "周防大島町" }
+
+["33005"]
+E = { name_ja = "和木町" }
+
+["33006"]
+A = { name_ja = "上関町" }
+B = { name_ja = "田布施町" }
+E = { name_ja = "平生町" }
+
+# 34 鳥取県 (Tottori)
+["34001"]
+A = { name_ja = "岩美町" }
+
+["34003"]
+C = { name_ja = "日吉津村" }
+E = { name_ja = "大山町" }
+I = { name_ja = "南部町" }
+J = { name_ja = "伯耆町" }
+
+["34004"]
+I = { name_ja = "三朝町" }
+J = { name_ja = "湯梨浜町" }
+K = { name_ja = "琴浦町" }
+L = { name_ja = "北栄町" }
+
+["34005"]
+A = { name_ja = "江府町" }
+B = { name_ja = "日南町" }
+C = { name_ja = "日野町" }
+
+["34006"]
+D = { name_ja = "若桜町" }
+G = { name_ja = "智頭町" }
+I = { name_ja = "八頭町" }
+
+# 35 広島県 (Hiroshima)
+["35001"]
+C = { name_ja = "海田町" }
+D = { name_ja = "熊野町" }
+F = { name_ja = "坂町" }
+H = { name_ja = "府中町" }
+
+["35007"]
+E = { name_ja = "神石高原町" }
+
+["35008"]
+B = { name_ja = "世羅町" }
+
+["35010"]
+K = { name_ja = "大崎上島町" }
+
+["35016"]
+H = { name_ja = "安芸太田町" }
+I = { name_ja = "北広島町" }
+
+# 36 香川県 (Kagawa)
+["36001"]
+C = { name_ja = "宇多津町" }
+G = { name_ja = "綾川町" }
+
+["36003"]
+C = { name_ja = "直島町" }
+
+["36004"]
+B = { name_ja = "三木町" }
+
+["36005"]
+C = { name_ja = "土庄町" }
+D = { name_ja = "小豆島町" }
+
+["36006"]
+A = { name_ja = "琴平町" }
+B = { name_ja = "多度津町" }
+F = { name_ja = "まんのう町" }
+
+# 37 徳島県 (Tokushima)
+["37002"]
+A = { name_ja = "藍住町" }
+B = { name_ja = "板野町" }
+C = { name_ja = "上板町" }
+D = { name_ja = "北島町" }
+F = { name_ja = "松茂町" }
+
+["37004"]
+D = { name_ja = "牟岐町" }
+G = { name_ja = "美波町" }
+H = { name_ja = "海陽町" }
+
+["37005"]
+A = { name_ja = "勝浦町" }
+B = { name_ja = "上勝町" }
+
+["37006"]
+H = { name_ja = "那賀町" }
+
+["37007"]
+A = { name_ja = "石井町" }
+B = { name_ja = "神山町" }
+
+["37008"]
+A = { name_ja = "佐那河内村" }
+
+["37009"]
+H = { name_ja = "つるぎ町" }
+
+["37010"]
+I = { name_ja = "東みよし町" }
+
+# 38 愛媛県 (Ehime)
+["38001"]
+B = { name_ja = "松前町" }
+C = { name_ja = "砥部町" }
+
+["38003"]
+P = { name_ja = "上島町" }
+
+["38005"]
+F = { name_ja = "久万高原町" }
+
+["38006"]
+D = { name_ja = "内子町" }
+
+["38007"]
+F = { name_ja = "松野町" }
+G = { name_ja = "鬼北町" }
+
+["38010"]
+B = { name_ja = "伊方町" }
+
+["38012"]
+F = { name_ja = "愛南町" }
+
+# 39 高知県 (Kochi)
+["39001"]
+F = { name_ja = "いの町" }
+G = { name_ja = "仁淀川町" }
+
+["39002"]
+A = { name_ja = "馬路村" }
+B = { name_ja = "田野町" }
+C = { name_ja = "奈半利町" }
+D = { name_ja = "安田町" }
+E = { name_ja = "北川村" }
+F = { name_ja = "芸西村" }
+G = { name_ja = "東洋町" }
+
+["39004"]
+B = { name_ja = "佐川町" }
+C = { name_ja = "越知町" }
+E = { name_ja = "中土佐町" }
+I = { name_ja = "日高村" }
+J = { name_ja = "檮原町" }
+K = { name_ja = "津野町" }
+L = { name_ja = "四万十町" }
+
+["39005"]
+C = { name_ja = "大川村" }
+D = { name_ja = "土佐町" }
+
+["39006"]
+A = { name_ja = "大豊町" }
+B = { name_ja = "本山町" }
+
+["39007"]
+C = { name_ja = "三原村" }
+E = { name_ja = "大月町" }
+H = { name_ja = "黒潮町" }
+
+# 40 福岡県 (Fukuoka)
+["40001"]
+G = { name_ja = "筑前町" }
+H = { name_ja = "東峰村" }
+
+["40004"]
+A = { name_ja = "芦屋町" }
+B = { name_ja = "岡垣町" }
+C = { name_ja = "遠賀町" }
+D = { name_ja = "水巻町" }
+
+["40005"]
+A = { name_ja = "宇美町" }
+B = { name_ja = "粕屋町" }
+D = { name_ja = "篠栗町" }
+E = { name_ja = "志免町" }
+F = { name_ja = "新宮町" }
+G = { name_ja = "久山町" }
+H = { name_ja = "須恵町" }
+
+["40006"]
+C = { name_ja = "桂川町" }
+
+["40007"]
+A = { name_ja = "小竹町" }
+B = { name_ja = "鞍手町" }
+
+["40009"]
+A = { name_ja = "赤村" }
+C = { name_ja = "糸田町" }
+D = { name_ja = "大任町" }
+F = { name_ja = "香春町" }
+H = { name_ja = "川崎町" }
+I = { name_ja = "添田町" }
+J = { name_ja = "福智町" }
+
+["40010"]
+B = { name_ja = "那珂川町", deleted = "2018-09" }
+
+["40011"]
+B = { name_ja = "吉富町" }
+F = { name_ja = "上毛町" }
+G = { name_ja = "築上町" }
+
+["40012"]
+B = { name_ja = "大刀洗町" }
+
+["40014"]
+A = { name_ja = "大木町" }
+
+["40015"]
+B = { name_ja = "苅田町" }
+E = { name_ja = "みやこ町" }
+
+["40018"]
+B = { name_ja = "広川町" }
+
+# 41 佐賀県 (Saga)
+["41002"]
+G = { name_ja = "吉野ヶ里町" }
+
+["41003"]
+B = { name_ja = "大町町" }
+D = { name_ja = "江北町" }
+G = { name_ja = "白石町" }
+
+["41005"]
+A = { name_ja = "有田町" }
+
+["41006"]
+D = { name_ja = "玄海町" }
+
+["41007"]
+C = { name_ja = "太良町" }
+
+["41008"]
+A = { name_ja = "上峰町" }
+C = { name_ja = "基山町" }
+F = { name_ja = "みやき町" }
+
+# 42 長崎県 (Nagasaki)
+["42004"]
+D = { name_ja = "小値賀町" }
+E = { name_ja = "佐々町" }
+
+["42006"]
+N = { name_ja = "時津町" }
+O = { name_ja = "長与町" }
+
+["42007"]
+A = { name_ja = "川棚町" }
+B = { name_ja = "波佐見町" }
+C = { name_ja = "東彼杵町" }
+
+["42009"]
+K = { name_ja = "新上五島町" }
+
+# 43 熊本県 (Kumamoto)
+["43001"]
+B = { name_ja = "津奈木町" }
+C = { name_ja = "芦北町" }
+
+["43002"]
+B = { name_ja = "産山村" }
+C = { name_ja = "小国町" }
+F = { name_ja = "南小国町" }
+I = { name_ja = "高森町" }
+K = { name_ja = "西原村" }
+M = { name_ja = "南阿蘇村" }
+
+["43003"]
+M = { name_ja = "苓北町" }
+
+["43005"]
+A = { name_ja = "嘉島町" }
+C = { name_ja = "甲佐町" }
+D = { name_ja = "益城町" }
+E = { name_ja = "御船町" }
+G = { name_ja = "山都町" }
+
+["43007"]
+A = { name_ja = "菊陽町" }
+G = { name_ja = "大津町" }
+
+["43008"]
+A = { name_ja = "五木村" }
+E = { name_ja = "多良木町" }
+F = { name_ja = "錦町" }
+H = { name_ja = "水上村" }
+J = { name_ja = "山江村" }
+K = { name_ja = "湯前町" }
+L = { name_ja = "球磨村" }
+M = { name_ja = "相良村" }
+N = { name_ja = "あさぎり町" }
+
+["43009"]
+H = { name_ja = "美里町" }
+
+["43010"]
+B = { name_ja = "玉東町" }
+E = { name_ja = "長洲町" }
+G = { name_ja = "南関町" }
+I = { name_ja = "和水町" }
+
+["43012"]
+H = { name_ja = "氷川町" }
+
+# 44 大分県 (Oita)
+["44005"]
+A = { name_ja = "玖珠町" }
+B = { name_ja = "九重町" }
+
+["44009"]
+A = { name_ja = "日出町" }
+
+["44010"]
+A = { name_ja = "姫島村" }
+
+# 45 宮崎県 (Miyazaki)
+["45001"]
+B = { name_ja = "三股町" }
+
+["45002"]
+A = { name_ja = "川南町" }
+B = { name_ja = "高鍋町" }
+C = { name_ja = "都農町" }
+D = { name_ja = "木城町" }
+E = { name_ja = "新富町" }
+F = { name_ja = "西米良村" }
+
+["45003"]
+A = { name_ja = "五ヶ瀬町" }
+B = { name_ja = "高千穂町" }
+C = { name_ja = "日之影町" }
+
+["45004"]
+A = { name_ja = "高原町" }
+
+["45005"]
+B = { name_ja = "門川町" }
+H = { name_ja = "椎葉村" }
+J = { name_ja = "諸塚村" }
+K = { name_ja = "美郷町" }
+
+["45006"]
+A = { name_ja = "綾町" }
+B = { name_ja = "国富町" }
+
+# 46 鹿児島県 (Kagoshima)
+["46001"]
+L = { name_ja = "湧水町" }
+
+["46003"]
+D = { name_ja = "長島町" }
+
+["46005"]
+A = { name_ja = "知名町" }
+B = { name_ja = "与論町" }
+C = { name_ja = "和泊町" }
+D = { name_ja = "天城町" }
+E = { name_ja = "伊仙町" }
+F = { name_ja = "宇検村" }
+H = { name_ja = "喜界町" }
+J = { name_ja = "瀬戸内町" }
+K = { name_ja = "龍郷町" }
+L = { name_ja = "徳之島町" }
+M = { name_ja = "大和村" }
+
+["46006"]
+B = { name_ja = "三島村" }
+D = { name_ja = "十島村" }
+
+["46008"]
+G = { name_ja = "東串良町" }
+J = { name_ja = "錦江町" }
+K = { name_ja = "南大隅町" }
+L = { name_ja = "肝付町" }
+
+["46009"]
+A = { name_ja = "南種子町" }
+C = { name_ja = "中種子町" }
+E = { name_ja = "屋久島町" }
+
+["46010"]
+L = { name_ja = "さつま町" }
+
+["46011"]
+D = { name_ja = "大崎町" }
+
+# 47 沖縄県 (Okinawa)
+["47001"]
+A = { name_ja = "伊江村" }
+B = { name_ja = "大宜味村" }
+C = { name_ja = "恩納村" }
+D = { name_ja = "宜野座村" }
+E = { name_ja = "金武町" }
+F = { name_ja = "今帰仁村" }
+G = { name_ja = "東村" }
+H = { name_ja = "国頭村" }
+I = { name_ja = "本部町" }
+
+["47002"]
+A = { name_ja = "粟国村" }
+B = { name_ja = "伊是名村" }
+C = { name_ja = "伊平屋村" }
+E = { name_ja = "北大東村" }
+K = { name_ja = "渡嘉敷村" }
+L = { name_ja = "渡名喜村" }
+N = { name_ja = "南風原町" }
+O = { name_ja = "南大東村" }
+P = { name_ja = "与那原町" }
+R = { name_ja = "座間味村" }
+T = { name_ja = "久米島町" }
+U = { name_ja = "八重瀬町" }
+
+["47003"]
+B = { name_ja = "嘉手納町" }
+C = { name_ja = "北中城村" }
+D = { name_ja = "北谷町" }
+E = { name_ja = "中城村" }
+F = { name_ja = "西原町" }
+G = { name_ja = "読谷村" }
+
+["47004"]
+E = { name_ja = "多良間村" }
+
+["47005"]
+A = { name_ja = "与那国町" }
+B = { name_ja = "竹富町" }

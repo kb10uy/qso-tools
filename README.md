@@ -11,7 +11,7 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 - `[operators.<CALLSIGN>]`: display name of operator
 
-`instruments.toml`, `parks.toml`, `jcc-jcg.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` (see `assets/qcgen/*.example.toml`).
+`instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` (see `assets/qcgen/*.example.toml`).
 
 ## qcgen
 
@@ -29,7 +29,7 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 - ADI data lengths are counted in bytes by default; use `-l codepoints` for ADI from Wavelog, which counts non-ASCII text in codepoints
 - Station information comes from `STATION_CALLSIGN` and `MY_*` fields
 - `MY_STATE` is passed as `station.location.state`; its name is looked up by `MY_DXCC` from `subdivisions.toml` (written by `wavelog-tools subdivisions`)
-- `MY_CNTY` is passed as `station.location.county`; JCC/JCG codes (with optional HAMLOG town suffix like `15006C`) are resolved from `jcc-jcg.toml`
+- `MY_CNTY` is passed as `station.location.county`; JCC/JCG codes (with optional HAMLOG town suffix like `15006C`) are resolved from `japan-jcx.toml` and `japan-jcx-town.toml`
 - Operator comes from `OPERATOR`; its display name is looked up from `[operators]` in config
 - `QSL_VIA` and `QSL_SENT_VIA` are passed as `qsl.via` and `qsl.sent_via`
 - `MY_POTA_REF` is split into `station.references.pota` (reference, location and names from `parks.toml`)

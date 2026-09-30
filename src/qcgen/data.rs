@@ -21,9 +21,6 @@ pub struct County {
     pub kind: Option<String>,
     pub name_ja: Option<String>,
     pub name_en: Option<String>,
-
-    #[serde(default)]
-    pub hamlog: HashMap<String, Town>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
