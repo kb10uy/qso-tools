@@ -6,6 +6,9 @@ use thiserror::Error as ThisError;
 
 use crate::core::config::{Config, read_items_from_tomls};
 
+/// DXCC entity code of Japan.
+pub const JAPAN_DXCC: u32 = 339;
+
 pub const COUNTIES_FILENAME: &str = "japan-jcx.toml";
 const TOWNS_FILENAME: &str = "japan-jcx-town.toml";
 

@@ -50,7 +50,8 @@ impl IntoLua for QslStation {
 pub struct QslLocation {
     pub grid: Option<GridLocator>,
     pub city: Option<CompactString>,
-    pub county: Option<QslCounty>,
+    pub county: Option<CompactString>,
+    pub japan_jcx: Option<QslJapanJcx>,
     pub state: Option<QslState>,
     pub country: Option<CompactString>,
 }
@@ -60,7 +61,8 @@ impl IntoLua for QslLocation {
         let table = lua.create_table()?;
         table.set("grid", self.grid.map(|g| g.to_string()))?;
         table.set("city", self.city.as_deref())?;
-        table.set("county", self.county)?;
+        table.set("county", self.county.as_deref())?;
+        table.set("japan_jcx", self.japan_jcx)?;
         table.set("state", self.state)?;
         table.set("country", self.country.as_deref())?;
 
@@ -85,7 +87,7 @@ impl IntoLua for QslState {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct QslCounty {
+pub struct QslJapanJcx {
     pub code: CompactString,
     pub kind: Option<CompactString>,
     pub name_ja: Option<CompactString>,
@@ -93,7 +95,7 @@ pub struct QslCounty {
     pub town_ja: Option<CompactString>,
 }
 
-impl IntoLua for QslCounty {
+impl IntoLua for QslJapanJcx {
     fn into_lua(self, lua: &Lua) -> LuaResult<LuaValue> {
         let table = lua.create_table()?;
         table.set("code", self.code.as_str())?;
