@@ -1,37 +1,13 @@
-mod cli;
-
 use std::{collections::HashMap, fmt, str::FromStr};
 
-use anyhow::{Result, bail};
+use anyhow::Result;
 use serde::Deserialize;
 use thiserror::Error as ThisError;
 
-use crate::config::{Config, read_items_from_tomls};
+use crate::core::config::{Config, read_items_from_tomls};
 
-pub use cli::Arguments;
-
-const COUNTIES_FILENAME: &str = "japan-jcx.toml";
+pub const COUNTIES_FILENAME: &str = "japan-jcx.toml";
 const TOWNS_FILENAME: &str = "japan-jcx-town.toml";
-
-pub fn run(args: Arguments, config: &Config) -> Result<()> {
-    let jcx = Jcx::load(config)?;
-    if jcx.is_empty() {
-        bail!("{COUNTIES_FILENAME} not found next to config file");
-    }
-
-    let mut unknown_codes = vec![];
-    for code in &args.codes {
-        match jcx.full_name_ja(code) {
-            Some(name) => println!("{code}	{name}"),
-            None => unknown_codes.push(code.to_string()),
-        }
-    }
-    if !unknown_codes.is_empty() {
-        bail!("unknown codes: {}", unknown_codes.join(", "));
-    }
-
-    Ok(())
-}
 
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
 pub struct County {

@@ -2,7 +2,7 @@ use std::str::FromStr;
 
 use adif_reader::document::Record;
 
-use crate::qso::{error::QsoError, get_optional_field};
+use crate::core::qso::{error::QsoError, get_optional_field};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum QslReceiveStatus {

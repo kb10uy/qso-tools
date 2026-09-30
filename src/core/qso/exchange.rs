@@ -1,7 +1,7 @@
 use adif_reader::document::Record;
 use compact_str::{CompactString, ToCompactString};
 
-use crate::qso::{get_optional_field, get_optional_field_oneof};
+use crate::core::qso::{get_optional_field, get_optional_field_oneof};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct QsoExchange {

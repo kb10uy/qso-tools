@@ -2,7 +2,7 @@ use compact_str::{CompactString, ToCompactString};
 use mlua::prelude::*;
 use time::OffsetDateTime;
 
-use crate::{qso::record::QsoRecord, schope::library::datetime::SchopeDateTime};
+use crate::core::{qso::record::QsoRecord, schope::library::datetime::SchopeDateTime};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Record {

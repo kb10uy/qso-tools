@@ -1,7 +1,7 @@
 use compact_str::CompactString;
 use mlua::prelude::*;
 
-use crate::qso::exchange::QsoExchanges;
+use crate::core::qso::exchange::QsoExchanges;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Exchange {

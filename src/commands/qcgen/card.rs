@@ -2,7 +2,7 @@ use callfind::grid_locator::GridLocator;
 use compact_str::CompactString;
 use mlua::prelude::*;
 
-use crate::schope::data::{exchange::Exchange, record::Record};
+use crate::core::schope::data::{exchange::Exchange, record::Record};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct QslCardEntry {

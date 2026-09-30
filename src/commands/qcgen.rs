@@ -21,9 +21,7 @@ use time::UtcOffset;
 use tracing::{Level, info, span, warn};
 
 use crate::{
-    config::{Config, OperatorConfig, read_items_from_tomls},
-    jcx::{Jcx, JcxCode},
-    qcgen::{
+    commands::qcgen::{
         card::{
             QslCardEntry, QslCounty, QslInstrument, QslLocation, QslOperator, QslPark,
             QslReferences, QslRouting, QslState, QslStation,
@@ -31,8 +29,12 @@ use crate::{
         data::{Instrument, Park},
         source::read_document,
     },
-    qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
-    schope::engine::{initialize_lua, lua_to_json},
+    core::{
+        config::{Config, OperatorConfig, read_items_from_tomls},
+        jcx::{Jcx, JcxCode},
+        qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
+        schope::engine::{initialize_lua, lua_to_json},
+    },
 };
 
 pub use cli::Arguments;
@@ -329,7 +331,7 @@ fn run_script(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::jcx::{County, Town};
+    use crate::core::jcx::{County, Town};
 
     #[test]
     fn builds_parks() {

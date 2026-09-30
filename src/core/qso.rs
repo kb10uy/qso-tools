@@ -6,7 +6,7 @@ pub mod record;
 
 use adif_reader::document::Record;
 
-use crate::qso::error::QsoError;
+use crate::core::qso::error::QsoError;
 
 pub fn get_required_field<'a>(
     record: &'a Record,

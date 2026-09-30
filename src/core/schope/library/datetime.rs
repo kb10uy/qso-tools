@@ -5,7 +5,7 @@ use time::{
     macros::format_description,
 };
 
-use crate::schope::library::SchopeModule;
+use crate::core::schope::library::SchopeModule;
 
 const DATE_FORMAT: &[BorrowedFormatItem] = format_description!("[year]-[month]-[day]");
 const TIME_FORMAT: &[BorrowedFormatItem] = format_description!("[hour]:[minute]:[second]");

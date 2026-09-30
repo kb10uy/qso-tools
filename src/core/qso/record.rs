@@ -5,7 +5,7 @@ use time::{
     macros::format_description,
 };
 
-use crate::qso::{band::Band, error::QsoError, get_required_field};
+use crate::core::qso::{band::Band, error::QsoError, get_required_field};
 
 const ADIF_DATE: &[BorrowedFormatItem<'_>] = format_description!(
     "[year repr:full padding:zero][month repr:numerical padding:zero][day padding:zero]"

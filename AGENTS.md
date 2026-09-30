@@ -13,16 +13,18 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
-- `src/config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
-- `src/jcx.rs`, `src/jcx/`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`, and `jcx` subcommand
-- `src/qso.rs`, `src/qso/`: common QSO data extracted from ADIF records
-- `src/schope.rs`, `src/schope/`: Lua scripting engine and Lua-facing data types
-- `src/<tool>.rs`, `src/<tool>/`: implementation of each subcommand (e.g. `qcgen`)
+- `src/core.rs`, `src/core/`: functionality shared by tools
+    - `config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
+    - `jcx.rs`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`
+    - `qso.rs`, `qso/`: common QSO data extracted from ADIF records
+    - `schope.rs`, `schope/`: Lua scripting engine and Lua-facing data types
+- `src/commands.rs`, `src/commands/`: subcommands
+    - `<tool>.rs`, `<tool>/`: implementation of each subcommand (e.g. `qcgen`, `jcx`)
 - `assets/`: example files, Lua scripts and Lua type definitions
 
 ### Adding a Tool
 
-1. Create `src/<tool>.rs` exposing `Arguments` (`clap::Args`) and `run(args, &Config)`
+1. Create `src/commands/<tool>.rs` exposing `Arguments` (`clap::Args`) and `run(args, &Config)`, and declare it in `src/commands.rs`
 2. Add a variant to `Command` in `src/cli.rs` and dispatch it in `src/main.rs`
 3. Read ADIF from a file or stdin; put reference data in TOML files next to `config.toml`
 

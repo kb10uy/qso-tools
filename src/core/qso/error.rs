@@ -3,7 +3,7 @@ use std::num::ParseFloatError;
 use thiserror::Error as ThisError;
 use time::error::Parse as TimeParseError;
 
-use crate::qso::band::InvalidBand;
+use crate::core::qso::band::InvalidBand;
 
 #[derive(Debug, ThisError)]
 pub enum QsoError {

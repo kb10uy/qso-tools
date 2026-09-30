@@ -1,9 +1,6 @@
 mod cli;
-mod config;
-mod jcx;
-mod qcgen;
-mod qso;
-mod schope;
+mod commands;
+mod core;
 
 use anyhow::Result;
 use clap::Parser;
@@ -11,7 +8,8 @@ use tracing_subscriber::EnvFilter;
 
 use crate::{
     cli::{Cli, Command},
-    config::Config,
+    commands::{jcx, qcgen},
+    core::config::Config,
 };
 
 fn main() -> Result<()> {

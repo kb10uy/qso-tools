@@ -6,7 +6,7 @@ use std::path::Path;
 use mlua::prelude::*;
 use tracing::debug;
 
-use crate::schope::{
+use crate::core::schope::{
     engine::tableop::{ensure_list, ensure_map},
     library::{SchopeModule, datetime::DateTimeModule, prompt::PromptModule},
 };

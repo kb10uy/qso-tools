@@ -3,7 +3,7 @@ use std::sync::Arc;
 use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
 use mlua::prelude::*;
 
-use crate::schope::library::{SchopeModule, create_module_method};
+use crate::core::schope::library::{SchopeModule, create_module_method};
 
 pub struct PromptModule {
     theme: ColorfulTheme,

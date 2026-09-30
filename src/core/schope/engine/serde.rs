@@ -1,7 +1,7 @@
 use mlua::prelude::*;
 use serde_json::{Map as JsonMap, Number as JsonNumber, Value as JsonValue};
 
-use crate::schope::engine::tableop::{TableType, check_table_type};
+use crate::core::schope::engine::tableop::{TableType, check_table_type};
 
 pub fn lua_to_json(lua_value: LuaValue) -> LuaResult<JsonValue> {
     match lua_value {
@@ -37,7 +37,7 @@ pub fn lua_to_json(lua_value: LuaValue) -> LuaResult<JsonValue> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::schope::engine::tableop::{ensure_list, ensure_map};
+    use crate::core::schope::engine::tableop::{ensure_list, ensure_map};
     use serde_json::json;
 
     fn eval(lua: &Lua, code: &str) -> LuaValue {
