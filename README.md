@@ -11,7 +11,7 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 - `[operators.<CALLSIGN>]`: display name of operator
 
-`instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` (see `assets/qcgen/*.example.toml`).
+`instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 
 ## qcgen
 
@@ -36,3 +36,14 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 - `!inst:<key>` in `COMMENT` (or `-I <key>`) selects instrument from `instruments.toml` and `-i` files; power is taken from `TX_PWR`, `--power`, then `default_power` of instrument
 
 See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type definitions.
+
+## jcx
+
+Shows full Japanese names of JCC/JCG codes (with optional HAMLOG town suffix like `15006C`) from `japan-jcx.toml` and `japan-jcx-town.toml`.
+
+```sh
+qso-tools jcx 100101 01006A
+```
+
+- Each code is printed with its full name separated by a tab, e.g. `01006A` → `北海道虻田郡京極町`
+- Exits with an error after printing the others if any code is unknown

@@ -7,13 +7,14 @@ Each tool is a clap subcommand. Tools _do not_ access Wavelog or other network s
 fetching QSOs from Wavelog belongs to wavelog-tools.
 
 - `qcgen`: generates JSON data for QSL cards from ADIF (local file or stdin) through a Lua script
+- `jcx`: shows full names of JCC/JCG codes (with optional HAMLOG town suffix)
 
 ## Project Layout
 
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
 - `src/config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
-- `src/jcx.rs`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`
+- `src/jcx.rs`, `src/jcx/`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`, and `jcx` subcommand
 - `src/qso.rs`, `src/qso/`: common QSO data extracted from ADIF records
 - `src/schope.rs`, `src/schope/`: Lua scripting engine and Lua-facing data types
 - `src/<tool>.rs`, `src/<tool>/`: implementation of each subcommand (e.g. `qcgen`)

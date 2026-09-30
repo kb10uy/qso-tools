@@ -26,5 +26,6 @@ fn main() -> Result<()> {
     let config = Config::load(cli.config.as_deref())?;
     match cli.command {
         Command::Qcgen(args) => qcgen::run(args, &config),
+        Command::Jcx(args) => jcx::run(args, &config),
     }
 }
