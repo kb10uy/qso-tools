@@ -19,13 +19,14 @@ Generates JSON data for QSL cards through a Lua script.
 
 ```sh
 # QSOs requesting QSL cards from Wavelog
-wavelog-tools export -f qsl_required --qso-since 2026-01-01 | qso-tools qcgen assets/qcgen/qslcard-single.lua
+wavelog-tools export -f qsl_required --qso-since 2026-01-01 | qso-tools qcgen -l codepoints assets/qcgen/qslcard-single.lua
 
 # From local ADIF file
 qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 ```
 
 - QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin; all QSOs in the input are processed
+- ADI data lengths are counted in bytes by default; use `-l codepoints` for ADI from Wavelog, which counts non-ASCII text in codepoints
 - Station information comes from `STATION_CALLSIGN` and `MY_*` fields
 - `MY_STATE` is passed as `station.location.state`; its name is looked up by `MY_DXCC` from `subdivisions.toml` (written by `wavelog-tools subdivisions`)
 - `MY_CNTY` is passed as `station.location.county`; JCC/JCG codes (with optional HAMLOG town suffix like `15006C`) are resolved from `jcc-jcg.toml`
