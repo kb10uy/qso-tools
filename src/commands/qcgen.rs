@@ -23,15 +23,15 @@ use tracing::{Level, info, span, warn};
 use crate::{
     commands::qcgen::{
         card::{
-            QslCardEntry, QslInstrument, QslJapanJcx, QslLocation, QslOperator, QslPark,
-            QslReferences, QslRouting, QslState, QslStation,
+            QslCardEntry, QslInstrument, QslJapanJcx, QslJapanJcxDivision, QslLocation,
+            QslOperator, QslPark, QslReferences, QslRouting, QslState, QslStation,
         },
         data::{Instrument, Park},
         source::read_document,
     },
     core::{
         config::{Config, OperatorConfig, read_items_from_tomls},
-        jcx::{JAPAN_DXCC, Jcx, JcxCode},
+        jcx::{County, JAPAN_DXCC, Jcx, JcxCode},
         qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
         schope::engine::{initialize_lua, lua_to_json},
     },
@@ -235,7 +235,7 @@ fn read_subdivisions(file: Option<PathBuf>) -> Result<HashMap<u32, HashMap<Strin
         .collect()
 }
 
-/// Resolves JCC/JCG code (with optional HAMLOG town suffix like `15006C`) into its names.
+/// Resolves JCC/JCG code like `100101` (with optional HAMLOG town suffix) into its names.
 /// Returns `None` if the county is unknown.
 fn build_japan_jcx(code: &str, jcx: &Jcx) -> Option<QslJapanJcx> {
     let parsed = code.parse::<JcxCode>().ok();
@@ -250,24 +250,32 @@ fn build_japan_jcx(code: &str, jcx: &Jcx) -> Option<QslJapanJcx> {
         warn!("unknown HAMLOG town: {parsed}");
     }
 
+    let division = |code: Option<&str>, county: Option<&County>| {
+        code.zip(county)
+            .map(|(code, county)| build_japan_jcx_division(code, county))
+    };
+
     Some(QslJapanJcx {
         code: parsed.to_compact_string(),
         kind: county.kind.as_deref().map(|k| k.to_compact_string()),
-        name_ja: county
-            .name_ja
-            .as_deref()
-            .filter(|n| !n.is_empty())
-            .map(|n| n.to_compact_string()),
-        name_en: county
-            .name_en
-            .as_deref()
-            .filter(|n| !n.is_empty())
-            .map(|n| n.to_compact_string()),
-        town_ja: town
-            .and_then(|t| t.name_ja.as_deref())
-            .filter(|n| !n.is_empty())
-            .map(|n| n.to_compact_string()),
+        name: non_empty_name(county.name_ja.as_deref()),
+        town: non_empty_name(town.and_then(|t| t.name_ja.as_deref())),
+        prefecture: division(parsed.prefecture_code(), jcx.prefecture(parsed)),
+        city: division(parsed.city_code(), jcx.city(parsed)),
     })
+}
+
+fn build_japan_jcx_division(code: &str, county: &County) -> QslJapanJcxDivision {
+    QslJapanJcxDivision {
+        code: code.to_compact_string(),
+        kind: county.kind.as_deref().map(|k| k.to_compact_string()),
+        name: non_empty_name(county.name_ja.as_deref()),
+    }
+}
+
+fn non_empty_name(name: Option<&str>) -> Option<CompactString> {
+    name.filter(|n| !n.is_empty())
+        .map(|n| n.to_compact_string())
 }
 
 /// Splits comma-separated POTA references (with optional `@LOCATION`) and resolves park names.
@@ -333,7 +341,7 @@ fn run_script(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::core::jcx::{County, Town};
+    use crate::core::jcx::Town;
 
     #[test]
     fn builds_parks() {
@@ -367,44 +375,70 @@ mod tests {
 
     #[test]
     fn builds_japan_jcx() {
+        let county = |kind: &str, name_ja: &str| County {
+            kind: Some(kind.to_string()),
+            name_ja: Some(name_ja.to_string()),
+            name_en: None,
+        };
         let jcx = Jcx::new(
             HashMap::from([
-                (
-                    "1001".to_string(),
-                    County {
-                        kind: Some("city".to_string()),
-                        name_ja: Some("市一".to_string()),
-                        name_en: None,
-                    },
-                ),
-                (
-                    "15006".to_string(),
-                    County {
-                        kind: Some("gun".to_string()),
-                        name_ja: Some("郡一".to_string()),
-                        name_en: None,
-                    },
-                ),
+                ("01".to_string(), county("prefecture", "北海道")),
+                ("0101".to_string(), county("city", "札幌市")),
+                ("010101".to_string(), county("ward", "中央区")),
+                ("10".to_string(), county("prefecture", "東京都")),
+                ("100101".to_string(), county("ward", "千代田区")),
+                ("15".to_string(), county("prefecture", "栃木県")),
+                ("15006".to_string(), county("gun", "下都賀郡")),
             ]),
             HashMap::from([(
                 "15006".to_string(),
                 HashMap::from([(
                     "C".to_string(),
                     Town {
-                        name_ja: Some("町一".to_string()),
+                        name_ja: Some("野木町".to_string()),
                     },
                 )]),
             )]),
         );
+        let division = |code: &str, kind: &str, name: &str| {
+            Some(QslJapanJcxDivision {
+                code: code.into(),
+                kind: Some(kind.into()),
+                name: Some(name.into()),
+            })
+        };
 
         assert_eq!(
-            build_japan_jcx("1001", &jcx),
+            build_japan_jcx("10", &jcx),
             Some(QslJapanJcx {
-                code: "1001".into(),
-                kind: Some("city".into()),
-                name_ja: Some("市一".into()),
-                name_en: None,
-                town_ja: None,
+                code: "10".into(),
+                kind: Some("prefecture".into()),
+                name: Some("東京都".into()),
+                town: None,
+                prefecture: None,
+                city: None,
+            })
+        );
+        assert_eq!(
+            build_japan_jcx("100101", &jcx),
+            Some(QslJapanJcx {
+                code: "100101".into(),
+                kind: Some("ward".into()),
+                name: Some("千代田区".into()),
+                town: None,
+                prefecture: division("10", "prefecture", "東京都"),
+                city: None,
+            })
+        );
+        assert_eq!(
+            build_japan_jcx("010101", &jcx),
+            Some(QslJapanJcx {
+                code: "010101".into(),
+                kind: Some("ward".into()),
+                name: Some("中央区".into()),
+                town: None,
+                prefecture: division("01", "prefecture", "北海道"),
+                city: division("0101", "city", "札幌市"),
             })
         );
         assert_eq!(
@@ -412,9 +446,10 @@ mod tests {
             Some(QslJapanJcx {
                 code: "15006C".into(),
                 kind: Some("gun".into()),
-                name_ja: Some("郡一".into()),
-                name_en: None,
-                town_ja: Some("町一".into()),
+                name: Some("下都賀郡".into()),
+                town: Some("野木町".into()),
+                prefecture: division("15", "prefecture", "栃木県"),
+                city: None,
             })
         );
         assert_eq!(
@@ -422,9 +457,10 @@ mod tests {
             Some(QslJapanJcx {
                 code: "15006Z".into(),
                 kind: Some("gun".into()),
-                name_ja: Some("郡一".into()),
-                name_en: None,
-                town_ja: None,
+                name: Some("下都賀郡".into()),
+                town: None,
+                prefecture: division("15", "prefecture", "栃木県"),
+                city: None,
             })
         );
         assert_eq!(build_japan_jcx("9999", &jcx), None);

@@ -90,9 +90,10 @@ impl IntoLua for QslState {
 pub struct QslJapanJcx {
     pub code: CompactString,
     pub kind: Option<CompactString>,
-    pub name_ja: Option<CompactString>,
-    pub name_en: Option<CompactString>,
-    pub town_ja: Option<CompactString>,
+    pub name: Option<CompactString>,
+    pub town: Option<CompactString>,
+    pub prefecture: Option<QslJapanJcxDivision>,
+    pub city: Option<QslJapanJcxDivision>,
 }
 
 impl IntoLua for QslJapanJcx {
@@ -100,9 +101,28 @@ impl IntoLua for QslJapanJcx {
         let table = lua.create_table()?;
         table.set("code", self.code.as_str())?;
         table.set("kind", self.kind.as_deref())?;
-        table.set("name_ja", self.name_ja.as_deref())?;
-        table.set("name_en", self.name_en.as_deref())?;
-        table.set("town_ja", self.town_ja.as_deref())?;
+        table.set("name", self.name.as_deref())?;
+        table.set("town", self.town.as_deref())?;
+        table.set("prefecture", self.prefecture)?;
+        table.set("city", self.city)?;
+
+        Ok(LuaValue::Table(table))
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct QslJapanJcxDivision {
+    pub code: CompactString,
+    pub kind: Option<CompactString>,
+    pub name: Option<CompactString>,
+}
+
+impl IntoLua for QslJapanJcxDivision {
+    fn into_lua(self, lua: &Lua) -> LuaResult<LuaValue> {
+        let table = lua.create_table()?;
+        table.set("code", self.code.as_str())?;
+        table.set("kind", self.kind.as_deref())?;
+        table.set("name", self.name.as_deref())?;
 
         Ok(LuaValue::Table(table))
     }

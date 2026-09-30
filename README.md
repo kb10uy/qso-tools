@@ -30,7 +30,7 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 - ADI data lengths are counted in bytes by default; use `-l codepoints` for ADI from Wavelog, which counts non-ASCII text in codepoints
 - Station information comes from `STATION_CALLSIGN` and `MY_*` fields
 - `MY_STATE` is passed as `station.location.state`; its name is looked up by `MY_DXCC` from `subdivisions.toml` (written by `wavelog-tools subdivisions`)
-- `MY_CNTY` is passed as `station.location.county` as is; if `MY_DXCC` is Japan (339) and it is a JCC/JCG code (with optional HAMLOG town suffix like `15006C`) found in `japan-jcx.toml`, its names (and town name from `japan-jcx-town.toml`) are passed as `station.location.japan_jcx`
+- `MY_CNTY` is passed as `station.location.county` as is; if `MY_DXCC` is Japan (339) and it is a JCC/JCG code like `100101` (with optional HAMLOG town suffix) found in `japan-jcx.toml`, its Japanese names (and town name from `japan-jcx-town.toml`) are passed as `station.location.japan_jcx`, with the containing prefecture and city (for wards of designated cities) as `prefecture` and `city`
 - Operator comes from `OPERATOR`; its display name is looked up from `[operators]` in config
 - `QSL_VIA` and `QSL_SENT_VIA` are passed as `qsl.via` and `qsl.sent_via`
 - `MY_POTA_REF` is split into `station.references.pota` (reference, location and names from `parks.toml`)
@@ -40,7 +40,7 @@ See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type de
 
 ## jcx
 
-Shows full Japanese names of JCC/JCG codes (with optional HAMLOG town suffix like `15006C`) from `japan-jcx.toml` and `japan-jcx-town.toml`.
+Shows full Japanese names of JCC/JCG codes like `100101` (with optional HAMLOG town suffix) from `japan-jcx.toml` and `japan-jcx-town.toml`.
 
 ```sh
 qso-tools jcx 100101 01006A

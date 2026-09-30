@@ -28,7 +28,7 @@ pub struct Town {
 #[error("invalid JCC/JCG code: {0}")]
 pub struct InvalidJcxCode(String);
 
-/// JCC/JCG code with optional HAMLOG town suffix like `15006C`.
+/// JCC/JCG code like `100101` with optional HAMLOG town suffix.
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JcxCode {
     county: String,
@@ -44,13 +44,14 @@ impl JcxCode {
         self.town.as_deref()
     }
 
-    /// Returns the code lengths of the prefecture and the city containing this county.
-    fn ancestors(&self) -> &[usize] {
-        match self.county.len() {
-            6 => &[2, 4],
-            4 | 5 => &[2],
-            _ => &[],
-        }
+    /// Returns the code of the prefecture containing this county.
+    pub fn prefecture_code(&self) -> Option<&str> {
+        matches!(self.county.len(), 4..=6).then(|| &self.county[..2])
+    }
+
+    /// Returns the code of the city containing this ward.
+    pub fn city_code(&self) -> Option<&str> {
+        (self.county.len() == 6).then(|| &self.county[..4])
     }
 }
 
@@ -134,6 +135,14 @@ impl Jcx {
         self.towns.get(code.county())?.get(code.town()?)
     }
 
+    pub fn prefecture(&self, code: &JcxCode) -> Option<&County> {
+        self.counties.get(code.prefecture_code()?)
+    }
+
+    pub fn city(&self, code: &JcxCode) -> Option<&County> {
+        self.counties.get(code.city_code()?)
+    }
+
     /// Builds the full Japanese name from the prefecture down to the HAMLOG town.
     /// Returns `None` if the county or the given town is unknown.
     pub fn full_name_ja(&self, code: &JcxCode) -> Option<String> {
@@ -143,12 +152,9 @@ impl Jcx {
             None => None,
         };
 
-        let ancestors = code
-            .ancestors()
-            .iter()
-            .filter_map(|&len| self.counties.get(&code.county()[..len]));
-        let name = ancestors
-            .chain([county])
+        let name = [self.prefecture(code), self.city(code), Some(county)]
+            .into_iter()
+            .flatten()
             .filter_map(|c| c.name_ja.as_deref())
             .chain(town.and_then(|t| t.name_ja.as_deref()))
             .collect();

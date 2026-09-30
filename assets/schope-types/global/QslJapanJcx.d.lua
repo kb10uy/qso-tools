@@ -3,7 +3,8 @@
 ---@class QslJapanJcx
 ---@field code string
 ---@field kind "prefecture"|"city"|"gun"|"ward"|nil
----@field name_ja string|nil
----@field name_en string|nil
----@field town_ja string|nil
+---@field name string|nil
+---@field town string|nil
+---@field prefecture QslJapanJcxDivision|nil
+---@field city QslJapanJcxDivision|nil
 local QslJapanJcx = {}

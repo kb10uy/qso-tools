@@ -9,7 +9,7 @@ use crate::core::{
 /// Shows full names of JCC/JCG codes.
 #[derive(Debug, Clone, Args)]
 pub struct Arguments {
-    /// JCC/JCG codes, optionally with HAMLOG town suffix like 15006C.
+    /// JCC/JCG codes like 100101, optionally with HAMLOG town suffix.
     #[arg(required = true, value_name = "CODE")]
     pub codes: Vec<JcxCode>,
 }
