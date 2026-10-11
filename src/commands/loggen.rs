@@ -137,7 +137,7 @@ fn generate(args: &CommonArguments, config: &Config) -> Result<ContestLog> {
         until: args.qso_until.map(|t| t.resolve(offset)),
     };
 
-    let mut prompter = TerminalPrompter::default();
+    let mut prompter = TerminalPrompter;
     let category = select_category(&definition, &script_args, &mut prompter)?;
     let context = lua.create_table()?;
     context.set("category", &category.table)?;

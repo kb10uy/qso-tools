@@ -2,7 +2,7 @@ use std::{collections::HashMap, str::FromStr};
 
 use adif_reader::document::Record as AdifRecord;
 use anyhow::{Context, Result, anyhow, bail};
-use dialoguer::{FuzzySelect, Input, theme::ColorfulTheme};
+use inquire::{CustomType, Select, Text, validator::Validation};
 use time::{
     Date, OffsetDateTime, UtcOffset, format_description::BorrowedFormatItem,
     macros::format_description,
@@ -13,7 +13,6 @@ use crate::{
     commands::loggen::definition::{Category, ContestDefinition},
     core::{
         config::Config,
-        console::ensure_console_input,
         jcx::{JAPAN_DXCC, Jcx, JcxCode},
         qso::get_optional_field,
     },
@@ -21,25 +20,25 @@ use crate::{
 
 const DATE: &[BorrowedFormatItem<'_>] = format_description!("[year]-[month]-[day]");
 
-/// Summary items with their prompts; values are given as `-A KEY=VALUE`.
-const ITEMS: &[(&str, &str)] = &[
-    ("callsign", "Callsign"),
-    ("op_callsign", "Guest operator callsign"),
-    ("operator", "Operator in config"),
-    ("name", "Name"),
-    ("address", "Address"),
-    ("tel", "TEL"),
-    ("email", "Email"),
-    ("license_date", "License date (YYYY-MM-DD)"),
-    ("age", "Age"),
-    ("power", "Power (W)"),
-    ("fd_coeff", "FD coefficient"),
-    ("op_place", "Operating place"),
-    ("power_supply", "Power supply"),
-    ("comments", "Comments"),
-    ("multi_op_list", "Operators"),
-    ("reg_club_number", "Registered club number"),
-    ("date", "Date of oath (YYYY-MM-DD)"),
+/// Summary items with their prompts and kinds; values are given as `-A KEY=VALUE`.
+const ITEMS: &[(&str, &str, ItemKind)] = &[
+    ("callsign", "Callsign", ItemKind::Text),
+    ("op_callsign", "Guest operator callsign", ItemKind::Text),
+    ("operator", "Operator in config", ItemKind::Text),
+    ("name", "Name", ItemKind::Text),
+    ("address", "Address", ItemKind::Text),
+    ("tel", "TEL", ItemKind::Text),
+    ("email", "Email", ItemKind::Text),
+    ("license_date", "License date (YYYY-MM-DD)", ItemKind::Date),
+    ("age", "Age", ItemKind::Integer),
+    ("power", "Power (W)", ItemKind::Number),
+    ("fd_coeff", "FD coefficient", ItemKind::Integer),
+    ("op_place", "Operating place", ItemKind::Text),
+    ("power_supply", "Power supply", ItemKind::Text),
+    ("comments", "Comments", ItemKind::Text),
+    ("multi_op_list", "Operators", ItemKind::Text),
+    ("reg_club_number", "Registered club number", ItemKind::Text),
+    ("date", "Date of oath (YYYY-MM-DD)", ItemKind::Date),
 ];
 const CHOICE_LINES: usize = 15;
 const ALWAYS_REQUIRED: &[&str] = &["callsign", "name", "address", "power"];
@@ -71,31 +70,55 @@ pub struct Submission {
     pub date: Date,
 }
 
+/// Kind of summary item value.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ItemKind {
+    Text,
+    Integer,
+    Number,
+    Date,
+}
+
 /// Asks the user for values missing in arguments.
 pub trait Prompter {
-    fn text(&mut self, prompt: &str) -> Result<String>;
+    fn value(&mut self, prompt: &str, kind: ItemKind) -> Result<String>;
     fn choice(&mut self, prompt: &str, items: &[String]) -> Result<usize>;
 }
 
 /// Prompter on the terminal.
-#[derive(Default)]
-pub struct TerminalPrompter(ColorfulTheme);
+pub struct TerminalPrompter;
 
 impl Prompter for TerminalPrompter {
-    fn text(&mut self, prompt: &str) -> Result<String> {
-        ensure_console_input()?;
-        Ok(Input::with_theme(&self.0)
-            .with_prompt(prompt)
-            .interact_text()?)
+    fn value(&mut self, prompt: &str, kind: ItemKind) -> Result<String> {
+        let value = match kind {
+            ItemKind::Text => Text::new(prompt)
+                .with_validator(|input: &str| {
+                    Ok(if input.trim().is_empty() {
+                        Validation::Invalid("Enter a value".into())
+                    } else {
+                        Validation::Valid
+                    })
+                })
+                .prompt()?,
+            ItemKind::Integer => CustomType::<u32>::new(prompt).prompt()?.to_string(),
+            ItemKind::Number => CustomType::<f64>::new(prompt).prompt()?.to_string(),
+            ItemKind::Date => Text::new(prompt)
+                .with_validator(|input: &str| {
+                    Ok(match Date::parse(input, DATE) {
+                        Ok(_) => Validation::Valid,
+                        Err(_) => Validation::Invalid("Enter a date as YYYY-MM-DD".into()),
+                    })
+                })
+                .prompt()?,
+        };
+        Ok(value)
     }
 
     fn choice(&mut self, prompt: &str, items: &[String]) -> Result<usize> {
-        ensure_console_input()?;
-        Ok(FuzzySelect::with_theme(&self.0)
-            .with_prompt(prompt)
-            .items(items)
-            .max_length(CHOICE_LINES)
-            .interact()?)
+        let selected = Select::new(prompt, items.to_vec())
+            .with_page_size(CHOICE_LINES)
+            .raw_prompt()?;
+        Ok(selected.index)
     }
 }
 
@@ -142,7 +165,7 @@ impl SubmissionSource<'_> {
     /// and required ones still missing are asked.
     pub fn build(&self, total_score: i64, prompter: &mut impl Prompter) -> Result<Submission> {
         for required in &self.category.requires {
-            if !ITEMS.iter().any(|(key, _)| key == required) {
+            if !ITEMS.iter().any(|(key, _, _)| key == required) {
                 bail!(
                     "unknown required item {required} in category {}",
                     self.category.code
@@ -151,7 +174,7 @@ impl SubmissionSource<'_> {
         }
 
         let mut values = HashMap::new();
-        for (key, prompt) in ITEMS {
+        for (key, prompt, kind) in ITEMS {
             let value = match self.args.get(*key) {
                 Some(value) => Some(value.clone()),
                 None => self.default_value(key, &values),
@@ -161,7 +184,7 @@ impl SubmissionSource<'_> {
             let value =
                 match value.filter(|v| !v.is_empty()) {
                     Some(value) => Some(value),
-                    None if required => Some(prompter.text(prompt).with_context(|| {
+                    None if required => Some(prompter.value(prompt, *kind).with_context(|| {
                         format!("{key} is missing; give it with -A {key}=VALUE")
                     })?),
                     None => None,
@@ -281,7 +304,7 @@ mod tests {
     struct FakePrompter(HashMap<&'static str, &'static str>);
 
     impl Prompter for FakePrompter {
-        fn text(&mut self, prompt: &str) -> Result<String> {
+        fn value(&mut self, prompt: &str, _: ItemKind) -> Result<String> {
             self.0
                 .get(prompt)
                 .map(|v| v.to_string())

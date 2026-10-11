@@ -1,7 +1,6 @@
 pub mod adif;
 pub mod bureau;
 pub mod config;
-pub mod console;
 pub mod cty;
 pub mod jcx;
 pub mod output;

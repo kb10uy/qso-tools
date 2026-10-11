@@ -1,69 +1,56 @@
 use std::sync::Arc;
 
-use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
+use inquire::{Confirm, CustomType, Select, Text};
 use mlua::prelude::*;
 
-use crate::core::{
-    console::ensure_console_input,
-    schope::library::{SchopeModule, create_module_method},
-};
+use crate::core::schope::library::{SchopeModule, create_module_method};
 
-pub struct PromptModule {
-    theme: ColorfulTheme,
-}
+pub struct PromptModule;
 
 impl PromptModule {
     pub fn text(&self, prompt: String, default: Option<String>) -> LuaResult<String> {
-        ensure_console_input().map_err(LuaError::external)?;
-        let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
-        if let Some(default_value) = default {
-            input = input.default(default_value);
+        let mut input = Text::new(&prompt);
+        if let Some(default_value) = &default {
+            input = input.with_default(default_value);
         }
-        input.interact_text().map_err(LuaError::external)
+        input.prompt().map_err(LuaError::external)
     }
 
     pub fn integer(&self, prompt: String, default: Option<i64>) -> LuaResult<i64> {
-        ensure_console_input().map_err(LuaError::external)?;
-        let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
+        let mut input = CustomType::new(&prompt);
         if let Some(default_value) = default {
-            input = input.default(default_value);
+            input = input.with_default(default_value);
         }
-        input.interact_text().map_err(LuaError::external)
+        input.prompt().map_err(LuaError::external)
     }
 
     pub fn float(&self, prompt: String, default: Option<f64>) -> LuaResult<f64> {
-        ensure_console_input().map_err(LuaError::external)?;
-        let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
+        let mut input = CustomType::new(&prompt);
         if let Some(default_value) = default {
-            input = input.default(default_value);
+            input = input.with_default(default_value);
         }
-        input.interact_text().map_err(LuaError::external)
+        input.prompt().map_err(LuaError::external)
     }
 
     pub fn choice(
         &self,
         prompt: String,
-        mut choices: Vec<String>,
+        choices: Vec<String>,
         default: Option<usize>,
     ) -> LuaResult<String> {
-        ensure_console_input().map_err(LuaError::external)?;
-        let mut select = Select::with_theme(&self.theme)
-            .with_prompt(prompt)
-            .items(&choices);
+        let mut select = Select::new(&prompt, choices);
         if let Some(default_value) = default {
-            select = select.default(default_value);
+            select = select.with_starting_cursor(default_value);
         }
-        let index = select.interact().map_err(LuaError::external)?;
-        Ok(choices.swap_remove(index))
+        select.prompt().map_err(LuaError::external)
     }
 
     pub fn confirm(&self, prompt: String, default: Option<bool>) -> LuaResult<bool> {
-        ensure_console_input().map_err(LuaError::external)?;
-        let mut confirm = Confirm::with_theme(&self.theme).with_prompt(prompt);
+        let mut confirm = Confirm::new(&prompt);
         if let Some(default_value) = default {
-            confirm = confirm.default(default_value);
+            confirm = confirm.with_default(default_value);
         }
-        confirm.interact().map_err(LuaError::external)
+        confirm.prompt().map_err(LuaError::external)
     }
 }
 
@@ -71,9 +58,7 @@ impl SchopeModule for PromptModule {
     fn create_module_table(lua: &Lua, _: LuaMultiValue) -> Result<LuaTable, LuaError> {
         let t = lua.create_table()?;
 
-        let module = Arc::new(PromptModule {
-            theme: ColorfulTheme::default(),
-        });
+        let module = Arc::new(PromptModule);
         t.set(
             "text",
             create_module_method(lua, &module, |this, (prompt, default)| {
