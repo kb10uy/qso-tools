@@ -1,157 +1,132 @@
-use std::fmt::{Result as FmtResult, Write};
+use std::fmt::Write;
 
-use time::{
-    Date, OffsetDateTime, UtcOffset, format_description::BorrowedFormatItem,
-    macros::format_description,
+use anyhow::{Result, anyhow};
+use time::{Date, UtcOffset, format_description::BorrowedFormatItem, macros::format_description};
+
+use crate::{
+    commands::loggen::{
+        log::{ContestLog, LoggedQso},
+        submission::Submission,
+    },
+    core::qso::band::Band,
 };
-
-use crate::core::qso::band::Band;
 
 const LOG_DATE: &[BorrowedFormatItem<'_>] = format_description!("[year]-[month]-[day]");
 const LOG_TIME: &[BorrowedFormatItem<'_>] = format_description!("[hour]:[minute]");
 const LABEL_OFFSET: &[BorrowedFormatItem<'_>] =
     format_description!("[offset_hour sign:mandatory]:[offset_minute]");
 
+const LOG_TYPE: &str = "qso-tools";
+const NO_VALUE: &str = "-";
 const OATH: &str = "私は、JARL制定のコンテスト規約および電波法令にしたがい運用した結果、ここに提出するサマリーシートおよびログシートなどが事実と相違ないものであることを、私の名誉において誓います。";
 const JST: UtcOffset = match UtcOffset::from_hms(9, 0, 0) {
     Ok(offset) => offset,
     Err(_) => panic!("valid offset"),
 };
 
-/// Summary sheet of JARL eLog R2.1.
-#[derive(Debug, Clone, PartialEq)]
-pub struct SummarySheet {
-    pub contest_name: String,
-    pub category_code: String,
-    pub callsign: String,
-    pub op_callsign: Option<String>,
-    pub total_score: i64,
-    pub address: Option<String>,
-    pub name: Option<String>,
-    pub tel: Option<String>,
-    pub email: Option<String>,
-    pub license_date: Option<Date>,
-    pub age: Option<u32>,
-    pub power: Option<f64>,
-    pub fd_coeff: Option<i64>,
-    pub op_place: Option<String>,
-    pub power_supply: Option<String>,
-    pub comments: Option<String>,
-    pub multi_op_list: Option<String>,
-    pub reg_club_number: Option<String>,
-    pub date: Date,
+/// Writes JARL eLog (summary sheet R2.1 and log sheet in JARL format).
+pub fn write_elog(log: &ContestLog, out: &mut impl Write) -> Result<()> {
+    write_summary(&log.submission, out)?;
+    write_log(&log.qsos, log.offset, out)
 }
 
-/// Log sheet of JARL eLog in JARL log format.
-#[derive(Debug, Clone, PartialEq)]
-pub struct LogSheet {
-    pub log_type: String,
-    pub offset: UtcOffset,
-    pub lines: Vec<LogLine>,
+fn write_summary(submission: &Submission, out: &mut impl Write) -> Result<()> {
+    writeln!(out, "<SUMMARYSHEET VERSION=R2.1>")?;
+    write_tag(out, "CONTESTNAME", Some(&submission.contest_name))?;
+    write_tag(out, "CATEGORYCODE", Some(&submission.category_code))?;
+    write_tag(out, "CALLSIGN", Some(&submission.callsign))?;
+    write_tag(out, "OPCALLSIGN", submission.op_callsign.as_ref())?;
+    write_tag(out, "TOTALSCORE", Some(submission.total_score))?;
+    write_tag(out, "ADDRESS", submission.address.as_ref())?;
+    write_tag(out, "NAME", submission.name.as_ref())?;
+    write_tag(out, "TEL", submission.tel.as_ref())?;
+    write_tag(out, "EMAIL", submission.email.as_ref())?;
+    write_tag(
+        out,
+        "LICENSEDATE",
+        submission.license_date.map(japanese_date),
+    )?;
+    write_tag(out, "AGE", submission.age)?;
+    write_tag(out, "POWER", submission.power)?;
+    write_tag(out, "FDCOEFF", submission.fd_coeff)?;
+    write_tag(out, "OPPLACE", submission.op_place.as_ref())?;
+    write_tag(out, "POWERSUPPLY", submission.power_supply.as_ref())?;
+    write_tag(out, "COMMENTS", submission.comments.as_ref())?;
+    write_tag(out, "MULTIOPLIST", submission.multi_op_list.as_ref())?;
+    write_tag(out, "REGCLUBNUMBER", submission.reg_club_number.as_ref())?;
+    write_tag(out, "OATH", Some(OATH))?;
+    write_tag(out, "DATE", Some(japanese_date(submission.date)))?;
+    write_tag(out, "SIGNATURE", submission.name.as_ref())?;
+    writeln!(out, "</SUMMARYSHEET>")?;
+    Ok(())
 }
 
-/// QSO line of JARL log format.
-#[derive(Debug, Clone, PartialEq)]
-pub struct LogLine {
-    pub datetime: OffsetDateTime,
-    pub band: String,
-    pub mode: String,
-    pub call: String,
-    pub sent_rst: String,
-    pub sent_number: String,
-    pub received_rst: String,
-    pub received_number: String,
-    pub multiplier: Option<String>,
-    pub point: i64,
-}
+fn write_log(qsos: &[LoggedQso], offset: UtcOffset, out: &mut impl Write) -> Result<()> {
+    let header = [
+        format!("DATE({})", offset_label(offset)),
+        "TIME".to_string(),
+        "BAND".to_string(),
+        "MODE".to_string(),
+        "CALLSIGN".to_string(),
+        "SENTNo".to_string(),
+        "RCVDNo".to_string(),
+        "Multi".to_string(),
+        "PTS".to_string(),
+    ];
+    let rows: Vec<_> = qsos
+        .iter()
+        .map(|q| columns(q, offset))
+        .collect::<Result<_>>()?;
 
-impl SummarySheet {
-    pub fn write_to(&self, out: &mut impl Write) -> FmtResult {
-        writeln!(out, "<SUMMARYSHEET VERSION=R2.1>")?;
-        write_tag(out, "CONTESTNAME", Some(&self.contest_name))?;
-        write_tag(out, "CATEGORYCODE", Some(&self.category_code))?;
-        write_tag(out, "CALLSIGN", Some(&self.callsign))?;
-        write_tag(out, "OPCALLSIGN", self.op_callsign.as_ref())?;
-        write_tag(out, "TOTALSCORE", Some(self.total_score))?;
-        write_tag(out, "ADDRESS", self.address.as_ref())?;
-        write_tag(out, "NAME", self.name.as_ref())?;
-        write_tag(out, "TEL", self.tel.as_ref())?;
-        write_tag(out, "EMAIL", self.email.as_ref())?;
-        write_tag(out, "LICENSEDATE", self.license_date.map(japanese_date))?;
-        write_tag(out, "AGE", self.age)?;
-        write_tag(out, "POWER", self.power)?;
-        write_tag(out, "FDCOEFF", self.fd_coeff)?;
-        write_tag(out, "OPPLACE", self.op_place.as_ref())?;
-        write_tag(out, "POWERSUPPLY", self.power_supply.as_ref())?;
-        write_tag(out, "COMMENTS", self.comments.as_ref())?;
-        write_tag(out, "MULTIOPLIST", self.multi_op_list.as_ref())?;
-        write_tag(out, "REGCLUBNUMBER", self.reg_club_number.as_ref())?;
-        write_tag(out, "OATH", Some(OATH))?;
-        write_tag(out, "DATE", Some(japanese_date(self.date)))?;
-        write_tag(out, "SIGNATURE", self.name.as_ref())?;
-        writeln!(out, "</SUMMARYSHEET>")
+    let mut widths = header.each_ref().map(String::len);
+    for row in &rows {
+        for (width, column) in widths.iter_mut().zip(row) {
+            *width = (*width).max(column.len());
+        }
     }
-}
 
-impl LogSheet {
-    pub fn write_to(&self, out: &mut impl Write) -> FmtResult {
-        let header = [
-            format!("DATE({})", offset_label(self.offset)),
-            "TIME".to_string(),
-            "BAND".to_string(),
-            "MODE".to_string(),
-            "CALLSIGN".to_string(),
-            "SENTNo".to_string(),
-            "RCVDNo".to_string(),
-            "Multi".to_string(),
-            "PTS".to_string(),
-        ];
-        let rows: Vec<_> = self
-            .lines
+    writeln!(out, "<LOGSHEET TYPE=\"{LOG_TYPE}\">")?;
+    for row in [&header].into_iter().chain(&rows) {
+        let padded: Vec<_> = row
             .iter()
-            .map(|l| l.columns(self.offset))
-            .collect::<Result<_, _>>()
-            .map_err(|_| std::fmt::Error)?;
-
-        let mut widths = header.each_ref().map(String::len);
-        for row in &rows {
-            for (width, column) in widths.iter_mut().zip(row) {
-                *width = (*width).max(column.len());
-            }
-        }
-
-        writeln!(out, "<LOGSHEET TYPE=\"{}\">", self.log_type)?;
-        for row in [&header].into_iter().chain(&rows) {
-            let padded: Vec<_> = row
-                .iter()
-                .zip(widths)
-                .map(|(c, w)| format!("{c:w$}"))
-                .collect();
-            writeln!(out, "{}", padded.join(" ").trim_end())?;
-        }
-        writeln!(out, "</LOGSHEET>")
+            .zip(widths)
+            .map(|(c, w)| format!("{c:w$}"))
+            .collect();
+        writeln!(out, "{}", padded.join(" ").trim_end())?;
     }
+    writeln!(out, "</LOGSHEET>")?;
+    Ok(())
 }
 
-impl LogLine {
-    fn columns(&self, offset: UtcOffset) -> Result<[String; 9], time::error::Format> {
-        let datetime = self.datetime.to_offset(offset);
-        Ok([
-            datetime.format(LOG_DATE)?,
-            datetime.format(LOG_TIME)?,
-            self.band.clone(),
-            self.mode.clone(),
-            self.call.clone(),
-            format!("{} {}", self.sent_rst, self.sent_number),
-            format!("{} {}", self.received_rst, self.received_number),
-            self.multiplier.clone().unwrap_or_else(|| "-".to_string()),
-            self.point.to_string(),
-        ])
-    }
+fn columns(qso: &LoggedQso, offset: UtcOffset) -> Result<[String; 9]> {
+    let datetime = qso.datetime.to_offset(offset);
+    let band = jarl_band(qso.band)
+        .ok_or_else(|| anyhow!("band {} is not in JARL log format", qso.band))?;
+    let value = |v: &Option<String>| v.clone().unwrap_or_else(|| NO_VALUE.to_string());
+    let multiplier = match qso.multipliers.as_slice() {
+        [] => NO_VALUE.to_string(),
+        multipliers => multipliers.join(","),
+    };
+
+    Ok([
+        datetime.format(LOG_DATE)?,
+        datetime.format(LOG_TIME)?,
+        band.to_string(),
+        jarl_mode(&qso.mode),
+        qso.call.to_string(),
+        format!("{} {}", value(&qso.sent.report), value(&qso.sent.number)),
+        format!(
+            "{} {}",
+            value(&qso.received.report),
+            value(&qso.received.number)
+        ),
+        multiplier,
+        qso.point.to_string(),
+    ])
 }
 
 /// Returns band notation of JARL log format, or `None` if the band is not used in Japan.
-pub fn jarl_band(band: Band) -> Option<&'static str> {
+fn jarl_band(band: Band) -> Option<&'static str> {
     match band {
         Band::Meter2190 => Some("0.135"),
         Band::Meter630 => Some("0.475"),
@@ -180,18 +155,11 @@ pub fn jarl_band(band: Band) -> Option<&'static str> {
 }
 
 /// Returns mode notation of JARL log format from ADIF mode.
-pub fn jarl_mode(mode: &str) -> String {
+fn jarl_mode(mode: &str) -> String {
     match mode.to_ascii_uppercase().as_str() {
         "DIGITALVOICE" => "DV".to_string(),
         otherwise => otherwise.to_string(),
     }
-}
-
-/// Calculates age at `today`.
-pub fn calculate_age(today: Date, birthday: Date) -> u32 {
-    let had_birthday = (today.month(), today.day()) >= (birthday.month(), birthday.day());
-    let age = today.year() - birthday.year() - if had_birthday { 0 } else { 1 };
-    age.max(0) as u32
 }
 
 fn japanese_date(date: Date) -> String {
@@ -210,11 +178,11 @@ fn offset_label(offset: UtcOffset) -> String {
 }
 
 /// Writes a tag line; empty values are omitted as inapplicable items.
-fn write_tag(out: &mut impl Write, tag: &str, value: Option<impl ToString>) -> FmtResult {
-    match value.map(|v| v.to_string()).filter(|v| !v.is_empty()) {
-        Some(value) => writeln!(out, "<{tag}>{value}</{tag}>"),
-        None => Ok(()),
+fn write_tag(out: &mut impl Write, tag: &str, value: Option<impl ToString>) -> Result<()> {
+    if let Some(value) = value.map(|v| v.to_string()).filter(|v| !v.is_empty()) {
+        writeln!(out, "<{tag}>{value}</{tag}>")?;
     }
+    Ok(())
 }
 
 #[cfg(test)]
@@ -222,21 +190,13 @@ mod tests {
     use time::macros::{date, datetime};
 
     use super::*;
+    use crate::commands::loggen::log::LoggedExchange;
 
-    #[test]
-    fn calculates_age() {
-        let birthday = date!(1998 - 06 - 03);
-        assert_eq!(calculate_age(date!(2026 - 06 - 02), birthday), 27);
-        assert_eq!(calculate_age(date!(2026 - 06 - 03), birthday), 28);
-        assert_eq!(calculate_age(date!(2026 - 10 - 11), birthday), 28);
-        assert_eq!(calculate_age(date!(1990 - 01 - 01), birthday), 0);
-    }
-
-    #[test]
-    fn writes_summary_sheet() {
-        let summary = SummarySheet {
+    fn submission() -> Submission {
+        Submission {
             contest_name: "ALL JA1".to_string(),
             category_code: "XMA".to_string(),
+            category_name: "Mixed".to_string(),
             callsign: "JL1HIS".to_string(),
             op_callsign: None,
             total_score: 1200,
@@ -254,10 +214,42 @@ mod tests {
             multi_op_list: None,
             reg_club_number: None,
             date: date!(2026 - 06 - 07),
-        };
+        }
+    }
 
+    fn qso(
+        datetime: time::OffsetDateTime,
+        band: Band,
+        call: &str,
+        multipliers: &[&str],
+        point: i64,
+    ) -> LoggedQso {
+        LoggedQso {
+            datetime,
+            band,
+            frequency: 7.0,
+            mode: "CW".into(),
+            submode: None,
+            call: call.into(),
+            station_callsign: None,
+            sent: LoggedExchange {
+                report: Some("599".to_string()),
+                number: Some("09M".to_string()),
+            },
+            received: LoggedExchange {
+                report: Some("599".to_string()),
+                number: Some("1001H".to_string()),
+            },
+            multipliers: multipliers.iter().map(|m| m.to_string()).collect(),
+            point,
+            dupe: point == 0,
+        }
+    }
+
+    #[test]
+    fn writes_summary_sheet() {
         let mut out = String::new();
-        summary.write_to(&mut out).unwrap();
+        write_summary(&submission(), &mut out).unwrap();
         assert_eq!(
             out,
             format!(
@@ -282,44 +274,51 @@ mod tests {
 
     #[test]
     fn writes_log_sheet() {
-        let line = |datetime, band: &str, call: &str, multiplier: Option<&str>, point| LogLine {
-            datetime,
-            band: band.to_string(),
-            mode: "CW".to_string(),
-            call: call.to_string(),
-            sent_rst: "599".to_string(),
-            sent_number: "09M".to_string(),
-            received_rst: "599".to_string(),
-            received_number: "1001H".to_string(),
-            multiplier: multiplier.map(str::to_string),
-            point,
-        };
-        let log = LogSheet {
-            log_type: "qso-tools".to_string(),
-            offset: JST,
-            lines: vec![
-                line(
-                    datetime!(2026-06-06 12:00 UTC),
-                    "7",
-                    "JA1RL",
-                    Some("1001"),
-                    1,
-                ),
-                line(datetime!(2026-06-06 15:05 UTC), "430", "JA1ZZZ", None, 0),
-            ],
-        };
+        let qsos = [
+            qso(
+                datetime!(2026-06-06 12:00 UTC),
+                Band::Meter40,
+                "JA1RL",
+                &["1001"],
+                1,
+            ),
+            qso(
+                datetime!(2026-06-06 15:05 UTC),
+                Band::Centimeter70,
+                "JA1ZZZ",
+                &[],
+                0,
+            ),
+            qso(
+                datetime!(2026-06-06 15:06 UTC),
+                Band::Meter20,
+                "JA1YYY",
+                &["1", "W"],
+                1,
+            ),
+        ];
 
         let mut out = String::new();
-        log.write_to(&mut out).unwrap();
+        write_log(&qsos, JST, &mut out).unwrap();
         assert_eq!(
             out,
             "<LOGSHEET TYPE=\"qso-tools\">
 DATE(JST)  TIME  BAND MODE CALLSIGN SENTNo  RCVDNo    Multi PTS
 2026-06-06 21:00 7    CW   JA1RL    599 09M 599 1001H 1001  1
 2026-06-07 00:05 430  CW   JA1ZZZ   599 09M 599 1001H -     0
+2026-06-07 00:06 14   CW   JA1YYY   599 09M 599 1001H 1,W   1
 </LOGSHEET>
 "
         );
+
+        let invalid = [qso(
+            datetime!(2026-06-06 12:00 UTC),
+            Band::Meter5,
+            "JA1RL",
+            &[],
+            1,
+        )];
+        assert!(write_log(&invalid, JST, &mut String::new()).is_err());
     }
 
     #[test]

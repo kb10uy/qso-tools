@@ -11,6 +11,7 @@ pub struct Record {
     pub freq: f64,
     pub freq_str: CompactString,
     pub mode: CompactString,
+    pub submode: Option<CompactString>,
     pub call: CompactString,
 }
 
@@ -22,6 +23,7 @@ impl IntoLua for Record {
         table.set("freq", self.freq)?;
         table.set("freq_str", self.freq_str.as_str())?;
         table.set("mode", self.mode.as_str())?;
+        table.set("submode", self.submode.as_deref())?;
         table.set("call", self.call.as_str())?;
 
         Ok(LuaValue::Table(table))
@@ -36,6 +38,7 @@ impl From<QsoRecord> for Record {
             freq: value.frequency,
             freq_str: value.frequency_str,
             mode: value.mode,
+            submode: value.submode,
             call: value.call,
         }
     }

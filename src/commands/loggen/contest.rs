@@ -1,70 +1,14 @@
+use std::collections::{BTreeMap, HashMap};
+
 use compact_str::CompactString;
 use mlua::prelude::*;
 
 use crate::core::schope::data::{exchange::Exchange, record::Record};
 
-/// Contest definition returned by `initialize()` of the script.
-#[derive(Debug, Clone, PartialEq, Default)]
-pub struct ContestConfig {
-    pub contest_name: String,
-    pub category_code: String,
-    pub callsign: Option<String>,
-    pub op_callsign: Option<String>,
-    pub operator: Option<String>,
-    pub power: Option<f64>,
-    pub fd_coeff: Option<i64>,
-    pub op_place: Option<String>,
-    pub power_supply: Option<String>,
-    pub comments: Option<String>,
-    pub multi_op_list: Option<String>,
-    pub reg_club_number: Option<String>,
-    pub address: Option<String>,
-    pub name: Option<String>,
-    pub tel: Option<String>,
-    pub email: Option<String>,
-    pub license_date: Option<String>,
-    pub age: Option<u32>,
-    pub date: Option<String>,
-    pub offset: Option<String>,
-    pub log_type: Option<String>,
-}
+/// Kind of the multiplier given as `multiplier`.
+pub const DEFAULT_MULTIPLIER_KIND: &str = "default";
 
-impl FromLua for ContestConfig {
-    fn from_lua(value: LuaValue, _: &Lua) -> LuaResult<Self> {
-        let LuaValue::Table(table) = value else {
-            return Err(LuaError::runtime(format!(
-                "initialize() must return table, got {}",
-                value.type_name()
-            )));
-        };
-
-        Ok(ContestConfig {
-            contest_name: table.get("contest_name")?,
-            category_code: table.get("category_code")?,
-            callsign: table.get("callsign")?,
-            op_callsign: table.get("op_callsign")?,
-            operator: table.get("operator")?,
-            power: table.get("power")?,
-            fd_coeff: table.get("fd_coeff")?,
-            op_place: table.get("op_place")?,
-            power_supply: table.get("power_supply")?,
-            comments: table.get("comments")?,
-            multi_op_list: table.get("multi_op_list")?,
-            reg_club_number: table.get("reg_club_number")?,
-            address: table.get("address")?,
-            name: table.get("name")?,
-            tel: table.get("tel")?,
-            email: table.get("email")?,
-            license_date: table.get("license_date")?,
-            age: table.get("age")?,
-            date: table.get("date")?,
-            offset: table.get("offset")?,
-            log_type: table.get("log_type")?,
-        })
-    }
-}
-
-/// QSO passed to `process_qso()` of the script.
+/// QSO passed to functions of the script.
 #[derive(Debug, Clone, PartialEq)]
 pub struct ContestEntry {
     pub qso: Record,
@@ -89,15 +33,11 @@ impl IntoLua for ContestEntry {
     }
 }
 
-/// Scoring of a QSO returned by `process_qso()` of the script.
+/// Scoring of a QSO returned by `score_qso()` of the script.
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct QsoScore {
-    pub key: String,
     pub point: i64,
-    pub multiplier: Option<String>,
-    pub multiplier_key: Option<String>,
-    pub band: Option<String>,
-    pub mode: Option<String>,
+    pub multipliers: Vec<(String, String)>,
     pub tx_report: Option<String>,
     pub tx_number: Option<String>,
     pub rx_report: Option<String>,
@@ -108,18 +48,24 @@ impl FromLua for QsoScore {
     fn from_lua(value: LuaValue, _: &Lua) -> LuaResult<Self> {
         let LuaValue::Table(table) = value else {
             return Err(LuaError::runtime(format!(
-                "process_qso() must return table or nil, got {}",
+                "score_qso() must return table or nil, got {}",
                 value.type_name()
             )));
         };
 
+        let mut multipliers: Vec<_> = table
+            .get::<Option<HashMap<String, String>>>("multipliers")?
+            .unwrap_or_default()
+            .into_iter()
+            .collect();
+        if let Some(multiplier) = table.get::<Option<String>>("multiplier")? {
+            multipliers.push((DEFAULT_MULTIPLIER_KIND.to_string(), multiplier));
+        }
+        multipliers.sort();
+
         Ok(QsoScore {
-            key: table.get("key")?,
             point: table.get::<Option<i64>>("point")?.unwrap_or_default(),
-            multiplier: table.get("multiplier")?,
-            multiplier_key: table.get("multiplier_key")?,
-            band: table.get("band")?,
-            mode: table.get("mode")?,
+            multipliers,
             tx_report: table.get("tx_report")?,
             tx_number: table.get("tx_number")?,
             rx_report: table.get("rx_report")?,
@@ -128,20 +74,21 @@ impl FromLua for QsoScore {
     }
 }
 
-impl QsoScore {
-    /// Returns the key to count the multiplier only once.
-    pub fn multiplier_key(&self) -> Option<&str> {
-        self.multiplier_key
-            .as_deref()
-            .or(self.multiplier.as_deref())
-    }
-}
-
-/// Tally of processed QSOs passed to `summarize()` of the script.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+/// Tally of QSOs passed to `total()` of the script.
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct ContestSummary {
     pub qsos: u64,
     pub dupes: u64,
+    pub points: i64,
+    pub multipliers: u64,
+    pub multipliers_by_kind: BTreeMap<String, u64>,
+    pub bands: BTreeMap<String, BandSummary>,
+}
+
+/// Tally of QSOs in a band.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct BandSummary {
+    pub qsos: u64,
     pub points: i64,
     pub multipliers: u64,
 }
@@ -164,6 +111,19 @@ impl IntoLua for ContestSummary {
         table.set("points", self.points)?;
         table.set("multipliers", self.multipliers)?;
         table.set("total", self.default_total())?;
+        table.set("multipliers_by_kind", self.multipliers_by_kind)?;
+        table.set("bands", self.bands)?;
+
+        Ok(LuaValue::Table(table))
+    }
+}
+
+impl IntoLua for BandSummary {
+    fn into_lua(self, lua: &Lua) -> LuaResult<LuaValue> {
+        let table = lua.create_table()?;
+        table.set("qsos", self.qsos)?;
+        table.set("points", self.points)?;
+        table.set("multipliers", self.multipliers)?;
 
         Ok(LuaValue::Table(table))
     }
@@ -177,47 +137,30 @@ mod tests {
     fn reads_qso_score() {
         let lua = Lua::new();
         let score: QsoScore = lua
-            .load("{ key = '7-CW-JA1RL', point = 2, multiplier = '10', multiplier_key = '7-10' }")
+            .load("{ point = 2, multiplier = '100110', multipliers = { area = '1' } }")
             .eval()
             .unwrap();
         assert_eq!(score.point, 2);
-        assert_eq!(score.multiplier_key(), Some("7-10"));
-
-        let score: QsoScore = lua
-            .load("{ key = 'JA1RL', multiplier = '10' }")
-            .eval()
-            .unwrap();
-        assert_eq!(score.point, 0);
-        assert_eq!(score.multiplier_key(), Some("10"));
-
-        assert!(lua.load("{ point = 1 }").eval::<QsoScore>().is_err());
-    }
-
-    #[test]
-    fn reads_contest_config() {
-        let lua = Lua::new();
-        let config: ContestConfig = lua
-            .load("{ contest_name = 'ALL JA1', category_code = 'XMA', power = 25, age = 28 }")
-            .eval()
-            .unwrap();
-        assert_eq!(config.contest_name, "ALL JA1");
-        assert_eq!(config.power, Some(25.0));
-        assert_eq!(config.age, Some(28));
-
-        assert!(
-            lua.load("{ contest_name = 'ALL JA1' }")
-                .eval::<ContestConfig>()
-                .is_err()
+        assert_eq!(
+            score.multipliers,
+            [
+                ("area".to_string(), "1".to_string()),
+                ("default".to_string(), "100110".to_string()),
+            ]
         );
+
+        let score: QsoScore = lua.load("{}").eval().unwrap();
+        assert_eq!(score, QsoScore::default());
+
+        assert!(lua.load("'invalid'").eval::<QsoScore>().is_err());
     }
 
     #[test]
     fn calculates_default_total() {
         let summary = ContestSummary {
-            qsos: 10,
-            dupes: 1,
             points: 12,
             multipliers: 5,
+            ..Default::default()
         };
         assert_eq!(summary.default_total(), 60);
         assert_eq!(
