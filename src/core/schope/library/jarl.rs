@@ -70,6 +70,7 @@ impl JarlModule {
         table.set("name", self.jcx.full_name_ja(&code))?;
         table.set("prefecture", prefecture)?;
         table.set("area", area_of_prefecture(prefecture))?;
+        table.set("has_wards", self.jcx.has_wards(&code))?;
         Ok(LuaValue::Table(table))
     }
 }
@@ -185,6 +186,9 @@ mod tests {
             HashMap::from([
                 ("10".to_string(), county("prefecture", "東京都")),
                 ("100116".to_string(), county("ward", "豊島区")),
+                ("0601".to_string(), county("city", "仙台市")),
+                ("060101".to_string(), county("ward", "青葉区")),
+                ("1002".to_string(), county("city", "八王子市")),
             ]),
             HashMap::new(),
         );
@@ -204,6 +208,11 @@ mod tests {
         );
         let prefecture: String = lua.load("return jarl.jcx('10').prefecture").eval().unwrap();
         assert_eq!(prefecture, "10");
+        let has_wards: (bool, bool, bool) = lua
+            .load("return jarl.jcx('0601').has_wards, jarl.jcx('060101').has_wards, jarl.jcx('1002').has_wards")
+            .eval()
+            .unwrap();
+        assert_eq!(has_wards, (true, false, false));
         let unknown: LuaValue = lua.load("return jarl.jcx('100199')").eval().unwrap();
         assert!(unknown.is_nil());
         let power: String = lua

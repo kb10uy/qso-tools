@@ -123,6 +123,9 @@ return {
         if jcx == nil or jcx.kind == "prefecture" then
             return { point = 0 }, "invalid number"
         end
+        if jcx.has_wards then
+            return { point = 1 }, "city divided into wards is not a multiplier"
+        end
         return { point = 1, multiplier = number.area }
     end,
 }

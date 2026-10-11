@@ -143,6 +143,15 @@ impl Jcx {
         self.counties.get(code.city_code()?)
     }
 
+    /// Checks whether the county is a city divided into wards.
+    pub fn has_wards(&self, code: &JcxCode) -> bool {
+        let city = code.county();
+        city.len() == 4
+            && self.counties.iter().any(|(k, c)| {
+                k.len() == 6 && k.starts_with(city) && c.kind.as_deref() == Some("ward")
+            })
+    }
+
     /// Builds the full Japanese name from the prefecture down to the HAMLOG town.
     /// Returns `None` if the county or the given town is unknown.
     pub fn full_name_ja(&self, code: &JcxCode) -> Option<String> {

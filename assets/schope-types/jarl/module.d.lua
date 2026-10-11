@@ -13,6 +13,7 @@ local jarl = {}
 ---@field name string|nil Full Japanese name like `東京都豊島区`.
 ---@field prefecture string Prefecture number containing the code.
 ---@field area integer|nil Call area of the prefecture.
+---@field has_wards boolean Whether the code is a city divided into wards.
 
 --- Splits contest number like `100116L` into area number and power code.
 ---@param number string|nil Contest number without RST.
