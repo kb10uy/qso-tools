@@ -53,24 +53,35 @@ See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type de
 
 ## loggen
 
-Generates JARL eLog ([summary sheet R2.1 and log sheet in JARL format](https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/logformat.html)) through a Lua script.
+Generates contest logs through a Lua script that defines the contest rules.
 
 ```sh
-qso-tools loggen jarl assets/loggen/example.lua --adif qsos.adi -A category=XMA -o elog.txt
+# JARL eLog (summary sheet R2.1 and log sheet in JARL format)
+qso-tools loggen jarl assets/loggen/acag.lua --adif qsos.adi -A category=XAM --qso-since 2026-10-10T21:00 --qso-until 2026-10-11T21:00 -o elog.txt
+
+# Cabrillo 3.0
+qso-tools loggen cabrillo assets/loggen/acag.lua --adif qsos.adi -A category=XAM -A name="Yu Kobayashi" -o acag.log
 ```
 
-- QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin, with the same `-l` option as `qcgen`, and processed in time order
-- The script returns a table of functions:
-    - `initialize(args)` returns contest name, category code and other summary sheet items (`ContestConfig`); `-A KEY=VALUE` is passed as `args`, and `prompt` module asks the user interactively
-    - `process_qso(entry)` returns `nil` to exclude the QSO (e.g. out of contest period), or its dupe key, point and multiplier (`QsoScore`)
-    - `summarize(summary)` (optional) returns total score from numbers of QSOs, points and multipliers; defaults to points times multipliers
-- QSOs with a dupe key already seen are written with 0 points; multipliers are shown only at their first appearance, counted by `multiplier_key` (e.g. per band) if given
-- Name, address, TEL, email, license date and age (at the first QSO from `birthday`) are taken from `[operators]` in config unless the script gives them; the operator is `operator` of the script, `OPERATOR` of the first QSO, then the callsign
-- Callsign defaults to `STATION_CALLSIGN` and power to maximum `TX_PWR` of the QSOs
-- Log sheet is written in JST (or `offset` of the script) with band in MHz (`10G` and above in GHz) and `DIGITALVOICE` as `DV`; the script can override band, mode, RST and numbers per QSO
+- `jarl` writes [JARL eLog](https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/logformat.html) with times in JST (or `offset` of the script), band in MHz (`10G` and above in GHz) and `DIGITALVOICE` as `DV`
+- `cabrillo` writes Cabrillo 3.0 with times in UTC, frequency in kHz and mode as `CW`, `PH`, `FM`, `RY` or `DG`
+- QSOs are processed in time order; `--qso-since` (inclusive) and `--qso-until` (exclusive) limit the contest period, otherwise all QSOs in the input are used
+    - Datetimes are given like `2026-10-10T21:00`, in the offset of the script (JST by default), or with offset like `2026-10-10T12:00Z`
+- The script returns a contest definition (`ContestDefinition`):
+    - `categories`: categories keyed by code, with accepted `modes` (mode groups), `bands` and `exclude_bands`, summary items it `requires`, and `cabrillo` values for `CATEGORY-*`
+    - `dupe_scope` and `multiplier_scope`: attributes (`band`, `band_group`, `mode`, `mode_group`) separating duplicate checks of callsigns and multipliers; both default to `{ "band" }`, and `mode_groups` defaults to `CW` and `PH`
+    - `score_qso(entry, ctx)`: returns point and multiplier (or `multipliers` keyed by kind) of the QSO, or `nil` to exclude it; a second return value is shown as the reason
+    - `dupe_key`, `multiplier_key` and `total` (optional): functions for rules the scopes cannot express and for total score (default: points times multipliers)
+- `require("jarl")` provides contest number parsing, JCC/JCG lookup from `japan-jcx.toml` and call areas, and `require("cty")` provides DXCC entities from `cty.dat`
+- Duplicate QSOs are written with 0 points; multipliers are shown only at their first appearance
+- Category is given by `-A category=CODE` or chosen interactively
+- Summary items are given by `-A KEY=VALUE` (`callsign`, `op_callsign`, `operator`, `name`, `address`, `tel`, `email`, `license_date`, `age`, `power`, `fd_coeff`, `op_place`, `power_supply`, `comments`, `multi_op_list`, `reg_club_number`, `date`); otherwise they are taken from QSOs and config, and missing required ones are asked interactively
+    - Callsign comes from `STATION_CALLSIGN`, power from maximum `TX_PWR` and operating place from `MY_CNTY` of QSOs
+    - Name, address, TEL, email, license date and age (from `birthday` at the start of the contest) come from `[operators]` in config; the operator is `-A operator=`, `OPERATOR` of the first QSO, then the callsign
+    - Callsign, name, address and power are always required
 - Output is UTF-8
 
-See `assets/loggen/` for an example script and `assets/schope-types/` for Lua type definitions.
+See `assets/loggen/` for example scripts (category codes and Cabrillo contest IDs should be checked against the latest rules) and `assets/schope-types/` for Lua type definitions.
 
 ## jcx
 

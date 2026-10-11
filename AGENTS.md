@@ -10,7 +10,7 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 - `jcx`: shows full names of JCC/JCG codes (with optional HAMLOG town suffix)
 - `callsign`: shows DXCC entities of callsigns from `cty.dat`
 - `json`: converts ADIF (local file or stdin) into JSON
-- `loggen`: generates contest logs (JARL eLog) from ADIF (local file or stdin) through a Lua script
+- `loggen`: generates contest logs (JARL eLog, Cabrillo) from ADIF (local file or stdin) through a Lua script
 
 ## Project Layout
 
