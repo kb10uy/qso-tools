@@ -124,7 +124,7 @@ return {
             return { point = 0 }, "invalid number"
         end
         if jcx.has_wards then
-            return { point = 1 }, "city divided into wards is not a multiplier"
+            return { point = 0 }, "city divided into wards needs ward number"
         end
         return { point = 1, multiplier = number.area }
     end,
