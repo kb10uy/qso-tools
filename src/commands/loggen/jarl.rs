@@ -5,7 +5,7 @@ use time::{Date, UtcOffset, format_description::BorrowedFormatItem, macros::form
 
 use crate::{
     commands::loggen::{
-        log::{ContestLog, LoggedQso},
+        log::{ContestLog, LoggedQso, align_columns},
         submission::Submission,
     },
     core::qso::band::Band,
@@ -78,21 +78,11 @@ fn write_log(qsos: &[LoggedQso], offset: UtcOffset, out: &mut impl Write) -> Res
         .map(|q| columns(q, offset))
         .collect::<Result<_>>()?;
 
-    let mut widths = header.each_ref().map(String::len);
-    for row in &rows {
-        for (width, column) in widths.iter_mut().zip(row) {
-            *width = (*width).max(column.len());
-        }
-    }
+    let rows: Vec<_> = [header].into_iter().chain(rows).collect();
 
     writeln!(out, "<LOGSHEET TYPE=\"{LOG_TYPE}\">")?;
-    for row in [&header].into_iter().chain(&rows) {
-        let padded: Vec<_> = row
-            .iter()
-            .zip(widths)
-            .map(|(c, w)| format!("{c:w$}"))
-            .collect();
-        writeln!(out, "{}", padded.join(" ").trim_end())?;
+    for line in align_columns(&rows, &[]) {
+        writeln!(out, "{line}")?;
     }
     writeln!(out, "</LOGSHEET>")?;
     Ok(())

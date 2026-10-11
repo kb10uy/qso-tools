@@ -4,7 +4,7 @@ use anyhow::Result;
 use time::{format_description::BorrowedFormatItem, macros::format_description};
 use tracing::warn;
 
-use crate::commands::loggen::log::{ContestLog, LoggedQso};
+use crate::commands::loggen::log::{ContestLog, LoggedQso, align_columns};
 
 const QSO_DATE: &[BorrowedFormatItem<'_>] = format_description!("[year]-[month]-[day]");
 const QSO_TIME: &[BorrowedFormatItem<'_>] = format_description!("[hour][minute]");
@@ -46,26 +46,8 @@ pub fn write_cabrillo(log: &ContestLog, out: &mut impl Write) -> Result<()> {
         .iter()
         .map(|q| columns(q, &submission.callsign))
         .collect::<Result<_>>()?;
-    let mut widths = [0; 10];
-    for row in &rows {
-        for (width, column) in widths.iter_mut().zip(row) {
-            *width = (*width).max(column.len());
-        }
-    }
-    for row in &rows {
-        let padded: Vec<_> = row
-            .iter()
-            .zip(widths)
-            .enumerate()
-            .map(|(i, (c, w))| {
-                if i == 0 {
-                    format!("{c:>w$}")
-                } else {
-                    format!("{c:w$}")
-                }
-            })
-            .collect();
-        writeln!(out, "QSO: {}", padded.join(" ").trim_end())?;
+    for line in align_columns(&rows, &[0]) {
+        writeln!(out, "QSO: {line}")?;
     }
     writeln!(out, "END-OF-LOG:")?;
     Ok(())

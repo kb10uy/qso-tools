@@ -22,6 +22,7 @@ time = { version = "0.3.55", features = ["local-offset", "formatting", "parsing"
 toml = "1.1.6"
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+unicode-width = "0.2.2"
 
 [profile.release]
 lto = true
