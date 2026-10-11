@@ -3,8 +3,7 @@ mod elog;
 
 use std::{
     collections::{HashMap, HashSet},
-    fs::write,
-    io::{Write, stdout},
+    io::Write,
     path::{PathBuf, absolute},
 };
 
@@ -25,8 +24,9 @@ use crate::{
         elog::{LogLine, LogSheet, SummarySheet, calculate_age, jarl_band, jarl_mode},
     },
     core::{
-        adif::{LenientMode, read_document},
+        adif::AdifInput,
         config::{Config, OperatorConfig},
+        output::OutputFile,
         qso::{exchange::QsoExchanges, get_optional_field, record::QsoRecord},
         schope::{args::ScriptArg, engine::load_script},
     },
@@ -45,22 +45,15 @@ pub struct Arguments {
     /// Contest script file.
     pub script_path: PathBuf,
 
-    /// Read QSOs from ADIF file instead of ADI from stdin.
-    #[arg(long, value_name = "FILE")]
-    pub adif: Option<PathBuf>,
-
-    /// Enable lenient length count for ADI file.
-    /// Pedantic ADI file must not contain non-ASCII characters.
-    #[arg(short, long = "lenient")]
-    pub lenient_length: Option<LenientMode>,
+    #[command(flatten)]
+    pub input: AdifInput,
 
     /// Specify arguments passed to script as KEY or KEY=VALUE.
     #[arg(short = 'A', long = "args", value_name = "KEY[=VALUE]")]
     pub script_args: Vec<ScriptArg>,
 
-    /// Write eLog into file instead of stdout.
-    #[arg(short, long, value_name = "FILE")]
-    pub output: Option<PathBuf>,
+    #[command(flatten)]
+    pub output: OutputFile,
 }
 
 /// QSO accepted by the script.
@@ -85,10 +78,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         .map(|a| (a.key, a.value))
         .collect();
 
-    let document = read_document(
-        args.adif.as_deref(),
-        args.lenient_length.unwrap_or_default().into(),
-    )?;
+    let document = args.input.read()?;
     let mut qsos = vec![];
     for (i, record) in document.records().iter().enumerate() {
         let span = span!(Level::ERROR, "record_read", index = i);
@@ -147,12 +137,9 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
     let mut elog = String::new();
     summary.write_to(&mut elog)?;
     log.write_to(&mut elog)?;
-    match args.output {
-        Some(path) => {
-            write(&path, elog).with_context(|| format!("failed to write {}", path.display()))?
-        }
-        None => stdout().lock().write_all(elog.as_bytes())?,
-    }
+    let mut writer = args.output.writer()?;
+    writer.write_all(elog.as_bytes())?;
+    writer.flush()?;
 
     Ok(())
 }

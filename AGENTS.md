@@ -17,11 +17,12 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 - `src/main.rs`: entry point, dispatches subcommands
 - `src/cli.rs`: top-level clap definitions (`Cli`, `Command`)
 - `src/core.rs`, `src/core/`: functionality shared by tools
-    - `adif.rs`: ADIF document reader from a file or stdin
+    - `adif.rs`: ADIF input options (`--adif`, `-l`) and document reader from a file or stdin
     - `bureau.rs`: JARL QSL bureau order of cards
     - `config.rs`: `config.toml` shared by all tools (operators) and reference data TOML reader
     - `cty.rs`: AD1C `cty.dat` loader for callsign resolution through callfind
     - `jcx.rs`: JCC/JCG and HAMLOG town code resolution from `japan-jcx.toml` and `japan-jcx-town.toml`
+    - `output.rs`: output option (`-o`) writing into a file or stdout
     - `qso.rs`, `qso/`: common QSO data extracted from ADIF records
     - `schope.rs`, `schope/`: Lua scripting engine and Lua-facing data types
 - `src/commands.rs`, `src/commands/`: subcommands
@@ -32,7 +33,7 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 
 1. Create `src/commands/<tool>.rs` exposing `Arguments` (`clap::Args`) and `run(args, &Config)`, and declare it in `src/commands.rs`
 2. Add a variant to `Command` in `src/cli.rs` and dispatch it in `src/main.rs`
-3. Read ADIF from a file or stdin with `core::adif::read_document`; put reference data in TOML files next to `config.toml`
+3. Flatten `core::adif::AdifInput` to read ADIF from a file or stdin, and `core::output::OutputFile` to write into a file or stdout; put reference data in TOML files next to `config.toml`
 
 ## Commands
 

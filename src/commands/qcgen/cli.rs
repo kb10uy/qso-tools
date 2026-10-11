@@ -2,7 +2,7 @@ use std::path::PathBuf;
 
 use clap::Args;
 
-use crate::core::{adif::LenientMode, schope::args::ScriptArg};
+use crate::core::{adif::AdifInput, output::OutputFile, schope::args::ScriptArg};
 
 /// Generates JSON data for QSL cards.
 #[derive(Debug, Clone, Args)]
@@ -10,14 +10,8 @@ pub struct Arguments {
     /// Processor script file.
     pub script_path: PathBuf,
 
-    /// Read QSOs from ADIF file instead of ADI from stdin.
-    #[arg(long, value_name = "FILE")]
-    pub adif: Option<PathBuf>,
-
-    /// Enable lenient length count for ADI file.
-    /// Pedantic ADI file must not contain non-ASCII characters.
-    #[arg(short, long = "lenient")]
-    pub lenient_length: Option<LenientMode>,
+    #[command(flatten)]
+    pub input: AdifInput,
 
     /// Specify additional instruments definition file.
     /// instruments.toml next to config file is always loaded first if exists.
@@ -41,4 +35,7 @@ pub struct Arguments {
     /// cty.dat next to config file is used to group foreign cards by DXCC entity.
     #[arg(short = 'B', long)]
     pub bureau_order: bool,
+
+    #[command(flatten)]
+    pub output: OutputFile,
 }

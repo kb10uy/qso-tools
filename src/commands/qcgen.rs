@@ -4,7 +4,7 @@ mod data;
 
 use std::{
     collections::HashMap,
-    io::stdout,
+    io::Write,
     path::{Path, PathBuf, absolute},
     sync::LazyLock,
 };
@@ -27,7 +27,6 @@ use crate::{
         data::{Instrument, Park},
     },
     core::{
-        adif::read_document,
         bureau::BureauOrder,
         config::{Config, OperatorConfig, read_items_from_tomls},
         cty::{CTY_FILENAME, load_cty},
@@ -65,10 +64,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         .map(|a| (a.key, a.value))
         .collect();
 
-    let document = read_document(
-        args.adif.as_deref(),
-        args.lenient_length.unwrap_or_default().into(),
-    )?;
+    let document = args.input.read()?;
 
     let context = EntryContext {
         instruments: read_items_from_tomls(
@@ -102,7 +98,9 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
     info!("processing {} QSOs", entries.len());
 
     let processed_json = run_script(&script_path, script_args, entries)?;
-    serde_json::to_writer(stdout().lock(), &processed_json)?;
+    let mut writer = args.output.writer()?;
+    serde_json::to_writer(&mut writer, &processed_json)?;
+    writer.flush()?;
 
     Ok(())
 }

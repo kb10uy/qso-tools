@@ -1,30 +1,24 @@
-use std::{collections::BTreeMap, io::stdout, path::PathBuf};
+use std::{collections::BTreeMap, io::Write};
 
 use adif_reader::document::{AdifDocument, Field};
 use anyhow::Result;
 use clap::Args;
 use serde::Serialize;
 
-use crate::core::{
-    adif::{LenientMode, read_document},
-    config::Config,
-};
+use crate::core::{adif::AdifInput, config::Config, output::OutputFile};
 
 /// Converts ADIF into JSON.
 #[derive(Debug, Clone, Args)]
 pub struct Arguments {
-    /// Read QSOs from ADIF file instead of ADI from stdin.
-    #[arg(long, value_name = "FILE")]
-    pub adif: Option<PathBuf>,
-
-    /// Enable lenient length count for ADI file.
-    /// Pedantic ADI file must not contain non-ASCII characters.
-    #[arg(short, long = "lenient")]
-    pub lenient_length: Option<LenientMode>,
+    #[command(flatten)]
+    pub input: AdifInput,
 
     /// Pretty-print JSON.
     #[arg(short, long)]
     pub pretty: bool,
+
+    #[command(flatten)]
+    pub output: OutputFile,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -49,19 +43,17 @@ impl<'a> From<&'a AdifDocument> for JsonDocument<'a> {
 }
 
 pub fn run(args: Arguments, _config: &Config) -> Result<()> {
-    let document = read_document(
-        args.adif.as_deref(),
-        args.lenient_length.unwrap_or_default().into(),
-    )?;
+    let document = args.input.read()?;
 
     let json_document = JsonDocument::from(&document);
-    let writer = stdout().lock();
+    let mut writer = args.output.writer()?;
     if args.pretty {
-        serde_json::to_writer_pretty(writer, &json_document)?;
+        serde_json::to_writer_pretty(&mut writer, &json_document)?;
     } else {
-        serde_json::to_writer(writer, &json_document)?;
+        serde_json::to_writer(&mut writer, &json_document)?;
     }
-    println!();
+    writeln!(writer)?;
+    writer.flush()?;
 
     Ok(())
 }
