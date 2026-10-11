@@ -1,0 +1,25 @@
+---@meta
+
+---@class ContestConfig
+---@field contest_name string CONTESTNAME.
+---@field category_code string CATEGORYCODE.
+---@field callsign string|nil CALLSIGN; defaults to STATION_CALLSIGN of the first QSO.
+---@field op_callsign string|nil OPCALLSIGN.
+---@field operator string|nil Key of `[operators]` in config; defaults to OPERATOR of the first QSO, then callsign.
+---@field power number|nil POWER in watts; defaults to maximum TX_PWR of QSOs.
+---@field fd_coeff integer|nil FDCOEFF.
+---@field op_place string|nil OPPLACE.
+---@field power_supply string|nil POWERSUPPLY.
+---@field comments string|nil COMMENTS.
+---@field multi_op_list string|nil MULTIOPLIST.
+---@field reg_club_number string|nil REGCLUBNUMBER.
+---@field address string|nil ADDRESS; defaults to operator config.
+---@field name string|nil NAME and SIGNATURE; defaults to operator config.
+---@field tel string|nil TEL; defaults to operator config.
+---@field email string|nil EMAIL; defaults to operator config.
+---@field license_date string|nil LICENSEDATE as `YYYY-MM-DD`; defaults to `licensed_at` of operator config.
+---@field age integer|nil AGE; defaults to age at the first QSO from `birthday` of operator config.
+---@field date string|nil DATE as `YYYY-MM-DD`; defaults to today.
+---@field offset string|nil UTC offset of log sheet like `+09:00`; defaults to JST.
+---@field log_type string|nil TYPE of LOGSHEET; defaults to `qso-tools`.
+local ContestConfig = {}

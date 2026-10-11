@@ -1,8 +1,9 @@
 mod serde;
 mod tableop;
 
-use std::path::Path;
+use std::{fs::read_to_string, path::Path};
 
+use anyhow::{Context, Result, bail};
 use mlua::prelude::*;
 use tracing::debug;
 
@@ -21,6 +22,22 @@ pub fn initialize_lua(script_base: &Path) -> Result<Lua, LuaError> {
     register_provided_features(&lua)?;
 
     Ok(lua)
+}
+
+/// Loads the script file that returns a table of functions.
+pub fn load_script(script_path: &Path) -> Result<(Lua, LuaTable)> {
+    let script_text = read_to_string(script_path)
+        .with_context(|| format!("failed to read {}", script_path.display()))?;
+    let Some(script_base) = script_path.parent() else {
+        bail!("script path is invalid");
+    };
+
+    let lua = initialize_lua(script_base)?;
+    let script_table: LuaTable = lua
+        .load(script_text)
+        .set_name(format!("@{}", script_path.display()))
+        .eval()?;
+    Ok((lua, script_table))
 }
 
 /// Replaces Lua's `print()` with `debug!()`.

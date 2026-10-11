@@ -9,7 +9,7 @@ Settings are read from `qso-tools/config.toml` in the user config directory
 (`$XDG_CONFIG_HOME` or `~/.config` on Linux and macOS, `%APPDATA%` on Windows).
 Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
-- `[operators.<CALLSIGN>]`: display name of operator
+- `[operators.<CALLSIGN>]`: display name of operator, and `address`, `tel`, `email`, `birthday` and `licensed_at` for `jelgen` summary sheet
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).
@@ -41,6 +41,27 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
     - Foreign cards follow, grouped by primary prefix of DXCC entity from `cty.dat` (or by callsign prefix without it)
 
 See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type definitions.
+
+## jelgen
+
+Generates JARL eLog ([summary sheet R2.1 and log sheet in JARL format](https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/logformat.html)) through a Lua script.
+
+```sh
+qso-tools jelgen assets/jelgen/example.lua --adif qsos.adi -A category=XMA -o elog.txt
+```
+
+- QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin, with the same `-l` option as `qcgen`, and processed in time order
+- The script returns a table of functions:
+    - `initialize(args)` returns contest name, category code and other summary sheet items (`ContestConfig`); `-A KEY=VALUE` is passed as `args`, and `prompt` module asks the user interactively
+    - `process_qso(entry)` returns `nil` to exclude the QSO (e.g. out of contest period), or its dupe key, point and multiplier (`QsoScore`)
+    - `summarize(summary)` (optional) returns total score from numbers of QSOs, points and multipliers; defaults to points times multipliers
+- QSOs with a dupe key already seen are written with 0 points; multipliers are shown only at their first appearance, counted by `multiplier_key` (e.g. per band) if given
+- Name, address, TEL, email, license date and age (at the first QSO from `birthday`) are taken from `[operators]` in config unless the script gives them; the operator is `operator` of the script, `OPERATOR` of the first QSO, then the callsign
+- Callsign defaults to `STATION_CALLSIGN` and power to maximum `TX_PWR` of the QSOs
+- Log sheet is written in JST (or `offset` of the script) with band in MHz (`10G` and above in GHz) and `DIGITALVOICE` as `DV`; the script can override band, mode, RST and numbers per QSO
+- Output is UTF-8 to stdout or `-o/--output` file
+
+See `assets/jelgen/` for an example script and `assets/schope-types/` for Lua type definitions.
 
 ## jcx
 

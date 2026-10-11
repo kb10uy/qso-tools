@@ -8,7 +8,7 @@ use tracing_subscriber::EnvFilter;
 
 use crate::{
     cli::{Cli, Command},
-    commands::{callsign, jcx, json, qcgen},
+    commands::{callsign, jcx, jelgen, json, qcgen},
     core::config::Config,
 };
 
@@ -27,5 +27,6 @@ fn main() -> Result<()> {
         Command::Jcx(args) => jcx::run(args, &config),
         Command::Callsign(args) => callsign::run(args, &config),
         Command::Json(args) => json::run(args, &config),
+        Command::Jelgen(args) => jelgen::run(args, &config),
     }
 }

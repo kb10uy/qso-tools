@@ -4,14 +4,13 @@ mod data;
 
 use std::{
     collections::HashMap,
-    fs::read_to_string,
     io::stdout,
     path::{Path, PathBuf, absolute},
     sync::LazyLock,
 };
 
 use adif_reader::document::Record as AdifRecord;
-use anyhow::{Context, Result, anyhow, bail};
+use anyhow::{Context, Result, anyhow};
 use callfind::grid_locator::GridLocator;
 use compact_str::{CompactString, ToCompactString};
 use mlua::prelude::*;
@@ -34,7 +33,7 @@ use crate::{
         cty::{CTY_FILENAME, load_cty},
         jcx::{County, JAPAN_DXCC, Jcx, JcxCode},
         qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
-        schope::engine::{initialize_lua, lua_to_json},
+        schope::engine::{load_script, lua_to_json},
     },
 };
 
@@ -349,17 +348,7 @@ fn run_script(
     script_args: HashMap<String, String>,
     entries: Vec<QslCardEntry>,
 ) -> Result<serde_json::Value> {
-    let script_text = read_to_string(script_path)
-        .with_context(|| format!("failed to read {}", script_path.display()))?;
-    let Some(script_base) = script_path.parent() else {
-        bail!("script path is invalid");
-    };
-
-    let lua = initialize_lua(script_base)?;
-    let script_table: LuaTable = lua
-        .load(script_text)
-        .set_name(format!("@{}", script_path.display()))
-        .eval()?;
+    let (_lua, script_table) = load_script(script_path)?;
     let generate: LuaFunction = script_table.get("generate")?;
     let processed_value: LuaValue = generate.call((script_args, entries))?;
 

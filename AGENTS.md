@@ -10,6 +10,7 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
 - `jcx`: shows full names of JCC/JCG codes (with optional HAMLOG town suffix)
 - `callsign`: shows DXCC entities of callsigns from `cty.dat`
 - `json`: converts ADIF (local file or stdin) into JSON
+- `jelgen`: generates JARL eLog (summary sheet R2.1 and log sheet) from ADIF (local file or stdin) through a Lua script
 
 ## Project Layout
 
@@ -24,7 +25,7 @@ fetching QSOs from Wavelog belongs to wavelog-tools.
     - `qso.rs`, `qso/`: common QSO data extracted from ADIF records
     - `schope.rs`, `schope/`: Lua scripting engine and Lua-facing data types
 - `src/commands.rs`, `src/commands/`: subcommands
-    - `<tool>.rs`, `<tool>/`: implementation of each subcommand (e.g. `qcgen`, `jcx`, `callsign`, `json`)
+    - `<tool>.rs`, `<tool>/`: implementation of each subcommand (e.g. `qcgen`, `jcx`, `callsign`, `json`, `jelgen`)
 - `assets/`: example files, Lua scripts and Lua type definitions
 
 ### Adding a Tool
