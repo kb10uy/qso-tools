@@ -14,7 +14,11 @@ local bands = {
     { code = "2400", label = "2400MHz", band = "13cm", cabrillo = "2.3G" },
     { code = "5600", label = "5600MHz", band = "6cm", cabrillo = "5.7G" },
 }
-local powers = { H = "HIGH", M = "LOW", P = "QRP" }
+local powers = {
+    H = { label = "100W超", cabrillo = "HIGH" },
+    M = { label = "100W以下", cabrillo = "LOW" },
+    P = { label = "5W以下", cabrillo = "QRP" },
+}
 local modes = {
     C = { name = "電信", groups = { "CW" }, cabrillo = "CW" },
     X = { name = "電信電話", cabrillo = "MIXED" },
@@ -66,16 +70,16 @@ local categories = {
 }
 
 for prefix, mode in pairs(modes) do
-    for power, cabrillo_power in pairs(powers) do
+    for power, p in pairs(powers) do
         categories[prefix .. "A" .. power] = category(
-            mode.name .. "部門 シングルオペ オールバンド",
-            { operator = "SINGLE-OP", band = "ALL", mode = mode.cabrillo, power = cabrillo_power },
+            string.format("%s部門 シングルオペ オールバンド %s", mode.name, p.label),
+            { operator = "SINGLE-OP", band = "ALL", mode = mode.cabrillo, power = p.cabrillo },
             { modes = mode.groups }
         )
         if power ~= "P" then
             categories[prefix .. "MA" .. power] = category(
-                mode.name .. "部門 マルチオペ オールバンド",
-                { operator = "MULTI-OP", band = "ALL", mode = mode.cabrillo, power = cabrillo_power },
+                string.format("%s部門 マルチオペ オールバンド %s", mode.name, p.label),
+                { operator = "MULTI-OP", band = "ALL", mode = mode.cabrillo, power = p.cabrillo },
                 { modes = mode.groups, requires = { "multi_op_list" } }
             )
         end
@@ -85,9 +89,9 @@ for prefix, mode in pairs(modes) do
         local name = string.format("%s部門 シングルオペ %sバンド", mode.name, b.label)
         local cabrillo = { operator = "SINGLE-OP", band = b.cabrillo, mode = mode.cabrillo }
         if b.power then
-            for power, cabrillo_power in pairs(powers) do
-                local powered = { operator = cabrillo.operator, band = cabrillo.band, mode = cabrillo.mode, power = cabrillo_power }
-                categories[prefix .. b.code .. power] = category(name, powered, { modes = mode.groups, bands = { b.band } })
+            for power, p in pairs(powers) do
+                local powered = { operator = cabrillo.operator, band = cabrillo.band, mode = cabrillo.mode, power = p.cabrillo }
+                categories[prefix .. b.code .. power] = category(name .. " " .. p.label, powered, { modes = mode.groups, bands = { b.band } })
             end
         else
             categories[prefix .. b.code] = category(name, cabrillo, { modes = mode.groups, bands = { b.band } })

@@ -2,7 +2,7 @@ use std::{collections::HashMap, str::FromStr};
 
 use adif_reader::document::Record as AdifRecord;
 use anyhow::{Context, Result, anyhow, bail};
-use dialoguer::{Input, Select, theme::ColorfulTheme};
+use dialoguer::{FuzzySelect, Input, theme::ColorfulTheme};
 use time::{
     Date, OffsetDateTime, UtcOffset, format_description::BorrowedFormatItem,
     macros::format_description,
@@ -13,6 +13,7 @@ use crate::{
     commands::loggen::definition::{Category, ContestDefinition},
     core::{
         config::Config,
+        console::ensure_console_input,
         jcx::{JAPAN_DXCC, Jcx, JcxCode},
         qso::get_optional_field,
     },
@@ -40,6 +41,7 @@ const ITEMS: &[(&str, &str)] = &[
     ("reg_club_number", "Registered club number"),
     ("date", "Date of oath (YYYY-MM-DD)"),
 ];
+const CHOICE_LINES: usize = 15;
 const ALWAYS_REQUIRED: &[&str] = &["callsign", "name", "address", "power"];
 
 /// Submission information independent of output formats.
@@ -81,15 +83,18 @@ pub struct TerminalPrompter(ColorfulTheme);
 
 impl Prompter for TerminalPrompter {
     fn text(&mut self, prompt: &str) -> Result<String> {
+        ensure_console_input()?;
         Ok(Input::with_theme(&self.0)
             .with_prompt(prompt)
             .interact_text()?)
     }
 
     fn choice(&mut self, prompt: &str, items: &[String]) -> Result<usize> {
-        Ok(Select::with_theme(&self.0)
+        ensure_console_input()?;
+        Ok(FuzzySelect::with_theme(&self.0)
             .with_prompt(prompt)
             .items(items)
+            .max_length(CHOICE_LINES)
             .interact()?)
     }
 }

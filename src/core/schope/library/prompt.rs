@@ -3,7 +3,10 @@ use std::sync::Arc;
 use dialoguer::{Confirm, Input, Select, theme::ColorfulTheme};
 use mlua::prelude::*;
 
-use crate::core::schope::library::{SchopeModule, create_module_method};
+use crate::core::{
+    console::ensure_console_input,
+    schope::library::{SchopeModule, create_module_method},
+};
 
 pub struct PromptModule {
     theme: ColorfulTheme,
@@ -11,6 +14,7 @@ pub struct PromptModule {
 
 impl PromptModule {
     pub fn text(&self, prompt: String, default: Option<String>) -> LuaResult<String> {
+        ensure_console_input().map_err(LuaError::external)?;
         let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
         if let Some(default_value) = default {
             input = input.default(default_value);
@@ -19,6 +23,7 @@ impl PromptModule {
     }
 
     pub fn integer(&self, prompt: String, default: Option<i64>) -> LuaResult<i64> {
+        ensure_console_input().map_err(LuaError::external)?;
         let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
         if let Some(default_value) = default {
             input = input.default(default_value);
@@ -27,6 +32,7 @@ impl PromptModule {
     }
 
     pub fn float(&self, prompt: String, default: Option<f64>) -> LuaResult<f64> {
+        ensure_console_input().map_err(LuaError::external)?;
         let mut input = Input::with_theme(&self.theme).with_prompt(prompt);
         if let Some(default_value) = default {
             input = input.default(default_value);
@@ -40,6 +46,7 @@ impl PromptModule {
         mut choices: Vec<String>,
         default: Option<usize>,
     ) -> LuaResult<String> {
+        ensure_console_input().map_err(LuaError::external)?;
         let mut select = Select::with_theme(&self.theme)
             .with_prompt(prompt)
             .items(&choices);
@@ -51,6 +58,7 @@ impl PromptModule {
     }
 
     pub fn confirm(&self, prompt: String, default: Option<bool>) -> LuaResult<bool> {
+        ensure_console_input().map_err(LuaError::external)?;
         let mut confirm = Confirm::with_theme(&self.theme).with_prompt(prompt);
         if let Some(default_value) = default {
             confirm = confirm.default(default_value);

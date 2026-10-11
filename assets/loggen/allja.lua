@@ -9,7 +9,11 @@ local bands = {
     { code = "28", label = "28MHz", band = "10m", cabrillo = "10M" },
     { code = "50", label = "50MHz", band = "6m", cabrillo = "6M" },
 }
-local powers = { H = "HIGH", M = "LOW", P = "QRP" }
+local powers = {
+    H = { label = "100W超", cabrillo = "HIGH" },
+    M = { label = "100W以下", cabrillo = "LOW" },
+    P = { label = "5W以下", cabrillo = "QRP" },
+}
 local modes = {
     C = { name = "電信", groups = { "CW" }, cabrillo = "CW" },
     X = { name = "電信電話", cabrillo = "MIXED" },
@@ -61,23 +65,23 @@ local categories = {
 }
 
 for prefix, mode in pairs(modes) do
-    for power, cabrillo_power in pairs(powers) do
+    for power, p in pairs(powers) do
         categories[prefix .. "A" .. power] = category(
-            mode.name .. "部門 シングルオペ オールバンド",
-            { operator = "SINGLE-OP", band = "ALL", mode = mode.cabrillo, power = cabrillo_power },
+            string.format("%s部門 シングルオペ オールバンド %s", mode.name, p.label),
+            { operator = "SINGLE-OP", band = "ALL", mode = mode.cabrillo, power = p.cabrillo },
             { modes = mode.groups }
         )
         if power ~= "P" then
             categories[prefix .. "MA" .. power] = category(
-                mode.name .. "部門 マルチオペ オールバンド",
-                { operator = "MULTI-OP", band = "ALL", mode = mode.cabrillo, power = cabrillo_power },
+                string.format("%s部門 マルチオペ オールバンド %s", mode.name, p.label),
+                { operator = "MULTI-OP", band = "ALL", mode = mode.cabrillo, power = p.cabrillo },
                 { modes = mode.groups, requires = { "multi_op_list" } }
             )
         end
         for _, b in ipairs(bands) do
             categories[prefix .. b.code .. power] = category(
-                string.format("%s部門 シングルオペ %sバンド", mode.name, b.label),
-                { operator = "SINGLE-OP", band = b.cabrillo, mode = mode.cabrillo, power = cabrillo_power },
+                string.format("%s部門 シングルオペ %sバンド %s", mode.name, b.label, p.label),
+                { operator = "SINGLE-OP", band = b.cabrillo, mode = mode.cabrillo, power = p.cabrillo },
                 { modes = mode.groups, bands = { b.band } }
             )
         end
