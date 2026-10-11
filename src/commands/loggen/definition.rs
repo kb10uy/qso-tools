@@ -9,6 +9,17 @@ const DEFAULT_MODE_GROUPS: &[(&str, &[&str])] = &[
     ("PH", &["SSB", "AM", "FM", "DIGITALVOICE"]),
 ];
 const DEFAULT_SCOPE: &[Dimension] = &[Dimension::Band];
+const CABRILLO_CATEGORY_ORDER: &[&str] = &[
+    "operator",
+    "assisted",
+    "band",
+    "mode",
+    "power",
+    "station",
+    "transmitter",
+    "time",
+    "overlay",
+];
 
 /// Attribute of QSO used to separate duplicate checks and multipliers.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -37,6 +48,7 @@ impl FromStr for Dimension {
 #[derive(Debug, Clone)]
 pub struct ContestDefinition {
     pub name: String,
+    pub contest_id: Option<String>,
     pub offset: Option<String>,
     pub categories: Vec<Category>,
     pub mode_groups: HashMap<String, String>,
@@ -58,6 +70,7 @@ pub struct Category {
     pub bands: Option<Vec<String>>,
     pub exclude_bands: Vec<String>,
     pub requires: Vec<String>,
+    pub cabrillo: Vec<(String, String)>,
     pub table: LuaTable,
 }
 
@@ -95,6 +108,7 @@ impl FromLua for ContestDefinition {
 
         Ok(ContestDefinition {
             name: table.get("name")?,
+            contest_id: table.get("contest_id")?,
             offset: table.get("offset")?,
             categories,
             mode_groups,
@@ -122,6 +136,7 @@ impl Category {
             bands: table.get::<Option<Vec<String>>>("bands")?.map(lowercase),
             exclude_bands: lowercase(table.get::<Option<_>>("exclude_bands")?.unwrap_or_default()),
             requires: table.get::<Option<_>>("requires")?.unwrap_or_default(),
+            cabrillo: read_cabrillo_categories(&table)?,
             table,
             code,
         })
@@ -175,6 +190,20 @@ impl ContestDefinition {
     }
 }
 
+/// Reads `CATEGORY-*` values of Cabrillo in the order of the specification.
+fn read_cabrillo_categories(table: &LuaTable) -> LuaResult<Vec<(String, String)>> {
+    let values: HashMap<String, String> = table.get::<Option<_>>("cabrillo")?.unwrap_or_default();
+    let mut values: Vec<_> = values
+        .into_iter()
+        .map(|(k, v)| (k.to_ascii_lowercase(), v))
+        .collect();
+    values.sort_by_key(|(k, _)| {
+        let rank = CABRILLO_CATEGORY_ORDER.iter().position(|o| o == k);
+        (rank.unwrap_or(CABRILLO_CATEGORY_ORDER.len()), k.clone())
+    });
+    Ok(values)
+}
+
 fn read_scope(table: &LuaTable, key: &str) -> LuaResult<Vec<Dimension>> {
     match table.get::<Option<Vec<String>>>(key)? {
         Some(dimensions) => dimensions
@@ -213,7 +242,7 @@ mod tests {
             "return {{
                 name = 'Test',
                 categories = {{
-                    XA = {{ name = 'Mixed all band' }},
+                    XA = {{ name = 'Mixed all band', cabrillo = {{ power = 'LOW', Operator = 'SINGLE-OP', band = 'ALL' }} }},
                     PA = {{ name = 'Phone', modes = {{ 'PH' }}, exclude_bands = {{ '20M' }} }},
                     C7 = {{ name = 'CW 7MHz', modes = {{ 'CW' }}, bands = {{ '40m' }} }},
                 }},
@@ -245,6 +274,17 @@ mod tests {
             .collect();
         assert_eq!(codes, ["C7", "PA", "XA"]);
         assert_eq!(definition.dupe_scope, [Dimension::Band]);
+        let cabrillo: Vec<_> = definition
+            .category("XA")
+            .unwrap()
+            .cabrillo
+            .iter()
+            .map(|(k, v)| (k.as_str(), v.as_str()))
+            .collect();
+        assert_eq!(
+            cabrillo,
+            [("operator", "SINGLE-OP"), ("band", "ALL"), ("power", "LOW")]
+        );
         assert_eq!(
             definition
                 .category("PA")

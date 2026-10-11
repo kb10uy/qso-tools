@@ -195,8 +195,10 @@ mod tests {
     fn submission() -> Submission {
         Submission {
             contest_name: "ALL JA1".to_string(),
+            contest_id: None,
             category_code: "XMA".to_string(),
             category_name: "Mixed".to_string(),
+            cabrillo_categories: vec![],
             callsign: "JL1HIS".to_string(),
             op_callsign: None,
             total_score: 1200,

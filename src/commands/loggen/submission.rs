@@ -46,8 +46,10 @@ const ALWAYS_REQUIRED: &[&str] = &["callsign", "name", "address", "power"];
 #[derive(Debug, Clone, PartialEq)]
 pub struct Submission {
     pub contest_name: String,
+    pub contest_id: Option<String>,
     pub category_code: String,
     pub category_name: String,
+    pub cabrillo_categories: Vec<(String, String)>,
     pub callsign: String,
     pub op_callsign: Option<String>,
     pub total_score: i64,
@@ -179,8 +181,10 @@ impl SubmissionSource<'_> {
         };
         Ok(Submission {
             contest_name: self.definition.name.clone(),
+            contest_id: self.definition.contest_id.clone(),
             category_code: self.category.code.clone(),
             category_name: self.category.name.clone(),
+            cabrillo_categories: self.category.cabrillo.clone(),
             callsign: take("callsign").ok_or_else(|| anyhow!("callsign is missing"))?,
             op_callsign: take("op_callsign"),
             total_score,

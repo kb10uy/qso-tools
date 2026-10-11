@@ -1,3 +1,4 @@
+mod cabrillo;
 mod contest;
 mod definition;
 mod jarl;
@@ -58,6 +59,9 @@ pub struct Arguments {
 pub enum LogFormat {
     /// Generates JARL eLog (summary sheet R2.1 and log sheet).
     Jarl(CommonArguments),
+
+    /// Generates Cabrillo 3.0 log.
+    Cabrillo(CommonArguments),
 }
 
 /// Arguments shared by log formats.
@@ -88,14 +92,14 @@ pub struct CommonArguments {
 }
 
 pub fn run(args: Arguments, config: &Config) -> Result<()> {
-    match args.format {
-        LogFormat::Jarl(args) => {
-            let log = generate(&args, config)?;
-            let mut text = String::new();
-            jarl::write_elog(&log, &mut text)?;
-            write_output(&args.output, &text)
-        }
-    }
+    let (args, write): (_, fn(&ContestLog, &mut String) -> Result<()>) = match args.format {
+        LogFormat::Jarl(args) => (args, jarl::write_elog),
+        LogFormat::Cabrillo(args) => (args, cabrillo::write_cabrillo),
+    };
+    let log = generate(&args, config)?;
+    let mut text = String::new();
+    write(&log, &mut text)?;
+    write_output(&args.output, &text)
 }
 
 fn generate(args: &CommonArguments, config: &Config) -> Result<ContestLog> {
