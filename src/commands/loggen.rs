@@ -19,7 +19,11 @@ use anyhow::{Context, Result};
 use clap::{Args, Subcommand};
 use compact_str::ToCompactString;
 use mlua::prelude::*;
-use time::{UtcOffset, format_description::BorrowedFormatItem, macros::format_description};
+use time::{
+    UtcOffset,
+    format_description::{BorrowedFormatItem, well_known::Rfc3339},
+    macros::format_description,
+};
 use tracing::{Level, info, span, warn};
 
 use crate::{
@@ -46,8 +50,6 @@ use crate::{
 };
 
 const OFFSET: &[BorrowedFormatItem<'_>] = format_description!("[offset_hour]:[offset_minute]");
-const LOG_DATETIME: &[BorrowedFormatItem<'_>] =
-    format_description!("[year]-[month]-[day]T[hour]:[minute]:[second]Z");
 const DEFAULT_OFFSET: &str = "+09:00";
 
 /// Generates contest logs through a Lua script.
@@ -150,7 +152,7 @@ fn generate(args: &CommonArguments, config: &Config) -> Result<ContestLog> {
     let mut accepted = vec![];
     let mut logged = vec![];
     for (qso, record) in &qsos {
-        let datetime = qso.datetime.format(LOG_DATETIME).unwrap_or_default();
+        let datetime = qso.datetime.format(&Rfc3339).unwrap_or_default();
         let span = span!(Level::ERROR, "score_qso", call = %qso.call, datetime = %datetime);
         let _enter = span.enter();
 

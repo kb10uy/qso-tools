@@ -30,6 +30,14 @@ pub struct OperatorConfig {
     pub name: String,
 
     #[serde(default)]
+    pub contest: Option<ContestOperatorConfig>,
+}
+
+/// Operator information for summary sheets of contests.
+#[derive(Debug, Clone, PartialEq, Eq, Default, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ContestOperatorConfig {
+    #[serde(default)]
     pub address: Option<String>,
 
     #[serde(default)]
@@ -120,20 +128,32 @@ mod tests {
     fn parses_operator() {
         let operator: OperatorConfig = toml::from_str(
             "name = \"No Call\"
+[contest]
 address = \"Tokyo\"
 birthday = 1998-06-03
 ",
         )
         .unwrap();
-        assert_eq!(operator.address.as_deref(), Some("Tokyo"));
-        assert_eq!(operator.birthday, Some(date!(1998 - 06 - 03)));
-        assert_eq!(operator.licensed_at, None);
+        let contest = operator.contest.unwrap();
+        assert_eq!(contest.address.as_deref(), Some("Tokyo"));
+        assert_eq!(contest.birthday, Some(date!(1998 - 06 - 03)));
+        assert_eq!(contest.licensed_at, None);
+
+        let operator: OperatorConfig = toml::from_str("name = \"No Call\"").unwrap();
+        assert_eq!(operator.contest, None);
 
         let invalid = toml::from_str::<OperatorConfig>(
             "name = \"No Call\"
+[contest]
 birthday = 1998-06-03T00:00:00
 ",
         );
         assert!(invalid.is_err());
+        let misplaced = toml::from_str::<OperatorConfig>(
+            "name = \"No Call\"
+address = \"Tokyo\"
+",
+        );
+        assert!(misplaced.is_err());
     }
 }

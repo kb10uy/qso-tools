@@ -248,19 +248,20 @@ impl SubmissionSource<'_> {
             }
             operator
         };
+        let contest = || operator()?.contest.as_ref();
 
         match key {
             "callsign" => first_field("STATION_CALLSIGN"),
             "operator" => first_field("OPERATOR").or_else(|| values.get("callsign").cloned()),
             "name" => operator().map(|o| o.name.clone()),
-            "address" => operator().and_then(|o| o.address.clone()),
-            "tel" => operator().and_then(|o| o.tel.clone()),
-            "email" => operator().and_then(|o| o.email.clone()),
-            "license_date" => operator()
-                .and_then(|o| o.licensed_at)
+            "address" => contest().and_then(|c| c.address.clone()),
+            "tel" => contest().and_then(|c| c.tel.clone()),
+            "email" => contest().and_then(|c| c.email.clone()),
+            "license_date" => contest()
+                .and_then(|c| c.licensed_at)
                 .and_then(|d| d.format(DATE).ok()),
             "age" => {
-                let birthday = operator().and_then(|o| o.birthday)?;
+                let birthday = contest().and_then(|c| c.birthday)?;
                 Some(calculate_age(self.contest_date?, birthday).to_string())
             }
             "op_place" => {
@@ -299,7 +300,7 @@ mod tests {
     use time::macros::date;
 
     use super::*;
-    use crate::core::config::OperatorConfig;
+    use crate::core::config::{ContestOperatorConfig, OperatorConfig};
 
     struct FakePrompter(HashMap<&'static str, &'static str>);
 
@@ -374,11 +375,11 @@ mod tests {
             "N0CALL".to_string(),
             OperatorConfig {
                 name: "No Call".to_string(),
-                address: Some("Somewhere".to_string()),
-                tel: None,
-                email: None,
-                birthday: Some(date!(1950 - 07 - 01)),
-                licensed_at: None,
+                contest: Some(ContestOperatorConfig {
+                    address: Some("Somewhere".to_string()),
+                    birthday: Some(date!(1950 - 07 - 01)),
+                    ..Default::default()
+                }),
             },
         );
         let args = HashMap::from([

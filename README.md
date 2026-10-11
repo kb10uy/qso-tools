@@ -9,7 +9,8 @@ Settings are read from `qso-tools/config.toml` in the user config directory
 (`$XDG_CONFIG_HOME` or `~/.config` on Linux and macOS, `%APPDATA%` on Windows).
 Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
-- `[operators.<CALLSIGN>]`: display name of operator, and `address`, `tel`, `email`, `birthday` and `licensed_at` for `loggen` summary sheet
+- `[operators.<CALLSIGN>]`: display name of operator
+- `[operators.<CALLSIGN>.contest]`: `address`, `tel`, `email`, `birthday` and `licensed_at` of operator for `loggen` summary sheet
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).
@@ -77,7 +78,7 @@ qso-tools loggen cabrillo assets/loggen/acag.lua --adif qsos.adi -A category=XAM
 - Category is given by `-A category=CODE` or chosen interactively
 - Summary items are given by `-A KEY=VALUE` (`callsign`, `op_callsign`, `operator`, `name`, `address`, `tel`, `email`, `license_date`, `age`, `power`, `fd_coeff`, `op_place`, `power_supply`, `comments`, `multi_op_list`, `reg_club_number`, `date`); otherwise they are taken from QSOs and config, and missing required ones are asked interactively
     - Callsign comes from `STATION_CALLSIGN`, power from maximum `TX_PWR` and operating place from `MY_CNTY` of QSOs
-    - Name, address, TEL, email, license date and age (from `birthday` at the start of the contest) come from `[operators]` in config; the operator is `-A operator=`, `OPERATOR` of the first QSO, then the callsign
+    - Name, address, TEL, email, license date and age (from `birthday` at the start of the contest) come from `[operators.<CALLSIGN>]` and its `contest` table in config; the operator is `-A operator=`, `OPERATOR` of the first QSO, then the callsign
     - Callsign, name, address and power are always required
 - Output is UTF-8
 
