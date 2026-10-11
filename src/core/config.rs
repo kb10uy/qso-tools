@@ -38,6 +38,9 @@ pub struct OperatorConfig {
 #[serde(deny_unknown_fields)]
 pub struct ContestOperatorConfig {
     #[serde(default)]
+    pub name: Option<String>,
+
+    #[serde(default)]
     pub address: Option<String>,
 
     #[serde(default)]
@@ -129,12 +132,14 @@ mod tests {
         let operator: OperatorConfig = toml::from_str(
             "name = \"No Call\"
 [contest]
+name = \"Contest Name\"
 address = \"Tokyo\"
 birthday = 1998-06-03
 ",
         )
         .unwrap();
         let contest = operator.contest.unwrap();
+        assert_eq!(contest.name.as_deref(), Some("Contest Name"));
         assert_eq!(contest.address.as_deref(), Some("Tokyo"));
         assert_eq!(contest.birthday, Some(date!(1998 - 06 - 03)));
         assert_eq!(contest.licensed_at, None);

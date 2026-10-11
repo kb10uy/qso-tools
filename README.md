@@ -10,7 +10,7 @@ Settings are read from `qso-tools/config.toml` in the user config directory
 Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 - `[operators.<CALLSIGN>]`: display name of operator
-- `[operators.<CALLSIGN>.contest]`: `address`, `tel`, `email`, `birthday` and `licensed_at` of operator for `loggen` summary sheet
+- `[operators.<CALLSIGN>.contest]`: `name` (defaults to display name), `address`, `tel`, `email`, `birthday` and `licensed_at` of operator for `loggen` summary sheet
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).

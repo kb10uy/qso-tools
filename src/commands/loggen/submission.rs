@@ -253,7 +253,9 @@ impl SubmissionSource<'_> {
         match key {
             "callsign" => first_field("STATION_CALLSIGN"),
             "operator" => first_field("OPERATOR").or_else(|| values.get("callsign").cloned()),
-            "name" => operator().map(|o| o.name.clone()),
+            "name" => contest()
+                .and_then(|c| c.name.clone())
+                .or_else(|| operator().map(|o| o.name.clone())),
             "address" => contest().and_then(|c| c.address.clone()),
             "tel" => contest().and_then(|c| c.tel.clone()),
             "email" => contest().and_then(|c| c.email.clone()),
@@ -376,6 +378,7 @@ mod tests {
             OperatorConfig {
                 name: "No Call".to_string(),
                 contest: Some(ContestOperatorConfig {
+                    name: Some("Contest Name".to_string()),
                     address: Some("Somewhere".to_string()),
                     birthday: Some(date!(1950 - 07 - 01)),
                     ..Default::default()
@@ -400,7 +403,7 @@ mod tests {
         let mut prompter = FakePrompter(HashMap::new());
         let submission = source("XS").build(100, &mut prompter).unwrap();
         assert_eq!(submission.callsign, "N0CALL");
-        assert_eq!(submission.name.as_deref(), Some("No Call"));
+        assert_eq!(submission.name.as_deref(), Some("Contest Name"));
         assert_eq!(submission.address.as_deref(), Some("Somewhere"));
         assert_eq!(submission.power, Some(50.0));
         assert_eq!(submission.age, Some(75));
