@@ -4,7 +4,7 @@ mod core;
 
 use anyhow::Result;
 use clap::Parser;
-use tracing_subscriber::EnvFilter;
+use tracing_subscriber::{EnvFilter, filter::LevelFilter};
 
 use crate::{
     cli::{Cli, Command},
@@ -17,7 +17,11 @@ fn main() -> Result<()> {
         .without_time()
         .with_target(false)
         .with_writer(std::io::stderr)
-        .with_env_filter(EnvFilter::from_default_env())
+        .with_env_filter(
+            EnvFilter::builder()
+                .with_default_directive(LevelFilter::WARN.into())
+                .from_env_lossy(),
+        )
         .init();
 
     let cli = Cli::parse();
