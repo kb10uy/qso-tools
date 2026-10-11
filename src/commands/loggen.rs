@@ -10,6 +10,7 @@ use std::{
     collections::{BTreeMap, HashMap},
     io::Write,
     path::{PathBuf, absolute},
+    sync::Arc,
 };
 
 use adif_reader::document::Record as AdifRecord;
@@ -32,9 +33,14 @@ use crate::{
     core::{
         adif::AdifInput,
         config::Config,
+        cty::load_cty,
+        jcx::Jcx,
         output::OutputFile,
         qso::{exchange::QsoExchanges, get_optional_field, record::QsoRecord},
-        schope::{args::ScriptArg, engine::load_script},
+        schope::{
+            args::ScriptArg,
+            engine::{load_script_with, register_reference_modules},
+        },
     },
 };
 
@@ -115,7 +121,11 @@ fn generate(args: &CommonArguments, config: &Config) -> Result<ContestLog> {
     }
     qsos.sort_by_key(|(qso, _)| qso.datetime);
 
-    let (lua, script) = load_script(&script_path)?;
+    let jcx = Arc::new(Jcx::load(config)?);
+    let cty = load_cty(config)?.map(Arc::new);
+    let (lua, script) = load_script_with(&script_path, |lua| {
+        register_reference_modules(lua, jcx.clone(), cty)
+    })?;
     let definition = ContestDefinition::from_lua(LuaValue::Table(script), &lua)?;
     let offset = parse_offset(definition.offset.as_deref().unwrap_or(DEFAULT_OFFSET))?;
     let period = Period {
@@ -215,6 +225,7 @@ fn generate(args: &CommonArguments, config: &Config) -> Result<ContestLog> {
         args: &script_args,
         config,
         records: &accepted,
+        jcx: &jcx,
         contest_date,
         offset,
     }
@@ -236,6 +247,7 @@ fn build_entry(qso: &QsoRecord, record: &AdifRecord) -> ContestEntry {
         operator: field("OPERATOR"),
         power: get_optional_field(record, "TX_PWR").and_then(|p| p.parse().ok()),
         contest_id: field("CONTEST_ID"),
+        name: field("NAME"),
     }
 }
 

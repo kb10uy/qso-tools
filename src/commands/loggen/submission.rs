@@ -11,7 +11,11 @@ use tracing::warn;
 
 use crate::{
     commands::loggen::definition::{Category, ContestDefinition},
-    core::{config::Config, qso::get_optional_field},
+    core::{
+        config::Config,
+        jcx::{JAPAN_DXCC, Jcx, JcxCode},
+        qso::get_optional_field,
+    },
 };
 
 const DATE: &[BorrowedFormatItem<'_>] = format_description!("[year]-[month]-[day]");
@@ -121,6 +125,7 @@ pub struct SubmissionSource<'a> {
     pub args: &'a HashMap<String, String>,
     pub config: &'a Config,
     pub records: &'a [&'a AdifRecord],
+    pub jcx: &'a Jcx,
     pub contest_date: Option<Date>,
     pub offset: UtcOffset,
 }
@@ -226,6 +231,11 @@ impl SubmissionSource<'_> {
                 let birthday = operator().and_then(|o| o.birthday)?;
                 Some(calculate_age(self.contest_date?, birthday).to_string())
             }
+            "op_place" => {
+                let is_japan = first_field("MY_DXCC").is_some_and(|d| d == JAPAN_DXCC.to_string());
+                let code = first_field("MY_CNTY")?.parse::<JcxCode>().ok()?;
+                is_japan.then(|| self.jcx.full_name_ja(&code)).flatten()
+            }
             "power" => self
                 .records
                 .iter()
@@ -326,6 +336,7 @@ mod tests {
         )
         .unwrap();
         let records: Vec<_> = document.records().iter().collect();
+        let jcx = Jcx::default();
         let mut config = Config::default();
         config.operators.insert(
             "N0CALL".to_string(),
@@ -348,6 +359,7 @@ mod tests {
             args: &args,
             config: &config,
             records: &records,
+            jcx: &jcx,
             contest_date: Some(date!(2026 - 06 - 06)),
             offset: UtcOffset::UTC,
         };

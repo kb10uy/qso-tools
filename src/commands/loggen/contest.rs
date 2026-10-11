@@ -17,6 +17,7 @@ pub struct ContestEntry {
     pub operator: Option<CompactString>,
     pub power: Option<f64>,
     pub contest_id: Option<CompactString>,
+    pub name: Option<CompactString>,
 }
 
 impl IntoLua for ContestEntry {
@@ -28,6 +29,7 @@ impl IntoLua for ContestEntry {
         table.set("operator", self.operator.as_deref())?;
         table.set("power", self.power)?;
         table.set("contest_id", self.contest_id.as_deref())?;
+        table.set("name", self.name.as_deref())?;
 
         Ok(LuaValue::Table(table))
     }
