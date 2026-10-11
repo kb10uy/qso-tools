@@ -9,14 +9,14 @@ Settings are read from `qso-tools/config.toml` in the user config directory
 (`$XDG_CONFIG_HOME` or `~/.config` on Linux and macOS, `%APPDATA%` on Windows).
 Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
-- `[operators.<CALLSIGN>]`: display name of operator, and `address`, `tel`, `email`, `birthday` and `licensed_at` for `jelgen` summary sheet
+- `[operators.<CALLSIGN>]`: display name of operator, and `address`, `tel`, `email`, `birthday` and `licensed_at` for `loggen` summary sheet
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).
 
 ## Input and Output
 
-`qcgen`, `jelgen` and `json` share these options.
+`qcgen`, `loggen` and `json` share these options.
 
 - `--adif <FILE>`: reads QSOs from ADIF file (ADX if `.adx`); ADI is read from stdin without it
 - `-l/--lenient <MODE>`: counts ADI data lengths in `bytes` (default), `codepoints` or `graphemes`
@@ -51,12 +51,12 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 
 See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type definitions.
 
-## jelgen
+## loggen
 
 Generates JARL eLog ([summary sheet R2.1 and log sheet in JARL format](https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/logformat.html)) through a Lua script.
 
 ```sh
-qso-tools jelgen assets/jelgen/example.lua --adif qsos.adi -A category=XMA -o elog.txt
+qso-tools loggen jarl assets/loggen/example.lua --adif qsos.adi -A category=XMA -o elog.txt
 ```
 
 - QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin, with the same `-l` option as `qcgen`, and processed in time order
@@ -70,7 +70,7 @@ qso-tools jelgen assets/jelgen/example.lua --adif qsos.adi -A category=XMA -o el
 - Log sheet is written in JST (or `offset` of the script) with band in MHz (`10G` and above in GHz) and `DIGITALVOICE` as `DV`; the script can override band, mode, RST and numbers per QSO
 - Output is UTF-8
 
-See `assets/jelgen/` for an example script and `assets/schope-types/` for Lua type definitions.
+See `assets/loggen/` for an example script and `assets/schope-types/` for Lua type definitions.
 
 ## jcx
 

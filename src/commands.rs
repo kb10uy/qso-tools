@@ -1,5 +1,5 @@
 pub mod callsign;
 pub mod jcx;
-pub mod jelgen;
 pub mod json;
+pub mod loggen;
 pub mod qcgen;

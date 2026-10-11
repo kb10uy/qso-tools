@@ -1,5 +1,5 @@
 mod contest;
-mod elog;
+mod jarl;
 
 use std::{
     collections::{HashMap, HashSet},
@@ -9,7 +9,7 @@ use std::{
 
 use adif_reader::document::Record as AdifRecord;
 use anyhow::{Context, Result, anyhow, bail};
-use clap::Args;
+use clap::{Args, Subcommand};
 use compact_str::ToCompactString;
 use mlua::prelude::*;
 use time::{
@@ -19,9 +19,9 @@ use time::{
 use tracing::{Level, info, span, warn};
 
 use crate::{
-    commands::jelgen::{
+    commands::loggen::{
         contest::{ContestConfig, ContestEntry, ContestSummary, QsoScore},
-        elog::{LogLine, LogSheet, SummarySheet, calculate_age, jarl_band, jarl_mode},
+        jarl::{LogLine, LogSheet, SummarySheet, calculate_age, jarl_band, jarl_mode},
     },
     core::{
         adif::AdifInput,
@@ -39,9 +39,22 @@ const DEFAULT_OFFSET: &str = "+09:00";
 const DEFAULT_LOG_TYPE: &str = "qso-tools";
 const NO_VALUE: &str = "-";
 
-/// Generates JARL eLog (summary sheet R2.1 and log sheet) through a Lua script.
+/// Generates contest logs through a Lua script.
 #[derive(Debug, Clone, Args)]
 pub struct Arguments {
+    #[command(subcommand)]
+    pub format: LogFormat,
+}
+
+#[derive(Debug, Clone, Subcommand)]
+pub enum LogFormat {
+    /// Generates JARL eLog (summary sheet R2.1 and log sheet).
+    Jarl(CommonArguments),
+}
+
+/// Arguments shared by log formats.
+#[derive(Debug, Clone, Args)]
+pub struct CommonArguments {
     /// Contest script file.
     pub script_path: PathBuf,
 
@@ -70,6 +83,12 @@ struct Tally {
 }
 
 pub fn run(args: Arguments, config: &Config) -> Result<()> {
+    match args.format {
+        LogFormat::Jarl(args) => run_jarl(args, config),
+    }
+}
+
+fn run_jarl(args: CommonArguments, config: &Config) -> Result<()> {
     let script_path = absolute(&args.script_path)
         .with_context(|| format!("invalid script path {}", args.script_path.display()))?;
     let script_args: HashMap<_, _> = args
