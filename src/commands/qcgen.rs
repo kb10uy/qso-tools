@@ -52,6 +52,7 @@ struct EntryContext<'a> {
     operators: &'a HashMap<String, OperatorConfig>,
     default_instrument: Option<&'a str>,
     default_power: Option<f64>,
+    import_offset: UtcOffset,
     subdivisions: HashMap<u32, HashMap<String, String>>,
 }
 
@@ -81,6 +82,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         operators: &config.operators,
         default_instrument: args.instrument.as_deref(),
         default_power: args.power,
+        import_offset: args.input.import_offset(),
         subdivisions: read_subdivisions(config.sibling_file(SUBDIVISIONS_FILENAME))?,
     };
 
@@ -110,7 +112,7 @@ fn build_entry(
     qsl_status: QslStatus,
     context: &EntryContext,
 ) -> Result<QslCardEntry> {
-    let qso_record = QsoRecord::new(record, UtcOffset::UTC)?;
+    let qso_record = QsoRecord::new(record, context.import_offset)?;
     let qso_exchanges = QsoExchanges::new(record);
     let station = build_station(record, context);
 

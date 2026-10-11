@@ -20,6 +20,7 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 - `--adif <FILE>`: reads QSOs from ADIF file (ADX if `.adx`); ADI is read from stdin without it
 - `-l/--lenient <MODE>`: counts ADI data lengths in `bytes` (default), `codepoints` or `graphemes`
+- `--import-offset <OFFSET>`: reads `QSO_DATE` and `TIME_ON` in `UTC` (default), `JST` or `[+-]hh:mm`, for ADIF not written in UTC; `json` outputs them as is
 - `-o/--output <FILE>`: writes into file; output goes to stdout without it
 
 ## qcgen

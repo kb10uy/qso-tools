@@ -79,12 +79,13 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         .collect();
 
     let document = args.input.read()?;
+    let import_offset = args.input.import_offset();
     let mut qsos = vec![];
     for (i, record) in document.records().iter().enumerate() {
         let span = span!(Level::ERROR, "record_read", index = i);
         let _enter = span.enter();
 
-        match QsoRecord::new(record, UtcOffset::UTC) {
+        match QsoRecord::new(record, import_offset) {
             Ok(qso) => qsos.push((qso, record)),
             Err(e) => warn!("skipped invalid QSO: {e}"),
         }
