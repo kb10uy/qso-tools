@@ -5,7 +5,7 @@ use time::{
     macros::format_description,
 };
 
-use crate::core::qso::{band::Band, error::QsoError, get_required_field};
+use crate::core::qso::{band::Band, error::QsoError, get_optional_field, get_required_field};
 
 const ADIF_DATE: &[BorrowedFormatItem<'_>] = format_description!(
     "[year repr:full padding:zero][month repr:numerical padding:zero][day padding:zero]"
@@ -20,6 +20,7 @@ pub struct QsoRecord {
     pub datetime: UtcDateTime,
     pub band: Band,
     pub mode: CompactString,
+    pub submode: Option<CompactString>,
     pub call: CompactString,
     pub frequency: f64,
     pub frequency_str: CompactString,
@@ -48,6 +49,7 @@ impl QsoRecord {
             datetime,
             band: band.to_ascii_lowercase().parse()?,
             mode: mode.to_compact_string(),
+            submode: get_optional_field(record, "SUBMODE").map(|s| s.to_compact_string()),
             call: call.to_compact_string(),
             frequency: frequency_str.parse()?,
             frequency_str: frequency_str.to_compact_string(),

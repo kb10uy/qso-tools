@@ -4,14 +4,13 @@ mod data;
 
 use std::{
     collections::HashMap,
-    fs::read_to_string,
-    io::stdout,
+    io::Write,
     path::{Path, PathBuf, absolute},
     sync::LazyLock,
 };
 
 use adif_reader::document::Record as AdifRecord;
-use anyhow::{Context, Result, anyhow, bail};
+use anyhow::{Context, Result, anyhow};
 use callfind::grid_locator::GridLocator;
 use compact_str::{CompactString, ToCompactString};
 use mlua::prelude::*;
@@ -28,13 +27,12 @@ use crate::{
         data::{Instrument, Park},
     },
     core::{
-        adif::read_document,
         bureau::BureauOrder,
         config::{Config, OperatorConfig, read_items_from_tomls},
         cty::{CTY_FILENAME, load_cty},
         jcx::{County, JAPAN_DXCC, Jcx, JcxCode},
         qso::{exchange::QsoExchanges, get_optional_field, qsl::QslStatus, record::QsoRecord},
-        schope::engine::{initialize_lua, lua_to_json},
+        schope::engine::{load_script, lua_to_json},
     },
 };
 
@@ -54,6 +52,7 @@ struct EntryContext<'a> {
     operators: &'a HashMap<String, OperatorConfig>,
     default_instrument: Option<&'a str>,
     default_power: Option<f64>,
+    import_offset: UtcOffset,
     subdivisions: HashMap<u32, HashMap<String, String>>,
 }
 
@@ -66,10 +65,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         .map(|a| (a.key, a.value))
         .collect();
 
-    let document = read_document(
-        args.adif.as_deref(),
-        args.lenient_length.unwrap_or_default().into(),
-    )?;
+    let document = args.input.read()?;
 
     let context = EntryContext {
         instruments: read_items_from_tomls(
@@ -86,6 +82,7 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
         operators: &config.operators,
         default_instrument: args.instrument.as_deref(),
         default_power: args.power,
+        import_offset: args.input.import_offset(),
         subdivisions: read_subdivisions(config.sibling_file(SUBDIVISIONS_FILENAME))?,
     };
 
@@ -103,7 +100,9 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
     info!("processing {} QSOs", entries.len());
 
     let processed_json = run_script(&script_path, script_args, entries)?;
-    serde_json::to_writer(stdout().lock(), &processed_json)?;
+    let mut writer = args.output.writer()?;
+    serde_json::to_writer(&mut writer, &processed_json)?;
+    writer.flush()?;
 
     Ok(())
 }
@@ -113,7 +112,7 @@ fn build_entry(
     qsl_status: QslStatus,
     context: &EntryContext,
 ) -> Result<QslCardEntry> {
-    let qso_record = QsoRecord::new(record, UtcOffset::UTC)?;
+    let qso_record = QsoRecord::new(record, context.import_offset)?;
     let qso_exchanges = QsoExchanges::new(record);
     let station = build_station(record, context);
 
@@ -349,17 +348,7 @@ fn run_script(
     script_args: HashMap<String, String>,
     entries: Vec<QslCardEntry>,
 ) -> Result<serde_json::Value> {
-    let script_text = read_to_string(script_path)
-        .with_context(|| format!("failed to read {}", script_path.display()))?;
-    let Some(script_base) = script_path.parent() else {
-        bail!("script path is invalid");
-    };
-
-    let lua = initialize_lua(script_base)?;
-    let script_table: LuaTable = lua
-        .load(script_text)
-        .set_name(format!("@{}", script_path.display()))
-        .eval()?;
+    let (_lua, script_table) = load_script(script_path)?;
     let generate: LuaFunction = script_table.get("generate")?;
     let processed_value: LuaValue = generate.call((script_args, entries))?;
 

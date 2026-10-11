@@ -7,7 +7,9 @@ use std::{
 
 use anyhow::{Context, Result};
 use etcetera::{BaseStrategy, choose_base_strategy};
-use serde::{Deserialize, de::DeserializeOwned};
+use serde::{Deserialize, Deserializer, de::DeserializeOwned, de::Error as DeError};
+use time::{Date, Month};
+use toml::value::Datetime;
 
 const APP_NAME: &str = "qso-tools";
 const CONFIG_FILENAME: &str = "config.toml";
@@ -26,6 +28,32 @@ pub struct Config {
 #[serde(deny_unknown_fields)]
 pub struct OperatorConfig {
     pub name: String,
+
+    #[serde(default)]
+    pub contest: Option<ContestOperatorConfig>,
+}
+
+/// Operator information for summary sheets of contests.
+#[derive(Debug, Clone, PartialEq, Eq, Default, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ContestOperatorConfig {
+    #[serde(default)]
+    pub name: Option<String>,
+
+    #[serde(default)]
+    pub address: Option<String>,
+
+    #[serde(default)]
+    pub tel: Option<String>,
+
+    #[serde(default)]
+    pub email: Option<String>,
+
+    #[serde(default, deserialize_with = "deserialize_date")]
+    pub birthday: Option<Date>,
+
+    #[serde(default, deserialize_with = "deserialize_date")]
+    pub licensed_at: Option<Date>,
 }
 
 impl Config {
@@ -63,6 +91,20 @@ impl Config {
     }
 }
 
+/// Deserializes TOML local date like `1998-06-03`.
+fn deserialize_date<'de, D: Deserializer<'de>>(deserializer: D) -> Result<Option<Date>, D::Error> {
+    let datetime = Datetime::deserialize(deserializer)?;
+    let (Some(date), None, None) = (datetime.date, datetime.time, datetime.offset) else {
+        return Err(D::Error::custom(format!(
+            "expected local date, found {datetime}"
+        )));
+    };
+    let month = Month::try_from(date.month).map_err(D::Error::custom)?;
+    Date::from_calendar_date(date.year.into(), month, date.day)
+        .map(Some)
+        .map_err(D::Error::custom)
+}
+
 pub fn read_items_from_tomls<T: DeserializeOwned>(
     files: impl IntoIterator<Item = impl AsRef<Path>>,
 ) -> Result<HashMap<String, T>> {
@@ -77,4 +119,46 @@ pub fn read_items_from_tomls<T: DeserializeOwned>(
         items.extend(file_items);
     }
     Ok(items)
+}
+
+#[cfg(test)]
+mod tests {
+    use time::macros::date;
+
+    use super::*;
+
+    #[test]
+    fn parses_operator() {
+        let operator: OperatorConfig = toml::from_str(
+            "name = \"No Call\"
+[contest]
+name = \"Contest Name\"
+address = \"Tokyo\"
+birthday = 1998-06-03
+",
+        )
+        .unwrap();
+        let contest = operator.contest.unwrap();
+        assert_eq!(contest.name.as_deref(), Some("Contest Name"));
+        assert_eq!(contest.address.as_deref(), Some("Tokyo"));
+        assert_eq!(contest.birthday, Some(date!(1998 - 06 - 03)));
+        assert_eq!(contest.licensed_at, None);
+
+        let operator: OperatorConfig = toml::from_str("name = \"No Call\"").unwrap();
+        assert_eq!(operator.contest, None);
+
+        let invalid = toml::from_str::<OperatorConfig>(
+            "name = \"No Call\"
+[contest]
+birthday = 1998-06-03T00:00:00
+",
+        );
+        assert!(invalid.is_err());
+        let misplaced = toml::from_str::<OperatorConfig>(
+            "name = \"No Call\"
+address = \"Tokyo\"
+",
+        );
+        assert!(misplaced.is_err());
+    }
 }

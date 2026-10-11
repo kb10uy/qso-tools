@@ -10,9 +10,19 @@ Settings are read from `qso-tools/config.toml` in the user config directory
 Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 - `[operators.<CALLSIGN>]`: display name of operator
+- `[operators.<CALLSIGN>.contest]`: `name` (defaults to display name), `address`, `tel`, `email`, `birthday` and `licensed_at` of operator for `loggen` summary sheet
 
 `instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).
+
+## Input and Output
+
+`qcgen`, `loggen` and `json` share these options.
+
+- `--adif <FILE>`: reads QSOs from ADIF file (ADX if `.adx`); ADI is read from stdin without it
+- `-l/--lenient <MODE>`: counts ADI data lengths in `bytes` (default), `codepoints` or `graphemes`
+- `--import-offset <OFFSET>`: reads `QSO_DATE` and `TIME_ON` in `UTC` (default), `JST` or `[+-]hh:mm`, for ADIF not written in UTC; `json` outputs them as is
+- `-o/--output <FILE>`: writes into file; output goes to stdout without it
 
 ## qcgen
 
@@ -41,6 +51,38 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
     - Foreign cards follow, grouped by primary prefix of DXCC entity from `cty.dat` (or by callsign prefix without it)
 
 See `assets/qcgen/` for example files and `assets/schope-types/` for Lua type definitions.
+
+## loggen
+
+Generates contest logs through a Lua script that defines the contest rules.
+
+```sh
+# JARL eLog (summary sheet R2.1 and log sheet in JARL format)
+qso-tools loggen jarl assets/loggen/acag.lua --adif qsos.adi -A category=XAM --qso-since 2026-10-10T21:00 --qso-until 2026-10-11T21:00 -o elog.txt
+
+# Cabrillo 3.0
+qso-tools loggen cabrillo assets/loggen/acag.lua --adif qsos.adi -A category=XAM -A name="Yu Kobayashi" -o acag.log
+```
+
+- `jarl` writes [JARL eLog](https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/logformat.html) with times in JST (or `offset` of the script), band in MHz (`10G` and above in GHz) and `DIGITALVOICE` as `DV`
+- `cabrillo` writes Cabrillo 3.0 with times in UTC, frequency in kHz and mode as `CW`, `PH`, `FM`, `RY` or `DG`
+- QSOs are processed in time order; `--qso-since` (inclusive) and `--qso-until` (exclusive) limit the contest period, otherwise all QSOs in the input are used
+    - Datetimes are given like `2026-10-10T21:00`, in the offset of the script (JST by default), or with offset like `2026-10-10T12:00Z`
+- The script returns a contest definition (`ContestDefinition`):
+    - `categories`: categories keyed by code, with accepted `modes` (mode groups), `bands` and `exclude_bands`, summary items it `requires`, and `cabrillo` values for `CATEGORY-*`
+    - `dupe_scope` and `multiplier_scope`: attributes (`band`, `band_group`, `mode`, `mode_group`) separating duplicate checks of callsigns and multipliers; both default to `{ "band" }`, and `mode_groups` defaults to `CW` and `PH`
+    - `score_qso(entry, ctx)`: returns point and multiplier (or `multipliers` keyed by kind) of the QSO, or `nil` to exclude it; a second return value is shown as the reason
+    - `dupe_key`, `multiplier_key` and `total` (optional): functions for rules the scopes cannot express and for total score (default: points times multipliers)
+- `require("jarl")` provides contest number parsing, JCC/JCG lookup from `japan-jcx.toml` and call areas, and `require("cty")` provides DXCC entities from `cty.dat`
+- Duplicate QSOs are written with 0 points; multipliers are shown only at their first appearance
+- Category is given by `-A category=CODE` or chosen interactively
+- Summary items are given by `-A KEY=VALUE` (`callsign`, `op_callsign`, `operator`, `name`, `address`, `tel`, `email`, `license_date`, `age`, `power`, `fd_coeff`, `op_place`, `power_supply`, `comments`, `multi_op_list`, `reg_club_number`, `date`); otherwise they are taken from QSOs and config, and missing required ones are asked interactively
+    - Callsign comes from `STATION_CALLSIGN`, power from maximum `TX_PWR` and operating place from `MY_CNTY` of QSOs
+    - Name, address, TEL, email, license date and age (from `birthday` at the start of the contest) come from `[operators.<CALLSIGN>]` and its `contest` table in config; the operator is `-A operator=`, `OPERATOR` of the first QSO, then the callsign
+    - Callsign, name, address and power are always required
+- Output is UTF-8
+
+See `assets/loggen/` for example scripts (category codes and Cabrillo contest IDs should be checked against the latest rules) and `assets/schope-types/` for Lua type definitions.
 
 ## jcx
 

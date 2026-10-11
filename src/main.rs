@@ -4,11 +4,11 @@ mod core;
 
 use anyhow::Result;
 use clap::Parser;
-use tracing_subscriber::EnvFilter;
+use tracing_subscriber::{EnvFilter, filter::LevelFilter};
 
 use crate::{
     cli::{Cli, Command},
-    commands::{callsign, jcx, json, qcgen},
+    commands::{callsign, jcx, json, loggen, qcgen},
     core::config::Config,
 };
 
@@ -17,7 +17,11 @@ fn main() -> Result<()> {
         .without_time()
         .with_target(false)
         .with_writer(std::io::stderr)
-        .with_env_filter(EnvFilter::from_default_env())
+        .with_env_filter(
+            EnvFilter::builder()
+                .with_default_directive(LevelFilter::WARN.into())
+                .from_env_lossy(),
+        )
         .init();
 
     let cli = Cli::parse();
@@ -27,5 +31,6 @@ fn main() -> Result<()> {
         Command::Jcx(args) => jcx::run(args, &config),
         Command::Callsign(args) => callsign::run(args, &config),
         Command::Json(args) => json::run(args, &config),
+        Command::Loggen(args) => loggen::run(args, &config),
     }
 }

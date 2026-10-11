@@ -1,2 +1,10 @@
 [operators.N0CALL]
 name = "No Call"
+
+[operators.N0CALL.contest]
+name = "No Call"
+address = "1-1-1 Example, Chiyoda-ku, Tokyo"
+tel = "000-0000-0000"
+email = "n0call@example.com"
+birthday = 1990-01-01
+licensed_at = 2020-04-01
