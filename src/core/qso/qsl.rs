@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-use adif_reader::document::Record;
+use adif_manip::document::Record;
 
 use crate::core::qso::{error::QsoError, get_optional_field};
 

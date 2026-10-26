@@ -4,7 +4,7 @@ pub mod exchange;
 pub mod qsl;
 pub mod record;
 
-use adif_reader::document::Record;
+use adif_manip::document::Record;
 
 use crate::core::qso::error::QsoError;
 

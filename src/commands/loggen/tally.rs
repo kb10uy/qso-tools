@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use adif_reader::document::Record as AdifRecord;
+use adif_manip::document::Record as AdifRecord;
 use compact_str::ToCompactString;
 use tracing::warn;
 
@@ -123,7 +123,7 @@ impl Tally {
 mod tests {
     use std::collections::BTreeMap;
 
-    use adif_reader::{LengthMode, read_adi};
+    use adif_manip::{LengthMode, read_adi};
     use time::UtcOffset;
 
     use super::*;

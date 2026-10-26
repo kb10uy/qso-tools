@@ -14,7 +14,7 @@ use std::{
     sync::Arc,
 };
 
-use adif_reader::document::Record as AdifRecord;
+use adif_manip::document::Record as AdifRecord;
 use anyhow::{Context, Result};
 use clap::{Args, Subcommand};
 use compact_str::ToCompactString;

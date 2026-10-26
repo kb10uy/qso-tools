@@ -9,7 +9,7 @@ use std::{
     sync::LazyLock,
 };
 
-use adif_reader::document::Record as AdifRecord;
+use adif_manip::document::Record as AdifRecord;
 use anyhow::{Context, Result, anyhow};
 use callfind::grid_locator::GridLocator;
 use compact_str::{CompactString, ToCompactString};

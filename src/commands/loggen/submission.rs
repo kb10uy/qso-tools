@@ -1,6 +1,6 @@
 use std::{collections::HashMap, str::FromStr};
 
-use adif_reader::document::Record as AdifRecord;
+use adif_manip::document::Record as AdifRecord;
 use anyhow::{Context, Result, anyhow, bail};
 use inquire::{CustomType, Select, Text, validator::Validation};
 use time::{
@@ -297,7 +297,7 @@ pub fn calculate_age(today: Date, birthday: Date) -> u32 {
 
 #[cfg(test)]
 mod tests {
-    use adif_reader::{LengthMode, read_adi};
+    use adif_manip::{LengthMode, read_adi};
     use mlua::Lua;
     use time::macros::date;
 

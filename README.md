@@ -17,11 +17,14 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 
 ## Input and Output
 
-`qcgen`, `loggen` and `json` share these options.
+`qcgen`, `loggen`, `json` and `adi` share these options.
 
 - `--adif <FILE>`: reads QSOs from ADIF file (ADX if `.adx`); ADI is read from stdin without it
-- `-l/--lenient <MODE>`: counts ADI data lengths in `bytes` (default), `codepoints` or `graphemes`
-- `--import-offset <OFFSET>`: reads `QSO_DATE` and `TIME_ON` in `UTC` (default), `JST` or `[+-]hh:mm`, for ADIF not written in UTC; `json` outputs them as is
+- `-l/--lenient <MODE>[,<MODE>...]`: counts ADI data lengths in `bytes` (default), `codepoints`, `graphemes`, `utf16` (UTF-16 code units) or `shift-jis` (Shift_JIS bytes)
+    - Comma-separated modes like `-l bytes,codepoints` are detected for each value, for ADI mixing them; earlier modes win when several fit
+    - `auto` detects among all modes (`bytes`, `codepoints`, `utf16`, `shift-jis`, then `graphemes`), and can be combined like `-l codepoints,auto` to try `codepoints` first
+    - ADI not in UTF-8 is read as Shift_JIS (like files from HAMLOG) if `shift-jis` or `auto` is given; `auto` then tries `shift-jis` first
+- `--import-offset <OFFSET>`: reads `QSO_DATE` and `TIME_ON` in `UTC` (default), `JST` or `[+-]hh:mm`, for ADIF not written in UTC; `json` and `adi` output them as is
 - `-o/--output <FILE>`: writes into file; output goes to stdout without it
 
 ## qcgen
@@ -120,3 +123,22 @@ wavelog-tools export --qso-since 2026-01-01 | qso-tools json -l codepoints -p
 - Output is an object with `preamble` (string), `header` (object of header fields) and `records` (array of objects of record fields)
 - Field names are uppercased and all values are strings as written in ADIF
 - `-p/--pretty` pretty-prints JSON
+
+## adi
+
+Converts ADIF into ADI with data lengths counted again.
+
+```sh
+# Lenient ADI in Shift_JIS into ADI in UTF-8 counted in bytes
+qso-tools adi -l auto --adif hamlog.adi -o qsos.adi
+
+# ADX into ADI counted in codepoints for Wavelog
+qso-tools adi --adif qsos.adx --length codepoints -o qsos.adi
+```
+
+- QSOs are read from `--adif` file (ADX if `.adx`) or ADI from stdin, with the same `-l` option as `qcgen`
+- `--length <MODE>` counts data lengths of output in `bytes` (default), `codepoints`, `graphemes`, `utf16` or `shift-jis`
+- Output is UTF-8, or Shift_JIS with `--length shift-jis`; characters missing in Shift_JIS are written as numeric character references like `&#128512;`
+- Header and record fields are sorted by name, and their names are uppercased
+- Preamble is kept as is; one is generated if the input has none (ADX or ADI starting with a field)
+- Data type indicators like `<FREQ:5:N>` are not written

@@ -1,4 +1,4 @@
-use adif_reader::document::Record;
+use adif_manip::document::Record;
 use compact_str::{CompactString, ToCompactString};
 
 use crate::core::qso::{get_optional_field, get_optional_field_oneof};
