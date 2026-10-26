@@ -1,6 +1,6 @@
 use std::{collections::BTreeMap, io::Write};
 
-use adif_reader::document::{AdifDocument, Field};
+use adif_manip::document::{AdifDocument, Field};
 use anyhow::Result;
 use clap::Args;
 use serde::Serialize;
@@ -69,7 +69,7 @@ fn fields_to_map<'a>(
 
 #[cfg(test)]
 mod tests {
-    use adif_reader::{LengthMode, read_adi};
+    use adif_manip::{LengthMode, read_adi};
     use serde_json::json;
 
     use super::*;

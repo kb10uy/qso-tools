@@ -1,4 +1,4 @@
-use adif_reader::document::Record;
+use adif_manip::document::Record;
 use compact_str::{CompactString, ToCompactString};
 use time::{
     Date, OffsetDateTime, Time, UtcDateTime, UtcOffset, format_description::BorrowedFormatItem,

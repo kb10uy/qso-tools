@@ -232,7 +232,7 @@ fn invert_groups(
 
 #[cfg(test)]
 mod tests {
-    use adif_reader::{LengthMode, read_adi};
+    use adif_manip::{LengthMode, read_adi};
     use time::UtcOffset;
 
     use super::*;

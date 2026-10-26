@@ -6,7 +6,7 @@ license = "MIT OR Apache-2.0"
 authors = ["Yū KOBAYASHI <kb10uy@kb10uy.org>"]
 
 [dependencies]
-adif-reader = { git = "https://github.com/kb10uy/adif-reader", version = "0.1.1" }
+adif-manip = { git = "https://github.com/kb10uy/adif-manip", version = "0.3.0" }
 anyhow = "1.0.104"
 callfind = { git = "https://github.com/kb10uy/callfind", version = "0.1.0" }
 clap = { version = "4.6.7", features = ["derive"] }
