@@ -12,7 +12,7 @@ Use `-c/--config` to specify another file. See `assets/config.example.toml`.
 - `[operators.<CALLSIGN>]`: display name of operator
 - `[operators.<CALLSIGN>.contest]`: `name` (defaults to display name), `address`, `tel`, `email`, `birthday` and `licensed_at` of operator for `loggen` summary sheet
 
-`instruments.toml`, `parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/qcgen/*.example.toml`).
+`parks.toml`, `japan-jcx.toml`, `japan-jcx-town.toml` and `subdivisions.toml` placed next to `config.toml` are also loaded by `qcgen` and `jcx` (see `assets/*.example.toml`).
 `cty.dat` placed next to `config.toml` is loaded by `callsign` and `qcgen -B`; get it from [Country Files](https://www.country-files.com/).
 
 ## Input and Output
@@ -47,7 +47,7 @@ qso-tools qcgen assets/qcgen/qslcard-single.lua --adif qsos.adi
 - Operator comes from `OPERATOR`; its display name is looked up from `[operators]` in config
 - `QSL_VIA` and `QSL_SENT_VIA` are passed as `qsl.via` and `qsl.sent_via`
 - `MY_POTA_REF` is split into `station.references.pota` (reference, location and names from `parks.toml`)
-- `!inst:<key>` in `COMMENT` (or `-I <key>`) selects instrument from `instruments.toml` and `-i` files; power is taken from `TX_PWR`, `--power`, then `default_power` of instrument
+- `MY_RIG`, `MY_ANTENNA` and `TX_PWR` are passed as `instrument.rig`, `instrument.antenna` and `instrument.power`; zero power is treated as missing
 - `-B/--bureau-order` sorts QSOs in the order [JARL QSL bureau asks members to bundle cards](https://www.jarl.org/Japanese/5_Nyukai/qsl-sq.htm) before passing them to the script
     - Cards are routed to `QSL_VIA` if it looks like a callsign, otherwise to the home callsign of `CALL` (the longest segment of portable notation like `3D2/JA1XYZ`)
     - Domestic cards come first: JA1-JS1, JA2-JS2, ..., JA0-JR0, then 7J1-7J0, 7K1-7N4, 8J1-8N0, and SWL numbers like `JA1-12345` last

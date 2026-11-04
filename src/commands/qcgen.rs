@@ -6,7 +6,6 @@ use std::{
     collections::HashMap,
     io::Write,
     path::{Path, PathBuf, absolute},
-    sync::LazyLock,
 };
 
 use adif_manip::document::Record as AdifRecord;
@@ -14,7 +13,6 @@ use anyhow::{Context, Result, anyhow};
 use callfind::grid_locator::GridLocator;
 use compact_str::{CompactString, ToCompactString};
 use mlua::prelude::*;
-use regex::Regex;
 use time::UtcOffset;
 use tracing::{Level, info, span, warn};
 
@@ -24,7 +22,7 @@ use crate::{
             QslCardEntry, QslInstrument, QslJapanJcx, QslJapanJcxDivision, QslLocation,
             QslOperator, QslPark, QslReferences, QslRouting, QslState, QslStation,
         },
-        data::{Instrument, Park},
+        data::Park,
     },
     core::{
         bureau::BureauOrder,
@@ -38,20 +36,13 @@ use crate::{
 
 pub use cli::Arguments;
 
-const INSTRUMENTS_FILENAME: &str = "instruments.toml";
 const PARKS_FILENAME: &str = "parks.toml";
 const SUBDIVISIONS_FILENAME: &str = "subdivisions.toml";
 
-static RE_EXTRA_TAG: LazyLock<Regex> =
-    LazyLock::new(|| Regex::new(r"!(\w+):(\S+)").expect("valid regex"));
-
 struct EntryContext<'a> {
-    instruments: HashMap<String, Instrument>,
     parks: HashMap<String, Park>,
     jcx: Jcx,
     operators: &'a HashMap<String, OperatorConfig>,
-    default_instrument: Option<&'a str>,
-    default_power: Option<f64>,
     import_offset: UtcOffset,
     subdivisions: HashMap<u32, HashMap<String, String>>,
 }
@@ -68,20 +59,12 @@ pub fn run(args: Arguments, config: &Config) -> Result<()> {
     let document = args.input.read()?;
 
     let context = EntryContext {
-        instruments: read_items_from_tomls(
-            config
-                .sibling_file(INSTRUMENTS_FILENAME)
-                .into_iter()
-                .chain(args.instruments_files),
-        )?,
         parks: read_items_from_tomls::<Park>(config.sibling_file(PARKS_FILENAME))?
             .into_iter()
             .map(|(k, v)| (k.to_ascii_uppercase(), v))
             .collect(),
         jcx: Jcx::load(config)?,
         operators: &config.operators,
-        default_instrument: args.instrument.as_deref(),
-        default_power: args.power,
         import_offset: args.input.import_offset(),
         subdivisions: read_subdivisions(config.sibling_file(SUBDIVISIONS_FILENAME))?,
     };
@@ -115,35 +98,7 @@ fn build_entry(
     let qso_record = QsoRecord::new(record, context.import_offset)?;
     let qso_exchanges = QsoExchanges::new(record);
     let station = build_station(record, context);
-
-    let mut instrument_key = context.default_instrument;
-    let comment = get_optional_field(record, "COMMENT").unwrap_or_default();
-    for extra_tag in RE_EXTRA_TAG.captures_iter(comment) {
-        let key = extra_tag.get(1).expect("group must exist");
-        let value = extra_tag.get(2).expect("group must exist");
-        match key.as_str() {
-            "inst" => instrument_key = Some(value.as_str()),
-            otherwise => warn!("unknown extra tag: {otherwise}"),
-        }
-    }
-
-    let instrument = instrument_key.and_then(|k| context.instruments.get(k));
-    if let (Some(key), None) = (instrument_key, instrument) {
-        warn!("unknown instrument: {key}");
-    }
-    let power = get_optional_field(record, "TX_PWR")
-        .and_then(|p| match p.parse() {
-            Ok(power) => Some(power),
-            Err(e) => {
-                warn!("invalid TX_PWR {p}: {e}");
-                None
-            }
-        })
-        .filter(is_valid_power)
-        .or(context.default_power.filter(is_valid_power))
-        .or(instrument
-            .and_then(|i| i.default_power)
-            .filter(is_valid_power));
+    let instrument = build_instrument(record);
 
     let operator_callsign = get_optional_field(record, "OPERATOR");
     let operator_name = operator_callsign
@@ -158,11 +113,7 @@ fn build_entry(
             callsign: operator_callsign.map(|s| s.to_compact_string()),
             name: operator_name,
         },
-        instrument: QslInstrument {
-            antenna: instrument.map(|i| i.antenna.to_compact_string()),
-            rig: instrument.map(|i| i.rig.to_compact_string()),
-            power,
-        },
+        instrument,
         qsl: QslRouting {
             should_send: qsl_status.should_send(),
             received: qsl_status.received(),
@@ -196,9 +147,23 @@ fn sort_in_bureau_order(
     Ok(keyed.into_iter().map(|(_, e)| e).collect())
 }
 
-/// Checks whether the power value is valid; zero is treated as missing.
-fn is_valid_power(power: &f64) -> bool {
-    *power != 0.0
+/// Builds instrument information from `MY_RIG`, `MY_ANTENNA` and `TX_PWR`; zero power is treated as missing.
+fn build_instrument(record: &AdifRecord) -> QslInstrument {
+    let power = get_optional_field(record, "TX_PWR")
+        .and_then(|p| match p.parse::<f64>() {
+            Ok(power) => Some(power),
+            Err(e) => {
+                warn!("invalid TX_PWR {p}: {e}");
+                None
+            }
+        })
+        .filter(|p| *p != 0.0);
+
+    QslInstrument {
+        antenna: compact_field(record, "MY_ANTENNA"),
+        rig: compact_field(record, "MY_RIG"),
+        power,
+    }
 }
 
 fn build_station(record: &AdifRecord, context: &EntryContext) -> QslStation {
@@ -357,8 +322,41 @@ fn run_script(
 
 #[cfg(test)]
 mod tests {
+    use adif_manip::{LengthMode, read_adi};
+
     use super::*;
     use crate::core::jcx::Town;
+
+    fn instrument(fields: &str) -> QslInstrument {
+        let document = read_adi(
+            &format!("Test\n<EOH>\n<CALL:5>JA1RL{fields}<EOR>\n"),
+            LengthMode::Bytes,
+        )
+        .unwrap();
+        build_instrument(&document.records()[0])
+    }
+
+    #[test]
+    fn builds_instrument() {
+        assert_eq!(
+            instrument("<MY_RIG:11>Icom IC-705<MY_ANTENNA:5>RH770<TX_PWR:2>10"),
+            QslInstrument {
+                antenna: Some("RH770".into()),
+                rig: Some("Icom IC-705".into()),
+                power: Some(10.0),
+            }
+        );
+        assert_eq!(
+            instrument("<TX_PWR:1>0"),
+            QslInstrument {
+                antenna: None,
+                rig: None,
+                power: None,
+            }
+        );
+        assert_eq!(instrument("<TX_PWR:3>abc").power, None);
+        assert_eq!(instrument("").power, None);
+    }
 
     #[test]
     fn builds_parks() {
