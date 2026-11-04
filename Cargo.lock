@@ -898,7 +898,6 @@ dependencies = [
  "etcetera",
  "inquire",
  "mlua",
- "regex",
  "serde",
  "serde_json",
  "thiserror",
